@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +16,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('contoh', function () {
+    return 'contoh';
+});
+
+Route::get('about', function () {
+    return view('login');
+});
+
+Route::get('get-data', function () {
+    try {
+        $data  = DB::table('users')->get();
+        return response()->json([
+            'status' => 'success',
+            'data' => $data
+        ]);
+    } catch (Exception $e) {
+        return back();
+    }
 });
