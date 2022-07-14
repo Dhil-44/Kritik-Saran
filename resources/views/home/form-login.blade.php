@@ -7,11 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="{{ asset('dist/css/tabler.css') }}" rel="stylesheet">
-    <link href="{{ asset('dist/ ') }}" rel="stylesheet">
 </head>
 
 <body>
-
     <div class="page page-center">
         <div class="container-tight py-4">
             <div class="text-center mb-4">
