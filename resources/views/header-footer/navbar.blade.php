@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-white bg-light  shadow-lg fixed-top">
+<nav class="navbar navbar-expand-lg navbar-white bg-light  shadow-sm sticky-top">
     <div class="container">
         <a class="navbar-brand" href="#">
             <img src="{{ asset('dist/img/image/Logo-kalbis-utama.png') }}" alt="kalbis" style="width:30%;">
