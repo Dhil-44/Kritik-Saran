@@ -1,5 +1,5 @@
 @extends('home.tampilan-utama')
-@section('title', 'Submission')
+@section('title', 'Kalbis Critics and Suggestions')
 @section('content')
     <div class="container mt-5">
         <div class="row justify-content-center">
@@ -52,7 +52,7 @@
 
 
                             <div class="form-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
                             </div>
                         </form>
                     </div>

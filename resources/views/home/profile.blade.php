@@ -1,5 +1,5 @@
 @extends('home.tampilan-utama')
-@section('title', 'Profile')
+@section('title', 'Kalbis Critics and Suggestions')
 @section('content')
     <div class="wrapper">
         <aside class="navbar navbar-vertical navbar-expand-lg navbar-dark">
