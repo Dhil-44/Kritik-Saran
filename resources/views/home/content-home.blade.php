@@ -1,5 +1,5 @@
 @extends('home.tampilan-utama')
-@section('title', 'Home')
+@section('title', 'Kalbis Critics and Suggestions')
 @section('content')
     {{-- <section class="jumbotron text-center bg-dark">
         <img src="img/myphoto.jpg" class="rounded-circle img-thumbnail" alt="photo" width="200" />
@@ -10,11 +10,11 @@
         </svg> --}}
     <div class="mask flex-center" style="background-color: rgba(11,102,35,0.7); height:250px;">
         <div class="container">
-            <div class="white-text text-center wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+            <div class="white-text text-center wow fadeInUp py-5" style="visibility: visible; animation-name: fadeInUp;">
                 <img src="http://cac.kalbis.ac.id/frontend/img/logos/logo kalbis putih.png" alt="thumbnail"
                     class="mx-auto d-block" style="width: 100px">
                 <h1 class="text-center font-weight-bold">
-                    <strong>INDUSTRY COLLABORATION</strong>
+                    <strong>Kalbis Critics and Suggestions</strong>
                 </h1>
             </div>
         </div>
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="col-6 mx-10">
-                <div class="card bg-dark">
+                <div class="card bg-light">
                     <div class="card-header">
                         <h3 class="card-title">Card title</h3>
                     </div>
