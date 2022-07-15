@@ -1,5 +1,5 @@
 @extends('home.tampilan-utama')
-@section('name')
+@section('title', 'Profile')
 @section('content')
     <div class="wrapper">
         <aside class="navbar navbar-vertical navbar-expand-lg navbar-dark">
