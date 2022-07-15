@@ -5,19 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<<<<<<< HEAD
     <title>Kalbis Criticism and Suggestions</title>
+=======
+    <title>@yield('title')</title>
+>>>>>>> main
     <link href="{{ asset('dist/css/tabler.css') }}" rel="stylesheet">
     @livewireStyles
     <style>
         body {
             height: 1000px;
         }
+<<<<<<< HEAD
+=======
+
+        #float-btn {
+            width: 60px;
+            right: 0;
+            position: absolute;
+
+        }
+
+        #button-float {
+            background-color:
+                margin-right: 30px;
+            position: relative;
+        }
+>>>>>>> main
     </style>
 </head>
 
 <body>
     @include('header-footer.navbar')
     @yield('content')
+<<<<<<< HEAD
     <section class="jumbotron text-center bg-dark">
         <img src="img/myphoto.jpg" class="rounded-circle img-thumbnail" alt="photo" width="200" />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -78,6 +99,15 @@
 
 
 
+=======
+    <div class="container">
+    </div>
+    <div id="button-float">
+        <a href="">
+            <img id="float-btn" src="{{ asset('dist/img/image/btn-tambah-sub.jpeg') }}" alt="">
+        </a>
+    </div>
+>>>>>>> main
     <script src="{{ asset('dist/js/tabler.min.js') }}"></script>
     <script src="{{ asset('dist/js/jquery.js') }}"></script>
     @livewireScripts

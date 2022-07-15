@@ -1,5 +1,9 @@
 @extends('home.tampilan-utama')
+<<<<<<< HEAD
 @section('name')
+=======
+@section('title', 'Kalbis Critics and Suggestions')
+>>>>>>> main
 @section('content')
     <div class="wrapper">
         <aside class="navbar navbar-vertical navbar-expand-lg navbar-dark">
@@ -130,6 +134,7 @@
                                 </span>
                             </a>
                         </li>
+<<<<<<< HEAD
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
                                 data-bs-auto-close="false" role="button" aria-expanded="false">
@@ -259,11 +264,14 @@
                                 </div>
                             </div>
                         </li>
+=======
+>>>>>>> main
 
                     </ul>
                 </div>
             </div>
         </aside>
+<<<<<<< HEAD
         <header class="navbar navbar-expand-md navbar-light d-none d-lg-flex d-print-none">
             <div class="container-xl">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
@@ -361,6 +369,9 @@
                 </div>
             </div>
         </header>
+=======
+
+>>>>>>> main
         <div class="page-wrapper">
             <div class="container-xl">
                 <!-- Page title -->

@@ -18,9 +18,8 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 
-
-Route::get('Wercome', [Home::class, 'index'])->name('home');
-
-Route::view('home-page', 'home.tampilan-utama')->name('home-page');
+Route::get('home', [Home::class, 'index'])->name('home');
+Route::view('home-page', 'home.content-home')->name('home-page');
+Route::view('submission-form', 'home.submission-form')->name('submission-form');
 Route::view('profile', 'home.profile')->name('profile');
 
