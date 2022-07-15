@@ -18,7 +18,14 @@
         </div>
     </div>
     <script src="{{ asset('dist/js/tabler.min.js') }}"></script>
+    <script src="{{ asset('dist/js/jquery.js') }}"></script>
+    @stack('scripts')
     @livewireScripts
+    <script>
+        $('#show-hide').click(function() {
+            $(this).attr('type', 'text');
+        })
+    </script>
 </body>
 
 </html>

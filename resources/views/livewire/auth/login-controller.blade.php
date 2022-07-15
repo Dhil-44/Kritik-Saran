@@ -1,6 +1,8 @@
 <form wire:submit.prevent="loginUser" class="card card-md" autocomplete="off">
+
+    <img src="{{ asset('dist/img/image/logo-kalbis.jpg') }}" class="mx-auto mt-4" alt="logo kalbis"
+        style="width:150px; height:150px">
     <div class="card-body">
-        <h2 class="card-title text-center mb-4">Login to your account</h2>
         <div class="mb-3">
             <label class="form-label">Email address</label>
             <input wire:model="email" type="email" class="form-control" placeholder="Enter email">
@@ -18,9 +20,8 @@
                 <input type="password" wire:model="password" class="form-control" placeholder="Password"
                     autocomplete="off">
                 <span class="input-group-text">
-                    <a href="#" class="link-secondary" title="" data-bs-toggle="tooltip"
+                    <a href="#" class="link-secondary" id="show-hide" title="" data-bs-toggle="tooltip"
                         data-bs-original-title="Show password">
-                        <!-- Download SVG icon from http://tabler-icons.io/i/eye -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                             stroke-linecap="round" stroke-linejoin="round">
