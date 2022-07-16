@@ -1,5 +1,5 @@
 @extends('home.tampilan-utama')
-@section('title', 'Kalbis Critics and Suggestions')
+@section('title', 'Kalbis | Critics and Suggestions')
 @section('content')
     {{-- <section class="jumbotron text-center bg-dark">
         <img src="img/myphoto.jpg" class="rounded-circle img-thumbnail" alt="photo" width="200" />
@@ -44,7 +44,8 @@
                         <h3 class="card-title">Card title</h3>
                     </div>
                     <div class="card-body">
-                        <p>This is some text within a card body.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus felis eu rutrum aliquam. Nam ultrices felis nec urna tincidunt condimentum. Aenean pretium mauris eget pellentesque consequat. Suspendisse est erat, finibus non finibus quis, tincidunt euismod turpis. Nunc finibus dictum metus. Donec vel libero ultrices, interdum tortor vitae, dapibus lacus. Maecenas et quam volutpat ligula pellentesque semper. Quisque vitae sem arcu. Suspendisse a ipsum felis. Donec ultrices est leo, eget molestie felis ultricies ac. Nullam vitae ipsum vel est auctor fermentum. Donec ac finibus 
+                            orci, ac auctor odio. Morbi consectetur magna ut dolor imperdiet, a luctus ex mollis. Aenean sit amet luctus mi..</p>
                     </div>
                 </div>
             </div>
@@ -54,14 +55,15 @@
                         <h3 class="card-title">Card title</h3>
                     </div>
                     <div class="card-body">
-                        <p>This is some text within a card body.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus felis eu rutrum aliquam. Nam ultrices felis nec urna tincidunt condimentum. Aenean pretium mauris eget pellentesque consequat. Suspendisse est erat, finibus non finibus quis, tincidunt euismod turpis. Nunc finibus dictum metus. Donec vel libero ultrices, interdum tortor vitae, dapibus lacus. Maecenas et quam volutpat ligula pellentesque semper. Quisque vitae sem arcu. Suspendisse a ipsum felis. Donec ultrices est leo, eget molestie felis ultricies ac. Nullam vitae ipsum vel est auctor fermentum. Donec ac finibus orci, 
+                            ac auctor odio. Morbi consectetur magna ut dolor imperdiet, a luctus ex mollis. Aenean sit amet luctus mi..</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div id="button-float">
-        <a href="">
+        <a href="{{ route('submission-form') }}">
             <img id="float-btn" src="{{ asset('dist/img/image/btn-tambah-sub.jpeg') }}" alt="">
         </a>
     </div>

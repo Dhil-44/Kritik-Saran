@@ -1,12 +1,12 @@
 @extends('home.tampilan-utama')
-@section('title', 'Kalbis Critics and Suggestions')
+@section('title', 'Kalbis | Critics and Suggestions')
 @section('content')
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Horizontal form</h3>
+                        <h3 class="card-title">Submission Form</h3>
                     </div>
                     <div class="card-body">
                         <form>

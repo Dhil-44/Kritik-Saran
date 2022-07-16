@@ -17,7 +17,7 @@
                     <a class="nav-link" href="{{ route('profile') }}">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#contact">SignOut</a>
+                    <a class="nav-link " href="{{ route('home') }}">SignOut</a>
                 </li>
 
             </ul>
