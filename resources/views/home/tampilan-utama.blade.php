@@ -29,15 +29,11 @@
 </head>
 
 <body>
-    @include('header-footer.navbar')
+    {{-- @include('header-footer.navbar') --}}
     @yield('content')
     <div class="container">
     </div>
-    <div id="button-float">
-        <a href="">
-            <img id="float-btn" src="{{ asset('dist/img/image/btn-tambah-sub.jpeg') }}" alt="">
-        </a>
-    </div>
+
     <script src="{{ asset('dist/js/tabler.min.js') }}"></script>
     <script src="{{ asset('dist/js/jquery.js') }}"></script>
     @livewireScripts
