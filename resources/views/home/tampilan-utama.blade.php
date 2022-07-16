@@ -33,11 +33,6 @@
     @yield('content')
     <div class="container">
     </div>
-<<<<<<< HEAD
-   
-=======
-
->>>>>>> eca9dc1c475cdbcb9f852f12b6b77b3b96b5fdd9
     <script src="{{ asset('dist/js/tabler.min.js') }}"></script>
     <script src="{{ asset('dist/js/jquery.js') }}"></script>
     @livewireScripts
