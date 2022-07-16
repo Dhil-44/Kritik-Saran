@@ -56,11 +56,15 @@
     </div>
     <div id="button-float">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <a href="">
 =======
         <a href="{{ route('submission-form') }}">
 >>>>>>> origin/ersalomo
             <img id="float-btn" src="{{ asset('dist/img/image/btn-tambah-sub.jpeg') }}" alt="">
+=======
+        <a href="{{ route('submission-form') }}">
+>>>>>>> origin/ersalomo
         </a>
     </div>
 @endsection
