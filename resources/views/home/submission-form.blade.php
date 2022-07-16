@@ -1,6 +1,7 @@
 @extends('home.tampilan-utama')
 @section('title', 'Kalbis | Critics and Suggestions')
 @section('content')
+    @include('header-footer.navbar')
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col">
