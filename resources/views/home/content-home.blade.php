@@ -55,7 +55,6 @@
     </div>
     <div id="button-float">
         <a href="{{ route('submission-form') }}">
-            <img id="float-btn" src="{{ asset('dist/img/image/btn-tambah-sub.jpeg') }}" alt="">
         </a>
     </div>
 @endsection
