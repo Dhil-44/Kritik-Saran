@@ -11,11 +11,10 @@
 
                 </div>
                 <div class="container-fluid">
-
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="navbar-nav pt-lg-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{ route('suggestions') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -32,7 +31,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{ route('critics') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <!-- Download SVG icon from http://tabler-icons.io/i/message-report -->
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
@@ -50,7 +49,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{ route('announcements') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <!-- Download SVG icon from http://tabler-icons.io/i/home -->
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
@@ -84,42 +83,8 @@
             <div class="container-xl">
                 <!-- Page title -->
                 <div class="page-header d-print-none">
-                    <div class="col-12">
-                        <div class="card">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <div class="skeleton-avatar"></div>
-                                        </div>
-                                        <div class="col-7">
-                                            <div class="skeleton-line"></div>
-                                            <div class="skeleton-line"></div>
-                                        </div>
-                                        <div class="col-2 ms-auto text-end">
-                                            <div class="skeleton-line"></div>
-                                            <div class="skeleton-line"></div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <div class="skeleton-avatar"></div>
-                                        </div>
-                                        <div class="col-7">
-                                            <div class="skeleton-line"></div>
-                                            <div class="skeleton-line"></div>
-                                        </div>
-                                        <div class="col-2 ms-auto text-end">
-                                            <div class="skeleton-line"></div>
-                                            <div class="skeleton-line"></div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
+                    <div class="col-12 bg-info">
+                        @yield('kategory')
                     </div>
                 </div>
             </div>
