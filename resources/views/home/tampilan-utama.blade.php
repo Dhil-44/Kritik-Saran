@@ -21,7 +21,6 @@
     @yield('content')
     <div class="container">
     </div>
-
     <script src="{{ asset('dist/js/tabler.min.js') }}"></script>
     <script src="{{ asset('dist/js/jquery.js') }}"></script>
     @livewireScripts
