@@ -2,8 +2,8 @@
 @section('title', 'Kalbis | Critics and Suggestions')
 @section('content')
 
-
     @include('header-footer.navbar')
+
     <div class="mask flex-center" style="background-color: rgba(11,102,35,0.7); height:250px;">
 
         <div class="container">
@@ -56,6 +56,7 @@
             </div>
         </div>
     </div>
+
     <button type="submit" class="btn btn-success">Submit</button>
     </div>
 @endsection
