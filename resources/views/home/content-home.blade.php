@@ -55,7 +55,12 @@
                 </div>
             </div>
         </div>
-    </div>
-    <button type="submit" class="btn btn-success">Submit</button>
+    </div >
+
+
+    <a href="{{ route('submission-form') }}">
+    <button type="submit" class="btn btn-success">Create Post</button>
+    </a>
+
     </div>
 @endsection

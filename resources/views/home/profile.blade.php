@@ -64,7 +64,7 @@
                                         </svg>
                                     </span>
                                     <span class="nav-link-title">
-                                        Announcments
+                                        Announcements
                                     </span>
                                 </a>
                             </li>
