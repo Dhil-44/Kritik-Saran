@@ -7,7 +7,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Horizontal form</h3>
+                        <h3 class="card-title">Submission Form</h3>
                     </div>
                     <div class="card-body">
                         <form>
@@ -52,7 +52,7 @@
                             </div>
 
 
-                            <div class="form-footer">
+                            <div class="form-footer" > 
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </div>
                         </form>

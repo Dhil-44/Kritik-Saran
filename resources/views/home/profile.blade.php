@@ -1,36 +1,19 @@
 @extends('home.tampilan-utama')
 @section('title', 'Kalbis | Critics and Suggestions')
 @section('content')
-    <div class="wrapper">
+    <div class="wrapper ">
         <aside class="navbar navbar-vertical navbar-expand-lg navbar-dark">
+
             <div class="container-fluid mt-3">
                 <div class="row">
                     <div class="col">
                         <img class="avatar-rounded" src="{{ asset('dist/img/image/logo-cac.jpg') }}" alt="cac">
                     </div>
-
                 </div>
                 <div class="container-fluid">
-                    <div class="collapse navbar-collapse" id="navbar-menu">
+                    <div class="navbar-collapse" id="navbar-menu">{{-- collapse --}}
                         <ul class="navbar-nav pt-lg-3">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('suggestions') }}">
-                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                            <circle cx="12" cy="12" r="2" />
-                                            <path
-                                                d="M3 12h4m5 -9v4m5 5h4m-9 5v4m-4.5 -13.5l1 1m8 -1l-1 1m0 7l1 1m-8 -1l-1 1" />
-                                        </svg>
-                                    </span>
-                                    <span class="nav-link-title">
-                                        Suggestions
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
+                            <li class="nav-item active">
                                 <a class="nav-link" href="{{ route('critics') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <!-- Download SVG icon from http://tabler-icons.io/i/message-report -->
@@ -48,6 +31,24 @@
                                     </span>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('suggestions') }}">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <circle cx="12" cy="12" r="2" />
+                                            <path
+                                                d="M3 12h4m5 -9v4m5 5h4m-9 5v4m-4.5 -13.5l1 1m8 -1l-1 1m0 7l1 1m-8 -1l-1 1" />
+                                        </svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        Suggestions
+                                    </span>
+                                </a>
+                            </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('announcements') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -92,12 +93,13 @@
                 <div class="container-xl">
                     <div class="row row-deck row-cards">
                         <div class="col-sm-6 col-lg-3">
-
                         </div>
+                        
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
+    
 @endsection
