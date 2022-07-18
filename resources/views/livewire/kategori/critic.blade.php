@@ -1,38 +1,23 @@
 <div>
-    {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
+    {{-- Nothing in the world is as soft and yielding as water. --}}
+    <div class="card card-sm">
+        <div class="card-body">
+            <h1>Critics</h1>
+        </div>
+    </div>
     <div class="card">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <div class="row align-items-center">
-                    <div class="col-auto">
-                        <div class="skeleton-avatar"></div>
-                    </div>
-                    <div class="col-7">
-                        <div class="skeleton-line"></div>
-                        <div class="skeleton-line"></div>
-                    </div>
-                    <div class="col-2 ms-auto text-end">
-                        <div class="skeleton-line"></div>
-                        <div class="skeleton-line"></div>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row align-items-center">
-                    <div class="col-auto">
-                        <div class="skeleton-avatar"></div>
-                    </div>
-                    <div class="col-7">
-                        <div class="skeleton-line"></div>
-                        <div class="skeleton-line"></div>
-                    </div>
-                    <div class="col-2 ms-auto text-end">
-                        <div class="skeleton-line"></div>
-                        <div class="skeleton-line"></div>
-                    </div>
-                </div>
-            </li>
-
-        </ul>
+        <div class="card-body">
+            <p>This is some text within a card body.</p>
+        </div>
+    </div>
+    <div class="card card-md">
+        <div class="card-body">
+            <p>This is some text within a card body.</p>
+        </div>
+    </div>
+    <div class="card card-lg">
+        <div class="card-body">
+            <p>This is some text within a card body.</p>
+        </div>
     </div>
 </div>
