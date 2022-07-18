@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginHomeController as Home;
+use Brian2694\Toastr\Facades\Toastr;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,6 @@ Route::view('profile', 'home.profile')->name('profile');
 Route::view('critics', 'home.kategori.critics')->name('critics');
 Route::view('suggestions', 'home.kategori.suggestion')->name('suggestions');
 Route::view('announcements', 'home.kategori.annoucements')->name('announcements');
-
+Route::get('signout', function () {
+    Toastr::success('Berhasil ditambah', 'success');
+})->name('signout');
