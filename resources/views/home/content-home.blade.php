@@ -226,13 +226,5 @@
 
             </div>
         </div>
-    </div>
-    {{-- <div id="button-float">
-        <a href="{{ route('submission-form') }}">
-        </a>
-
-
-        <button type="submit" class="btn btn-success">Submit</button>
-
-    </div> --}}
+    </div >
 @endsection
