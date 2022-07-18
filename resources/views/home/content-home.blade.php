@@ -1,8 +1,11 @@
 @extends('home.tampilan-utama')
 @section('title', 'Kalbis | Critics and Suggestions')
 @section('content')
+
     @include('header-footer.navbar')
+
     <div class="mask flex-center" style="background-color: rgba(11,102,35,0.7); height:250px;">
+
         <div class="container">
             <div class="white-text text-center py-4" style="visibility: visible; animation-name: fadeInUp;">
                 <img src="http://cac.kalbis.ac.id/frontend/img/logos/logo kalbis putih.png" alt="thumbnail"
@@ -79,6 +82,7 @@
 
                         </div>
                     </div>
+
                 </div>
                 <div class="card">
                     <div class="card-body hover-shadow-lg">
@@ -100,42 +104,67 @@
 
 
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-6 mx-10">
-                <div class="card">
-                    <div class="card-body shadow-lg">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <div class="avatar rounded"></div>
-                            </div>
-                            <div class="col-7">
-                                <div class="fs-5">Himpunana Mahasiswa Olaraga</div>
-                                <div class="fs-6">13/13/2022</div>
-                            </div>
-
-                            <div class="col-12">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam quidem incidunt non
-                                    placeat quia repellat. Labore quam mollitia repudiandae id?</p>
-                            </div>
-                            <d class="col-12">
-                                <div class="form-label">File upload</div>
-                                <input type="file" class="form-control">
+                        <div class="card-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus felis eu rutrum aliquam.
+                                Nam ultrices felis nec urna tincidunt condimentum. Aenean pretium mauris eget pellentesque
+                                consequat. Suspendisse est erat, finibus non finibus quis, tincidunt euismod turpis. Nunc
+                                finibus dictum metus. Donec vel libero ultrices, interdum tortor vitae, dapibus lacus.
+                                Maecenas et quam volutpat ligula pellentesque semper. Quisque vitae sem arcu. Suspendisse a
+                                ipsum felis. Donec ultrices est leo, eget molestie felis ultricies ac. Nullam vitae ipsum
+                                vel est auctor fermentum. Donec ac finibus
+                                orci, ac auctor odio. Morbi consectetur magna ut dolor imperdiet, a luctus ex mollis. Aenean
+                                sit amet luctus mi..</p>
 
                         </div>
                     </div>
-                    <div class="ribbon bg-danger" style="height:8%;">
-                        <p class="my-auto">Kritik</p>
+                </div>
+
+                <div class="col-6 mx-10">
+                    <div class="card">
+                        <div class="card-body shadow-lg">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="avatar rounded"></div>
+                                </div>
+                                <div class="col-7">
+                                    <div class="fs-5">Himpunana Mahasiswa Olaraga</div>
+                                    <div class="fs-6">13/13/2022</div>
+                                </div>
+
+                                <div class="col-12">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam quidem incidunt non
+                                        placeat quia repellat. Labore quam mollitia repudiandae id?</p>
+                                </div>
+                                <d class="col-12">
+                                    <div class="form-label">File upload</div>
+                                    <input type="file" class="form-control">
+
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus felis eu rutrum aliquam.
+                                Nam ultrices felis nec urna tincidunt condimentum. Aenean pretium mauris eget pellentesque
+                                consequat. Suspendisse est erat, finibus non finibus quis, tincidunt euismod turpis. Nunc
+                                finibus dictum metus. Donec vel libero ultrices, interdum tortor vitae, dapibus lacus.
+                                Maecenas et quam volutpat ligula pellentesque semper. Quisque vitae sem arcu. Suspendisse a
+                                ipsum felis. Donec ultrices est leo, eget molestie felis ultricies ac. Nullam vitae ipsum
+                                vel est auctor fermentum. Donec ac finibus orci,
+                                ac auctor odio. Morbi consectetur magna ut dolor imperdiet, a luctus ex mollis. Aenean sit
+                                amet luctus mi..</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
     <div id="button-float">
         <a href="{{ route('submission-form') }}">
         </a>
+
+
+        <button type="submit" class="btn btn-success">Submit</button>
+
     </div>
 @endsection
