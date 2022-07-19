@@ -12,7 +12,7 @@
                     <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
                 </svg>
             </span>
-            <input type="text" wire:model="email" class="form-control" placeholder="Username">
+            <input type="email" wire:model="email" class="form-control form-control-md" placeholder="Username">
             <span class="invalid-feedback">
                 @error('email')
                     {{ $message }}
@@ -30,7 +30,7 @@
                     <path d="M8 11v-4a4 4 0 0 1 8 0v4"></path>
                 </svg>
             </span>
-            <input type="password" wire:model="password" class="form-control" placeholder="Password">
+            <input type="password" wire:model="password" class="form-control form-control-md" placeholder="Password">
             <span class="invalid-feedback">
                 @error('email')
                     {{ $message }}

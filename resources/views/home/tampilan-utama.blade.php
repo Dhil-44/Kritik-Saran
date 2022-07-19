@@ -12,7 +12,7 @@
     @livewireStyles
     <style>
         body {
-            height: 1000px;
+            /* height: 1000px; */
         }
     </style>
 </head>

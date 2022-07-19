@@ -226,5 +226,6 @@
 
             </div>
         </div>
-    </div >
+    </div>
+    @include('header-footer.footer')
 @endsection
