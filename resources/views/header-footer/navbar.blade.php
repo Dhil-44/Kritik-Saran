@@ -21,7 +21,7 @@
                             <a class="nav-link" href="{{ route('profile') }}">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('signout') }}#">Sign Out</a>
+                            <a class="nav-link" href="{{ route('signout') }}#">Sign out</a>
                         </li>
                     </ul>
                 </div>

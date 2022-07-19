@@ -1,6 +1,12 @@
 <form wire:submit.prevent="loginUser" class="card card-md" autocomplete="off">
+
     <img src="{{ asset('dist/img/image/logo-kalbis.jpg') }}" class="mx-auto mt-4" alt="logo kalbis"
         style="width:150px; height:150px">
+    @if (Session::has('fail'))
+        <span class="text-danger">
+            {{ Session::get('fail') }}
+        </span>
+    @endif
     <div class="card-body">
         <div class="input-icon mb-3">
             <span class="input-icon-addon">
