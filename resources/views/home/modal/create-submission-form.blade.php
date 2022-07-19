@@ -34,10 +34,7 @@
                     <div class="form-group mb-3 row">
                         <label class="form-label col-3 col-form-label">Message</label>
                         <div class="col">
-                            <textarea name="" id="" cols="3" rows="3" class="form-control">
-
-                            </textarea>
-
+                            <textarea name="" id="" cols="3" rows="3" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="form-group mb-3 row">
