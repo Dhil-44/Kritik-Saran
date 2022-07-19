@@ -20,6 +20,7 @@
 <body>
     {{-- @include('header-footer.navbar') --}}
     @yield('content')
+
     <div class="container">
     </div>
     {!! Toastr::message() !!}
