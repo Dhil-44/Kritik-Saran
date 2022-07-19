@@ -18,10 +18,39 @@ class UserSeed extends Seeder
      */
     public function run()
     {
+
         DB::table('users')->insert([
-            'name'  => 'Group Kita',
-            'email' => 'kitagroup@gmail.com',
-            'role'  => 'admin',
+            'name'  => 'CAC Kalbis',
+            'email' => 'cackalbis@gmail.com',
+            'role'  => 'departmen',
+            'logo'  => '',
+            'password' => Hash::make('123456'),
+        ]);
+        DB::table('users')->insert([
+            'name'  => 'AO Kalbis',
+            'email' => 'aokalbis@gmail.com',
+            'role'  => 'departmen',
+            'logo'  => '',
+            'password' => Hash::make('123456'),
+        ]);
+        DB::table('users')->insert([
+            'name'  => 'CSD Kalbis',
+            'email' => 'csdkalbis@gmail.com',
+            'role'  => 'departmen',
+            'logo'  => '',
+            'password' => Hash::make('123456'),
+        ]);
+        DB::table('users')->insert([
+            'name'  => 'Finance Kalbis',
+            'email' => 'financekalbis@gmail.com',
+            'role'  => 'departmen',
+            'logo'  => '',
+            'password' => Hash::make('123456'),
+        ]);
+        DB::table('users')->insert([
+            'name'  => 'Rektorat Kalbis',
+            'email' => 'rektoratkalbis@gmail.com',
+            'role'  => 'departmen',
             'logo'  => '',
             'password' => Hash::make('123456'),
         ]);
