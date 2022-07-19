@@ -24,7 +24,7 @@ Route::middleware(['guest:web'])->group(function () {
 });
 Route::middleware(['auth:web'])->group(function () {
     Route::view('home-page', 'home.content-home')->name('home-page');
-    Route::view('submission-form', 'home.submission-form')->name('submission-form');
+    // Route::view('submission-form', 'home.submission-form')->name('submission-form');
     Route::view('profile', 'home.profile')->name('profile');
     Route::view('critics', 'home.kategori.critics')->name('critics');
     Route::view('suggestions', 'home.kategori.suggestion')->name('suggestions');
