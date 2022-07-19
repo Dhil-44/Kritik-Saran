@@ -12,7 +12,7 @@
     @livewireStyles
     <style>
         body {
-            height: 1000px;
+            /* height: 1000px; */
         }
     </style>
 </head>
@@ -20,6 +20,7 @@
 <body>
     {{-- @include('header-footer.navbar') --}}
     @yield('content')
+
     <div class="container">
     </div>
     {!! Toastr::message() !!}
