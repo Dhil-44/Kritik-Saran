@@ -3,7 +3,6 @@
 @section('content')
     <div class="wrapper ">
         <aside class="navbar navbar-vertical navbar-expand-lg navbar-dark">
-
             <div class="container-fluid mt-3">
                 <div class="row">
                     <div class="col">
@@ -94,12 +93,12 @@
                     <div class="row row-deck row-cards">
                         <div class="col-sm-6 col-lg-3">
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
-    
+
 @endsection

@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Submission extends Model
 {
     use HasFactory;
+    protected $table = 'submissions';
+
+    protected $guarded = [];
 }
