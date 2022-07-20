@@ -9,7 +9,7 @@ use App\Models\Submission;
 
 class HomePage extends Component
 {
-    public $id_cat, $id_user, $message = "ada", $file_name;
+    public $id_cat, $id_user, $message, $file_name;
     public function render()
     {
         return view('livewire.home.home-page', [
