@@ -26,9 +26,6 @@ class LoginController extends Component
             'email'    => $this->email,
             'password' => $this->password,
         );
-        // // if null
-        //
-        //
         if (Auth::guard('web')->attempt($user)) {
             return redirect()->route('home-page');
         } else {
