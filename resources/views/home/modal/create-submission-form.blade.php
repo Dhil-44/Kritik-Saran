@@ -12,14 +12,14 @@
                     <div class="form-group mb-3 row">
                         <label class="form-label col-3 col-form-label">Assign to</label>
                         <div class="col">
-                            <select class="form-select" wire:model="id_user">
+                            <select class="form-select" wire:model="id_user_target">
                                 <option>Choose</option>
                                 @foreach ($users as $user)
                                     <option value="{{ $user->id }}">{{ $user->email }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        @error('id_user')
+                        @error('id_user_target')
                             <span class="text-danger">
                                 {{ $message }}
                             </span>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="modal-footer">
                     {{-- <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button> --}}
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-green">Submit</button>
                 </div>
             </form>
         </div>
