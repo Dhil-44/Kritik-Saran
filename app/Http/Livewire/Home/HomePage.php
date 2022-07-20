@@ -9,12 +9,8 @@ use App\Models\Submission;
 
 class HomePage extends Component
 {
-<<<<<<< HEAD
-    public $id_cat, $id_user, $message, $file_name;
-=======
     // $id_user_pengirim
     public $id_cat, $id_user_target, $message, $file_name;
->>>>>>> origin
     public function render()
     {
         return view('livewire.home.home-page', [
