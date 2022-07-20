@@ -20,6 +20,13 @@ class UserSeed extends Seeder
     {
 
         DB::table('users')->insert([
+            'name'  => 'Kita Group',
+            'email' => 'kita@gmail.com',
+            'role'  => 'admin',
+            'logo'  => '',
+            'password' => Hash::make('123456'),
+        ]);
+        DB::table('users')->insert([
             'name'  => 'CAC Kalbis',
             'email' => 'cackalbis@gmail.com',
             'role'  => 'departmen',
