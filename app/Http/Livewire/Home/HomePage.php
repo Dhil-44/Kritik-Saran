@@ -42,11 +42,8 @@ class HomePage extends Component
         if ($data_submission) {
             $this->clear_column();
             $this->dispatchBrowserEvent('hide_modal_create_sub',);
-        } else {
-            return 'oke';
         }
     }
-
     private function clear_column()
     {
         return $this->id_cat = $this->id_user = $this->message = $this->file_name = null;
