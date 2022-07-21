@@ -37,7 +37,7 @@
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <a href="http://cac.kalbis.ac.id/home" class="brand-link bg-success " style="max-height:20rem;">
+            <a href="{{ route('home-page') }}" class="brand-link bg-success " style="max-height:20rem;">
                 <img src="http://cac.kalbis.ac.id/frontend/img/logos/kalbis_footer.png" class="img-fluid"
                     style="width:115px; margin-left:10%" alt="" loading="lazy">
             </a>
