@@ -528,7 +528,7 @@
 
             </div>
         </div> --}}
-        @include('home.modal.create-submission-form')
+        @include('user.home.modal.create-submission-form')
     </div>
 
 

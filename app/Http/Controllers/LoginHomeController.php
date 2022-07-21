@@ -9,7 +9,7 @@ class LoginHomeController extends Controller
 {
     public function index()
     {
-        return view("auth/form-login");
+        return view("user.auth/form-login");
     }
     function signout(Request $request)
     {
