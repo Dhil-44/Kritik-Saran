@@ -28,8 +28,8 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                        <img src="" alt="" srcset="">
-                        <i class="fas fa-th-large"></i>Admin
+                        <img src="{{ asset('dist/img/image/icon-logo.jpg') }}" class="img-circle mr-1" style="width: 30px" alt="">
+                        Admin
                     </a>
                 </li>
             </ul>
@@ -46,10 +46,10 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{ asset('dist/img/image/icon-logo.jpg') }}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="" class="d-block">Admin</a>
                     </div>
                 </div>
 
@@ -87,7 +87,7 @@
                             </ul>
                         </li>
 
-                        <li class="nav-header">EXAMPLES</li>
+                        {{-- <li class="nav-header">EXAMPLES</li>
                         <li class="nav-item">
                             <a href="pages/calendar.html" class="nav-link">
                                 <i class="nav-icon fas fa-calendar-alt"></i>
@@ -118,7 +118,7 @@
                 <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->
-        </aside>
+        </aside> --}}
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
