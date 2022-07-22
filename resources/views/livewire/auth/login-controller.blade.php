@@ -24,9 +24,8 @@
         </div>
     @endif
 
-    <div class="text mx-auto" style="width:85%;">
-        <ul class="text-center text-danger card">
-            <div class="card-status-top bg-danger"></div>
+    <div class="text mx-auto justify-content-center" style="width:85%;">
+        <ul class="bg-danger text-white @if (Session::has('fail')) @else card @endif" style="">
             @error('email')
                 <li class="">{{ $message }}</li>
             @enderror

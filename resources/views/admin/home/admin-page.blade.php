@@ -67,7 +67,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">
+                                    <a href="{{ route('user-tables') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Users</p>
                                     </a>
@@ -144,7 +144,6 @@
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
-
                     <!-- /.row -->
                     @yield('content')
                     <div class="row">
