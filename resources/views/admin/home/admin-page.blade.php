@@ -39,7 +39,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <a href="{{ route('home-page') }}" class="brand-link bg-success " style="max-height:20rem;">
                 <img src="http://cac.kalbis.ac.id/frontend/img/logos/kalbis_footer.png" class="img-fluid"
-                    style="width:115px; margin-left:10%" alt="" loading="lazy">
+                    style="width:115px;" alt="" loading="lazy">
             </a>
             <!-- Sidebar -->
             <div class="sidebar">
@@ -112,13 +112,13 @@
                                     Kanban Board
                                 </p>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->
-        </aside> --}}
+        </aside>
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -127,14 +127,14 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard v3</h1>
+                            <h1 class="m-0">Admin</h1>
                         </div><!-- /.col -->
-                        <div class="col-sm-6">
+                        {{-- <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item active">Dashboard v3</li>
                             </ol>
-                        </div><!-- /.col -->
+                        </div><!-- /.col --> --}}
                     </div><!-- /.row -->
 
                 </div><!-- /.container-fluid -->
@@ -146,7 +146,7 @@
                 <div class="container-fluid">
                     <!-- /.row -->
                     @yield('content')
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-header border-0">
@@ -233,7 +233,7 @@
 
                             <!-- /.card -->
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <!-- /.container-fluid -->
             </div>
