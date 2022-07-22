@@ -41,9 +41,16 @@
                                     <td>{{ $submission->getUserTarget->name }}</td>
                                     <td><span class="tag tag-warning">{{ $submission->getCategory->name_cat }}</span>
                                     </td>
-                                    <td>{{ __($submission->message) }}</td>
+                                    {{-- <td>{{ __($submission->message) }}</td> --}}
+                                    <td>
+                                        <span class="d-inline-block text-truncate " data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title=" {{ __($submission->message) }}"
+                                            style="max-width: 100px;">
+                                            {{ __($submission->message) }}
+                                        </span>
+                                    </td>
                                     <td>{{ __($submission->created_t) }}</td>
-                                    <td>Bacon ipsum dolor sit amet sala.</td>
+                                    <td>Bacon</td>
                                 </tr>
                             @endforeach
 
