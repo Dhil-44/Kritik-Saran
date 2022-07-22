@@ -3,7 +3,7 @@
         style="width:150px; height:150px">
     @if (Session::has('fail'))
         <div class="alert alert-important alert-danger alert-dismissible mx-auto" role="alert" style="width:85%;">
-            <div class="d-flex">
+            <div class="d-flex ">
                 <div style="margin-right: 5px;">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-circle"
                         width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
