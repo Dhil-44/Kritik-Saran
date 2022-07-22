@@ -29,7 +29,8 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                        <img src="{{ asset('dist/img/image/icon-logo.jpg') }}" class="img-circle mr-1" style="width: 30px" alt="">
+                        <img src="{{ asset('dist/img/image/icon-logo.jpg') }}" class="img-circle mr-1"
+                            style="width: 30px" alt="">
                         Admin
                     </a>
                 </li>
@@ -47,7 +48,8 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{ asset('dist/img/image/icon-logo.jpg') }}" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{ asset('dist/img/image/icon-logo.jpg') }}" class="img-circle elevation-2"
+                            alt="User Image">
                     </div>
                     <div class="info">
                         <a href="" class="d-block">Admin</a>
@@ -67,20 +69,22 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('user-tables') }}" class="nav-link">
+                                <li class="nav-item ">
+                                    <a href="{{ route('user-tables') }}"
+                                        class="nav-link {{ request()->is('user-tables') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Users</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('submission-tables') }}" class="nav-link">
+                                    <a href="{{ route('submission-tables') }}"
+                                        class="nav-link {{ request()->is('submission-tables') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Submission</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#!" class="nav-link active">
+                                    <a href="#!" class="nav-link ">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Others</p>
                                     </a>
