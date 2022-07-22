@@ -10,6 +10,8 @@ class UserController extends Component
     public function render()
     {
 
-        return view('livewire.admin.user-controller', []);
+        return view('livewire.admin.user-controller', [
+            'users' => User::where('id', '!=', auth('web')->id())->orderBy('name')->get(),
+        ]);
     }
 }
