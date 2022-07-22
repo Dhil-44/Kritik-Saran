@@ -25,8 +25,7 @@
     @endif
 
     <div class="text mx-auto" style="width:85%;">
-        <ul class="text-center text-danger card">
-            <div class="card-status-top bg-danger"></div>
+        <ul class="text-center text-danger text-white bg-danger" style="list-style: none;">
             @error('email')
                 <li class="">{{ $message }}</li>
             @enderror
