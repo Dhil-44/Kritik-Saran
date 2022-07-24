@@ -46,9 +46,11 @@
                     <div class="form-group mb-3 row">
                         <label class="form-label col-3 col-form-label">Message</label>
                         <div class="col">
-                            <textarea wire:model="message" id="" cols="3" rows="3" class="form-control"></textarea>
+                            <textarea wire:model="message" id="" rows="5" class="form-control"></textarea>
                         </div>
                     </div>
+
+                    {{-- file --}}
                     <div class="form-group mb-3 row">
                         <label class="form-label col-3 col-form-label">Attachments</label>
                         <div class="col">
@@ -65,3 +67,27 @@
         </div>
     </div>
 </div>
+@push('scripts')
+    <script>
+        // @formatter:off
+        document.addEventListener("DOMContentLoaded", function() {
+            tinyMCE.init({
+                selector: '#tinymce-mytextarea',
+                height: 300,
+                menubar: false,
+                statusbar: false,
+                plugins: [
+                    'advlist autolink lists link image charmap print preview anchor',
+                    'searchreplace visualblocks code fullscreen',
+                    'insertdatetime media table paste code help wordcount'
+                ],
+                toolbar: 'undo redo | formatselect | ' +
+                    'bold italic backcolor | alignleft aligncenter ' +
+                    'alignright alignjustify | bullist numlist outdent indent | ' +
+                    'removeformat',
+                content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif; font-size: 14px; -webkit-font-smoothing: antialiased; }'
+            });
+        })
+        // @formatter:on
+    </script>
+@endpush
