@@ -12,7 +12,7 @@
                 <div class="container-fluid">
                     <div class="navbar-collapse" id="navbar-menu">{{-- collapse --}}
                         <ul class="navbar-nav pt-lg-3">
-                            <li class="nav-item active">
+                            <li class="nav-item {{ request()->is('critics') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('critics') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
@@ -29,7 +29,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item {{ request()->is('suggestions') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('suggestions') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
@@ -47,7 +47,7 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item">
+                            <li class="nav-item {{ request()->is('announcements') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('announcements') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <!-- Download SVG icon from http://tabler-icons.io/i/home -->
