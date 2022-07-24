@@ -3,7 +3,7 @@
         style="width:150px; height:150px">
     @if (Session::has('fail'))
         <div class="alert alert-important alert-danger alert-dismissible mx-auto" role="alert" style="width:85%;">
-            <div class="d-flex">
+            <div class="d-flex ">
                 <div style="margin-right: 5px;">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-circle"
                         width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
@@ -24,9 +24,8 @@
         </div>
     @endif
 
-    <div class="text mx-auto" style="width:85%;">
-        <ul class="text-center text-danger card">
-            <div class="card-status-top bg-danger"></div>
+    <div class="text mx-auto justify-content-center" style="width:85%;">
+        <ul class="bg-danger text-white @if (Session::has('fail')) @else card @endif" style="">
             @error('email')
                 <li class="">{{ $message }}</li>
             @enderror
