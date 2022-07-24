@@ -16,7 +16,7 @@ class HomePage extends Component
         return view('livewire.home.home-page', [
             'users' => User::where('id', '!=', auth('web')->id())->get(),
             'categories' => Category::all(),
-            'testimony' => Submission::all(),
+            'testimony' => Submission::latest()->get(),
         ]);
     }
     public function createSubmission()
