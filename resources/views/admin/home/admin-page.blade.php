@@ -21,8 +21,9 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                            class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button">
+                        <i class="fas fa-bars"></i>
+                    </a>
                 </li>
             </ul>
             <!-- Right navbar links -->
@@ -39,9 +40,9 @@
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <a href="{{ route('home-page') }}" class="brand-link bg-success " style="max-height:20rem;">
+            <a href="{{ route('home-page') }}" class="brand-link bg-success">
                 <img src="http://cac.kalbis.ac.id/frontend/img/logos/kalbis_footer.png" class="img-fluid"
-                    style="width:115px;" alt="" loading="lazy">
+                    style="width:55%; margin-left:10%;" alt="" loading="lazy">
             </a>
             <!-- Sidebar -->
             <div class="sidebar">
@@ -128,9 +129,6 @@
         <footer class="main-footer">
             <strong>Copyright &copy;<a href="">Leaps</a>.</strong>
             All rights reserved.
-            {{-- <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.2.0
-            </div> --}}
         </footer>
     </div>
     <!-- ./wrapper -->
@@ -142,11 +140,6 @@
     <script src="admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
     <script src="admin/dist/js/adminlte.js"></script>
-    <!-- OPTIONAL SCRIPTS -->
-    {{-- <script src="admin/plugins/chart.js/Chart.min.js"></script> --}}
-    <!-- AdminLTE for demo purposes -->
-    {{-- <script src="admin/dist/js/demo.js"></script> --}}
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="admin/dist/js/pages/dashboard3.js"></script>
 </body>
 
