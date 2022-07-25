@@ -4,7 +4,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Fixed Header Table</h3>
+                    <h3 class="card-title">Table Submission</h3>
 
                     <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -31,6 +31,7 @@
                                 <th>Message</th>
                                 <th>Sent</th>
                                 <th>File</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,8 +50,21 @@
                                             {{ __($submission->message) }}
                                         </span>
                                     </td>
-                                    <td>{{ __($submission->created_t) }}</td>
-                                    <td>Bacon</td>
+                                    <td>{{ $submission->created_at }}</td>
+                                    <td>No File</td>
+                                    <td class="text-center py-0 align-middle">
+                                        <div class="btn-group btn-group-sm">
+                                            <button type="button" wire:click="editSubmission({{ $submission }})"
+                                                class="btn btn-info">
+                                                <i class="fas fa-pen"></i>
+                                            </button>
+
+                                            <button type="button" wire:click="deleteSubmission({{ $submission->id }})"
+                                                class="btn btn-danger">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
 
@@ -60,4 +74,16 @@
             </div>
         </div>
     </div>
+    @include('admin.home.modal.edit-submission')
 </div>
+
+@push('scripts')
+    <script>
+        window.addEventListener('showUpdateModal', () => {
+            $('.editSubmission').modal('show');
+        })
+        window.addEventListener('closeUpdateModal', () => {
+            $('.editSubmission').modal('hide');
+        })
+    </script>
+@endpush

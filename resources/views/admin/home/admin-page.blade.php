@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="admin/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="admin/dist/css/adminlte.min.css">
+
+    @livewireStyles
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -143,6 +145,8 @@
     <!-- AdminLTE -->
     <script src="admin/dist/js/adminlte.js"></script>
     <script src="admin/dist/js/pages/dashboard3.js"></script>
+    @stack('scripts')
+    @livewireScripts
 </body>
 
 </html>

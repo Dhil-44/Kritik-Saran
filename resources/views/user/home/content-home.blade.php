@@ -14,7 +14,6 @@
         </div>
     </div>
     {{-- </section> --}}
-    {!! Toastr::message() !!}
     @livewire('home.home-page')
     @include('user.header-footer.footer')
 
