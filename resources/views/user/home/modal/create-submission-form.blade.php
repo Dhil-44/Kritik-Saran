@@ -6,14 +6,13 @@
                 <h5 class="modal-title">Submission Form</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
             <form wire:submit.prevent="createSubmission()">
                 <div class="modal-body">
                     <div class="form-group mb-3 row">
                         <label class="form-label col-3 col-form-label">Assign to</label>
                         <div class="col">
                             <select class="form-select" wire:model="id_user_target">
-                                <option>Choose</option>
+                                <option>To</option>
                                 @foreach ($users as $user)
                                     <option value="{{ $user->id }}">{{ $user->email }}</option>
                                 @endforeach
@@ -31,7 +30,7 @@
                         <label class="form-label col-3 col-form-label">Category</label>
                         <div class="col">
                             <select class="form-select" wire:model="id_cat">
-                                <option>--Choose category--</option>
+                                <option>choose</option>
                                 @foreach ($categories as $ct)
                                     <option value="{{ $ct->id }}"> {{ $ct->name_cat }}</option>
                                 @endforeach
@@ -46,7 +45,7 @@
                     <div class="form-group mb-3 row">
                         <label class="form-label col-3 col-form-label">Message</label>
                         <div class="col">
-                            <textarea wire:model="message" id="" rows="5" class="form-control"></textarea>
+                            <textarea wire:model="message" id="summernote" rows="5" class="form-control"></textarea>
                         </div>
                     </div>
 
@@ -63,31 +62,31 @@
                     {{-- <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button> --}}
                     <button type="submit" class="btn btn-green">Submit</button>
                 </div>
+
             </form>
         </div>
     </div>
 </div>
-@push('scripts')
+@push('name')
     <script>
-        // @formatter:off
-        document.addEventListener("DOMContentLoaded", function() {
-            tinyMCE.init({
-                selector: '#tinymce-mytextarea',
-                height: 300,
-                menubar: false,
-                statusbar: false,
-                plugins: [
-                    'advlist autolink lists link image charmap print preview anchor',
-                    'searchreplace visualblocks code fullscreen',
-                    'insertdatetime media table paste code help wordcount'
-                ],
-                toolbar: 'undo redo | formatselect | ' +
-                    'bold italic backcolor | alignleft aligncenter ' +
-                    'alignright alignjustify | bullist numlist outdent indent | ' +
-                    'removeformat',
-                content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif; font-size: 14px; -webkit-font-smoothing: antialiased; }'
-            });
-        })
-        // @formatter:on
+        $('textarea#summernote').summernote({
+            placeholder: 'Hello bootstrap 4',
+            tabsize: 2,
+            height: 100,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'clear']],
+                // ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+                //['fontname', ['fontname']],
+                // ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'hr']],
+                //['view', ['fullscreen', 'codeview']],
+                ['help', ['help']]
+            ],
+        });
     </script>
 @endpush
