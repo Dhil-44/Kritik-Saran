@@ -6,7 +6,7 @@
                 <h5 class="modal-title">Submission Form</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form wire:submit.prevent="createSubmission()">
+            <form wire:submit.prevent="createSubmission">
                 <div class="modal-body">
                     <div class="form-group mb-3 row">
                         <label class="form-label col-3 col-form-label">Assign to</label>
@@ -32,7 +32,7 @@
                             <select class="form-select" wire:model="id_cat">
                                 <option>choose</option>
                                 @foreach ($categories as $ct)
-                                    <option value="{{ $ct->id }}"> {{ $ct->name_cat }}</option>
+                                    <option value="{{ $ct->id }}"> {{ __($ct->name_cat) }}</option>
                                 @endforeach
                             </select>
                         </div>

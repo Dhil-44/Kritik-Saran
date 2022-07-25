@@ -16,6 +16,8 @@
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -30,8 +32,14 @@
                                 <th>Role</th>
                                 <th>Logo</th>
                                 <th class="text-center">
-                                    <button class="btn btn-success btn-sm">
+                                    {{-- <a class="btn btn-success btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#createuser">
                                         <i class="fas fa-add"></i>Create new
+                                    </a> --}}
+                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal"
+                                        data-target="#modal-lg">
+                                        <i class="fas fa-add"></i>
+                                        Create new
                                     </button>
                                 </th>
                             </tr>
@@ -47,7 +55,8 @@
                                     <td class="text-center py-0 align-middle">
                                         <div class="btn-group btn-group-sm">
                                             <a href="#" class="btn btn-warning"><i class="fas fa-pen"></i></a>
-                                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                            <a type="button" wire:click="deleteUser({{ $user->id }})"
+                                                class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -60,5 +69,8 @@
             </div>
             <!-- /.card -->
         </div>
+        {{-- tidak bisa --}}
+        @include('admin.home.modal.create-new-user')
     </div>
+
 </div>
