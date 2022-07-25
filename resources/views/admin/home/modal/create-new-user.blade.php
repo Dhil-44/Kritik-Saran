@@ -43,7 +43,7 @@
 
                     <div class="form-group">
                         <label for="">Password</label>
-                        <input type="text" class="form-control" placeholder="Email" wire:model="password">
+                        <input type="text" class="form-control" placeholder="Password" wire:model="password">
                         <span class="text-danger"> @error('password')
                                 {{ $message }}
                             @enderror
