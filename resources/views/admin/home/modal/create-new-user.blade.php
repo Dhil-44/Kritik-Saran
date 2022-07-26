@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <label for="roleUser">Role</label>
                         <select wire:modal="role" id="roleUser" class="form-control">
-                            <option>role</option>
+                            <option>Role</option>
                             @foreach ($roles as $rl)
                                 <option value="{{ $rl }}">{{ __($rl) }}</option>
                             @endforeach

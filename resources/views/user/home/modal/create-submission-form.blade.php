@@ -59,7 +59,10 @@
 
                 </div>
                 <div class="modal-footer">
+<<<<<<< HEAD
                     {{-- <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button> --}}
+=======
+>>>>>>> 5e710d45966034f458a1aa171e3bad38e9fff2e5
                     <button type="submit" data-bs-dismiss="modal" class="btn btn-green">Submit</button>
                 </div>
 
