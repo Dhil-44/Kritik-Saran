@@ -85,61 +85,6 @@
                                                 </div>
                                             </div>
                                         @endforeach
-                                        <div class="card mb-4 shadow-md">
-
-                                            <div class="card-body hover-shadow-lg">
-                                                <div class="row align-items-center">
-                                                    <div class="col-auto">
-                                                        <span class="avatar me-2 avatar-rounded"
-                                                            style="background-image: url({{ asset('dist/img/image/logo-ao.jpg') }})"></span>
-
-                                                    </div>
-                                                    <div class="col-7">
-                                                        <div class="fs-sm-6"></div>
-                                                        <div class="fs-6"></div>
-                                                    </div>
-                                                    <div class="card-actions col-auto">
-                                                        <div class="dropdown">
-                                                            <a href="#" class="btn-action dropdown-toggle"
-                                                                data-bs-toggle="dropdown" aria-haspopup="true"
-                                                                aria-expanded="false">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon"
-                                                                    width="24" height="24" viewBox="0 0 24 24"
-                                                                    stroke-width="2" stroke="currentColor"
-                                                                    fill="none" stroke-linecap="round"
-                                                                    stroke-linejoin="round">
-                                                                    <path stroke="none" d="M0 0h24v24H0z"
-                                                                        fill="none">
-                                                                    </path>
-                                                                    <circle cx="12" cy="12"
-                                                                        r="1">
-                                                                    </circle>
-                                                                    <circle cx="12" cy="19"
-                                                                        r="1">
-                                                                    </circle>
-                                                                    <circle cx="12" cy="5"
-                                                                        r="1">
-                                                                    </circle>
-                                                                </svg>
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <a class="dropdown-item" href="#">Edit
-                                                                    message</a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div class="col-12 mt-2">
-                                                        <p class="" align="justify"></p>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-
 
                                     </div>
                                 </div>
