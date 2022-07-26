@@ -29,7 +29,7 @@
                     </ul>
                     <div class="card-body">
                         <div class="tab-content">
-                            <div class="tab-pane show" id="tabs-home-10" role="tabpanel">
+                            <div class="tab-pane active" id="tabs-home-10" role="tabpanel">
                                 <div class="row ">
                                     <div class="col col-md-12">
                                         <?php $__currentLoopData = $testimony; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tty): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -202,9 +202,6 @@
                 </div>
             </div>
         </div>
-
-    </div>
-    <div class="container-lg mt-4">
         <?php echo $__env->make('user.home.modal.create-submission-form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
 </div>
