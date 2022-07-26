@@ -200,9 +200,6 @@
                 </div>
             </div>
         </div>
-
-    </div>
-    <div class="container-lg mt-4">
         @include('user.home.modal.create-submission-form')
     </div>
 </div>
