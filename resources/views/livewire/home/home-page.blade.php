@@ -30,6 +30,7 @@
                     <div class="card-body">
                         <div class="tab-content">
                             <div class="tab-pane show" id="tabs-home-10" role="tabpanel">
+
                                 <div class="row ">
                                     <div class="col col-md-12">
                                         @foreach ($testimony as $tty)
