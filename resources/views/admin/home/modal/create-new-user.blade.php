@@ -50,7 +50,7 @@
                         </span>
                     </div>
 
-                    <div class="form-group modal-footer justify-content-between">
+                    <div class="form-group modal-footer justify-content-end">
                         <button type="submit" class="btn btn-success btn">Save</button>
                     </div>
                 </form>
