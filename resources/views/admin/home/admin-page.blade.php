@@ -34,7 +34,7 @@
                     <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
                         <img src="{{ asset('dist/img/image/icon-logo.jpg') }}" class="img-circle mr-1"
                             style="width: 30px" alt="">
-                        Admin
+                        Admin 
                     </a>
                 </li>
             </ul>
