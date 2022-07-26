@@ -24,4 +24,10 @@ class Submission extends Model
     {
         return $this->belongsTo(Category::class, 'id_cat', 'id');
     }
+
+    static function  countSubs(): int
+    {
+        $count = Submission::where('id', '!=', auth('web')->id())->get();
+        return count($count);
+    }
 }

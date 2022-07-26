@@ -55,7 +55,7 @@
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="" class="d-block">Admin</a>
+                        <a href="{{ route('admin/home') }}#" class="d-block">Admin</a>
                     </div>
                 </div>
 
@@ -73,14 +73,14 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item ">
-                                    <a href="{{ route('user-tables') }}"
+                                    <a href="{{ route('user-tables') }}#"
                                         class="nav-link {{ request()->is('user-tables') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Users</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('submission-tables') }}"
+                                    <a href="{{ route('submission-tables') }}#"
                                         class="nav-link {{ request()->is('submission-tables') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Submission</p>
@@ -120,6 +120,7 @@
             <div class="content">
                 <div class="container-fluid">
                     <!-- /.row -->
+
                     @yield('content')
                 </div>
                 <!-- /.container-fluid -->

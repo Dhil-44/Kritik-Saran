@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function countUsers()
+    {
+        $users = User::where('id', '!=', auth('web')->id())->get();
+        return count($users);
+    }
 }

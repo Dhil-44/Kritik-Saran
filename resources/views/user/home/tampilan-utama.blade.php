@@ -8,9 +8,7 @@
     <title>@yield('title')</title>
     <link href="{{ asset('dist/css/tabler.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/tabler.min.css') }}" rel="stylesheet">
-
-
-    <link rel="shortcut icon" href="{{ asset('dist/img/image/logo-kalbis.jpg') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ asset('dist/img/image/icon-logo.jpg') }}" type="image/x-icon" />
     @livewireStyles
     <style>
         body {

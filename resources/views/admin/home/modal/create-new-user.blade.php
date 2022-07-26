@@ -50,9 +50,8 @@
                         </span>
                     </div>
 
-                    <div class="form-group modal-footer justify-content-between">
-                        <button type="button" class="btn btn-danger btn" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary btn">Save</button>
+                    <div class="form-group modal-footer justify-content-end">
+                        <button type="submit" class="btn btn-success btn">Save</button>
                     </div>
                 </form>
             </div>

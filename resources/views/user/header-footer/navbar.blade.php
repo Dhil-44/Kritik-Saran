@@ -17,19 +17,29 @@
                         <li class="nav-item ">
                             <a class="nav-link {{ request()->is('home-page') ? 'active' : '' }}" aria-current="page"
                                 href="{{ route('home-page') }}">
-                                <h4 class="mt-2">Home</h4>
+                                <h4 class="mt-2">
+                                    Home
+                                </h4>
+
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->is('profile') ? 'active' : '' }}"
                                 href="{{ route('profile') }}">
-                                <h4 class="mt-2">Profile</h4>
+                                <h4 class="mt-2 position-relative">Profile
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        9
+                                        <span class="visually-hidden">unread messages</span>
+                                    </span>
+                                </h4>
                             </a>
                         </li>
                         @if (Auth::user()->role == 'admin')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin/home') }}#">
-                                    <h4 class="mt-2">Backend</h4>
+                                    <h4 class="mt-2">Backend
+                                    </h4>
                                 </a>
                             </li>
                         @endif
@@ -38,6 +48,7 @@
                                 <h4 class="mt-2">Sign out</h4>
                             </a>
                         </li>
+
                     </ul>
                 </div>
             </div>
