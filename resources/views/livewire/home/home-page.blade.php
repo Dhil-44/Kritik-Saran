@@ -149,7 +149,6 @@
                 </div>
             </div>
         </div>
-
         @include('user.home.modal.create-submission-form')
     </div>
 </div>
