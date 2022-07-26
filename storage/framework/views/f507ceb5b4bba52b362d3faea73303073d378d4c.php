@@ -51,9 +51,11 @@
                                     <td><?php echo e(__($user->logo) > 0 ? 'Ada logo' : 'NO LOGO'); ?></td>
                                     <td class="text-center py-0 align-middle">
                                         <div class="btn-group btn-group-sm">
-                                            <a href="#" class="btn btn-warning"><i class="fas fa-pen"></i></a>
-                                            <a type="button" wire:click="deleteUser(<?php echo e($user->id); ?>)"
-                                                class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                            <button data-toggle="modal" data-target="#edit-modal-user"
+                                                wire:click="editUser(<?php echo e($user); ?>)" class="btn btn-warning"><i
+                                                    class="fas fa-pen"></i></button>
+                                            <button type="button" wire:click="deleteUser(<?php echo e($user->id); ?>)"
+                                                class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -68,6 +70,7 @@
         </div>
         
         <?php echo $__env->make('admin.home.modal.create-new-user', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->make('admin.home.modal.edit-user', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
 
 </div>

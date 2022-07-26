@@ -88,9 +88,7 @@
 
                                     </div>
                                 </div>
-
                             </div>
-
                             <div class="tab-pane " id="tabs-profile-10" role="tabpanel" style="">
                                 <div class="card" style="margin-bottom:50%;">
                                     <div class="card-body shadow-lg">
