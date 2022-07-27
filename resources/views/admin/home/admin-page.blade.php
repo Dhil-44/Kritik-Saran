@@ -35,11 +35,7 @@
                         role="button">
                         <img src="{{ asset('dist/img/image/icon-logo.jpg') }}" class="img-circle mr-1"
                             style="width: 30px" alt="">
-<<<<<<< HEAD
-                        Admin 
-=======
                         <b>Admin</b>
->>>>>>> origin
                     </a>
                 </li>
             </ul>
