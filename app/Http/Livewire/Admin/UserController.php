@@ -31,7 +31,6 @@ class UserController extends Component
     {
         try {
 
-
             $this->validate([
                 'name_user' => 'required',
                 'email' => 'required',
