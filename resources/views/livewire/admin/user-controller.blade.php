@@ -57,7 +57,6 @@
                                         </div>
                                     </td>
                                 </tr>
-
                             @empty
 
                                 <h3 class="text-danger text-center">Data Not Found!</h3>

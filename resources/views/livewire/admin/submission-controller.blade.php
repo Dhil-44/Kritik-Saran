@@ -34,7 +34,6 @@
                             </tr>
                         </thead>
                         <tbody>
-
                             @forelse ($submissions as $submission)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
@@ -69,7 +68,6 @@
                         </tbody>
                     @empty
                         <tbody>
-
                             <h3 class="text-danger text-center">Data Not Found!</h3>
                         </tbody>
                         @endforelse

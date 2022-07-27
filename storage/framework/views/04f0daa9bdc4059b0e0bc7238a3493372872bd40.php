@@ -70,7 +70,6 @@
                         </tbody>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <tbody>
-
                             <h3 class="text-danger text-center">Data Not Found!</h3>
                         </tbody>
                         <?php endif; ?>

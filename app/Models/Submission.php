@@ -12,6 +12,10 @@ class Submission extends Model
     protected $table = 'submissions';
     protected $guarded = ['id',];
 
+    protected $appends = [
+        'created_at',
+    ];
+
     function getUser()
     {
         return $this->belongsTo(User::class, 'id_user_pengirim', 'id');
@@ -29,5 +33,22 @@ class Submission extends Model
     {
         $count = Submission::where('id', '!=', auth('web')->id())->get();
         return count($count);
+    }
+    public function setCreatedAtAttribute($value)
+    {
+        $this->attributes['created_at'] = $value;
+    }
+    public function getCreatedAtAttribute()
+    {
+        // \Carbon\Carbon::parse($this->attributes['created_at'])->format('d,M Y H:i');
+        return \Carbon\Carbon::parse($this->attributes['created_at'])->diffForHumans();
+    }
+    public function setUpdatedAtAttribute($value)
+    {
+    }
+    // harus ada di magic property appends
+    public function getUpdatedAtAttribute()
+    {
+        return \Carbon\Carbon::parse($this->attributes['updated_at'])->diffForHumans();
     }
 }
