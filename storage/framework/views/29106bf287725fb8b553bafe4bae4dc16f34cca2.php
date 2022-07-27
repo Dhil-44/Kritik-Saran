@@ -32,19 +32,21 @@
                             <div class="tab-pane active" id="tabs-home-10" role="tabpanel">
                                 <div class="row ">
                                     <div class="col col-md-12">
-                                        @foreach ($testimony as $tty)
+                                        <?php $__currentLoopData = $testimony; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tty): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <div class="card mb-3 mt-2">
                                                 <div class="card-header">
                                                     <div>
                                                         <div class="row align-items-center">
                                                             <div class="col-auto">
                                                                 <span class="avatar me-2 avatar-rounded"
-                                                                    style="background-image: url({{ asset('dist/img/image/logo-ao.jpg') }})"></span>
+                                                                    style="background-image: url(<?php echo e(asset('dist/img/image/logo-ao.jpg')); ?>)"></span>
                                                             </div>
                                                             <div class="col">
-                                                                <div class="card-title">{{ $tty->getUser->name }}
+                                                                <div class="card-title"><?php echo e($tty->getUser->name); ?>
+
                                                                 </div>
-                                                                <div class="card-subtitle">{{ $tty->created_at }}
+                                                                <div class="card-subtitle"><?php echo e($tty->created_at); ?>
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -81,17 +83,11 @@
                                                     </div>
                                                 </div>
                                                 <div class=" p-2">
-                                                    <p align="justify">{{ $tty->message }}</p>
+                                                    <p align="justify"><?php echo e($tty->message); ?></p>
                                                 </div>
                                             </div>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-<<<<<<< HEAD
-                                    
-
-                                        </div>
-=======
->>>>>>> fe494af6529a33117bc9c198f93b0c51d5558aae
                                     </div>
                                 </div>
                             </div>
@@ -149,13 +145,14 @@
                 </div>
             </div>
         </div>
-        @include('user.home.modal.create-submission-form')
+        <?php echo $__env->make('user.home.modal.create-submission-form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
 </div>
-@push('scripts')
+<?php $__env->startPush('scripts'); ?>
     <script>
         window.addEventListener('hide_modal_create_sub', function(e) {
             $('.create_submission').modal('hide');
         })
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+<?php /**PATH C:\xampp\htdocs\Kritik-Saran\resources\views/livewire/home/home-page.blade.php ENDPATH**/ ?>

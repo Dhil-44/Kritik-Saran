@@ -1,4 +1,4 @@
-<footer class="footer footer-transparent bg-dark" style="margin-top:10%;">
+<footer class="footer footer-transparent d-print-none bg-dark mt-3">
     <div class="container-xl text-white">
         <div class="row text-center align-items-center flex-row-reverse">
             <div class="col-lg-auto ms-lg-auto">
@@ -49,6 +49,8 @@
             <div class="col-12 col-lg-auto mt-3 mt-lg-0">
                 <ul class="list-inline list-inline-dots mb-0">
                     <li class="list-inline-item">
+
+                        
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24"
                             height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -65,3 +67,4 @@
         </div>
     </div>
 </footer>
+<?php /**PATH C:\xampp\htdocs\KritikSaran\resources\views/user/header-footer/footer.blade.php ENDPATH**/ ?>

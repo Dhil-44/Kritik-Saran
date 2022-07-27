@@ -11,6 +11,8 @@ class HomePage extends Component
 {
     // $id_user_pengirim
     public $id_cat, $id_user_target, $message, $file_name;
+
+    protected $listeners = [];
     public function render()
     {
         return view('livewire.home.home-page', [

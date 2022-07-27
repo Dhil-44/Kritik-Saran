@@ -65,3 +65,4 @@
         </div>
     </div>
 </footer>
+<?php /**PATH C:\xampp\htdocs\Kritik-Saran\resources\views/user/header-footer/footer.blade.php ENDPATH**/ ?>

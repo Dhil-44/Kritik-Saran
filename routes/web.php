@@ -29,7 +29,7 @@ Route::middleware(['auth:web'])->group(function () {
 
 Route::group(['prefix' => '/', 'middleware' => ['is_admin']], function () {
     Route::get('home-admin', function () {
-        return view('admin.home.admin-page');
+        return view('admin.data.dashboard-admin');
     })->name('admin/home');
     Route::view('user-tables', 'admin.data.user-table')->name('user-tables');
     Route::view('submission-tables', 'admin.data.submission-table')->name('submission-tables');

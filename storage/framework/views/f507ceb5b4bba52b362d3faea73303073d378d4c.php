@@ -1,5 +1,5 @@
 <div>
-    {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
+    
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -32,10 +32,7 @@
                                 <th>Role</th>
                                 <th>Logo</th>
                                 <th class="text-center">
-                                    {{-- <a class="btn btn-success btn-sm" data-bs-toggle="modal"
-                                        data-bs-target="#createuser">
-                                        <i class="fas fa-add"></i>Create new
-                                    </a> --}}
+                                    
                                     <button type="button" class="btn btn-success btn-sm" data-toggle="modal"
                                         data-target="#modal-lg">
                                         <i class="fas fa-add"></i>
@@ -45,24 +42,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td><span class="tag tag-primary">{{ $user->role }}</span></td>
-                                    <td>{{ __($user->logo) > 0 ? 'Ada logo' : 'NO LOGO' }}</td>
+                                    <td><?php echo e($loop->iteration); ?></td>
+                                    <td><?php echo e($user->name); ?></td>
+                                    <td><?php echo e($user->email); ?></td>
+                                    <td><span class="tag tag-primary"><?php echo e($user->role); ?></span></td>
+                                    <td><?php echo e(__($user->logo) > 0 ? 'Ada logo' : 'NO LOGO'); ?></td>
                                     <td class="text-center py-0 align-middle">
                                         <div class="btn-group btn-group-sm">
                                             <button data-toggle="modal" data-target="#edit-modal-user"
-                                                wire:click="editUser({{ $user }})" class="btn btn-warning"><i
+                                                wire:click="editUser(<?php echo e($user); ?>)" class="btn btn-warning"><i
                                                     class="fas fa-pen"></i></button>
-                                            <button type="button" wire:click="deleteUser({{ $user->id }})"
+                                            <button type="button" wire:click="deleteUser(<?php echo e($user->id); ?>)"
                                                 class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                         </tbody>
                     </table>
@@ -71,9 +68,10 @@
             </div>
             <!-- /.card -->
         </div>
-        {{-- tidak bisa --}}
-        @include('admin.home.modal.create-new-user')
-        @include('admin.home.modal.edit-user')
+        
+        <?php echo $__env->make('admin.home.modal.create-new-user', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->make('admin.home.modal.edit-user', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
 
 </div>
+<?php /**PATH C:\xampp\htdocs\Kritik-Saran\resources\views/livewire/admin/user-controller.blade.php ENDPATH**/ ?>

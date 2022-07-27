@@ -13,16 +13,24 @@
                         <div class="col">
                             <select class="form-select" wire:model="id_user_target">
                                 <option>To</option>
-                                @foreach ($users as $user)
-                                    <option value="{{ $user->id }}">{{ $user->email }}</option>
-                                @endforeach
+                                <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($user->id); ?>"><?php echo e($user->email); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
-                        @error('id_user_target')
+                        <?php $__errorArgs = ['id_user_target'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                             <span class="text-danger">
-                                {{ $message }}
+                                <?php echo e($message); ?>
+
                             </span>
-                        @enderror
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
 
                     </div>
 
@@ -31,16 +39,24 @@
                         <div class="col">
                             <select class="form-select" wire:model="id_cat">
                                 <option>choose</option>
-                                @foreach ($categories as $ct)
-                                    <option value="{{ $ct->id }}"> {{ __($ct->name_cat) }}</option>
-                                @endforeach
+                                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ct): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($ct->id); ?>"> <?php echo e(__($ct->name_cat)); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
-                        @error('id_cat')
+                        <?php $__errorArgs = ['id_cat'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                             <span class="text-danger">
-                                {{ $message }}
+                                <?php echo e($message); ?>
+
                             </span>
-                        @enderror
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="form-group mb-3 row">
                         <label class="form-label col-3 col-form-label">Message</label>
@@ -49,7 +65,7 @@
                         </div>
                     </div>
 
-                    {{-- file --}}
+                    
                     <div class="form-group mb-3 row">
                         <label class="form-label col-3 col-form-label">Attachments</label>
                         <div class="col">
@@ -59,14 +75,15 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" data-bs-dismiss="modal" class="btn btn-green">Submit</button>
+                    
+                    <button type="submit" class="btn btn-green">Submit</button>
                 </div>
 
             </form>
         </div>
     </div>
 </div>
-{{-- @push('name')
+<?php $__env->startPush('name'); ?>
     <script>
         $('textarea#summernote').summernote({
             placeholder: 'Hello bootstrap 4',
@@ -88,4 +105,5 @@
             ],
         });
     </script>
-@endpush --}}
+<?php $__env->stopPush(); ?>
+<?php /**PATH C:\xampp\htdocs\KritikSaran\resources\views/user/home/modal/create-submission-form.blade.php ENDPATH**/ ?>
