@@ -28,8 +28,10 @@
                     </div>
                     <div class="form-group">
                         <label for="roleUser">Role</label>
-                        <select wire:modal="role" id="roleUser" class="form-control">
-                            <option>Role</option>
+                        <select wire:model="role" id="roleUser" class="form-control">
+                            <option>
+                                <h6 class="text-muted">--choose role--</h6>
+                            </option>
                             @foreach ($roles as $rl)
                                 <option value="{{ $rl }}">{{ __($rl) }}</option>
                             @endforeach
@@ -56,7 +58,5 @@
                 </form>
             </div>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>
