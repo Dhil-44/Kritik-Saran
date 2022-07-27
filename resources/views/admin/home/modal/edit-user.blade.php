@@ -5,40 +5,41 @@
             <div class="modal-header">
                 <h4 class="modal-title">Create new User</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <form wire:submit.prevent="updateUser()">
                     <div class="form-group">
                         <label for="">Nama User</label>
-                        <input type="text" class="form-control" placeholder="Nama user" wire:model="name_user">
-                        <span class="text-danger"> @error('name_user')
+                        <input type="text" class="form-control" placeholder="Nama user" wire:model="upd_name_user">
+                        <span class="text-danger"> @error('upd_name_user')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div>
                     <div class="form-group">
                         <label for="">Email</label>
-                        <input type="email" class="form-control" placeholder="Email" wire:model="email">
-                        <span class="text-danger"> @error('email')
+                        <input type="email" class="form-control" placeholder="Email" wire:model="upd_email">
+                        <span class="text-danger"> @error('upd_email')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div>
                     <div class="form-group">
                         <label for="roleUser">Role</label>
-                        <select wire:modal="role" id="roleUser" class="form-control">
+                        <select wire:model="upd_role" id="roleUser" class="form-control">
+                            <option value="">Role</option>
+                            {{-- <option value="{{ $role }}" class="selected">{{ $role }}</option> --}}
                             @foreach ($roles as $rl)
-                                {{-- <option value="{{ $role }}" class="selected">{{ $role }}</option> --}}
-                                @if (!$rl == $role)
-                                    <option value="{{ $rl }}" class="">{{ $rl }}</option>
-                                @endif
+                                <option value="{{ $rl }}"
+                                    class="@if ($rl == $upd_role) selected @else @endif">
+                                    {{ $rl }}</option>
                             @endforeach
 
                         </select>
                         <span class="text-danger">
-                            @error('role')
+                            @error('upd_role')
                                 {{ $message }}
                             @enderror
                         </span>
@@ -67,6 +68,16 @@
     <script>
         window.addEventListener('closeEditModal', () => {
             $('.editUser').modal('hide');
+        })
+        window.addEventListener('openEditOpen', (e) => {
+            $('.editUser').modal('show');
+        })
+        window.addEventListener('openModal', () => {
+            $('.createUser').modal('show');
+            $('.createUser').find('span').html('');
+        })
+        window.addEventListener('closeAddUserModal', (e) => {
+            $('.createUser').modal('hide');
         })
     </script>
 @endpush

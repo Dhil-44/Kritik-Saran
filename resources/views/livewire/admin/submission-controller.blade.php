@@ -8,9 +8,8 @@
 
                     <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control float-right"
+                            <input type="text" wire:model="search" class="form-control float-right"
                                 placeholder="Search">
-
                             <div class="input-group-append">
                                 <button type="submit" class="btn btn-default">
                                     <i class="fas fa-search"></i>
@@ -35,7 +34,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($submissions as $submission)
+
+                            @forelse ($submissions as $submission)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $submission->getUser->name }}</td>
@@ -66,9 +66,14 @@
                                         </div>
                                     </td>
                                 </tr>
-                            @endforeach
-
                         </tbody>
+                    @empty
+                        <tbody>
+
+                            <h3 class="text-danger text-center">Data Not Found!</h3>
+                        </tbody>
+                        @endforelse
+
                     </table>
                 </div>
             </div>

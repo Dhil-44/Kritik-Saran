@@ -9,10 +9,18 @@ class SubmissionController extends Component
 {
 
     public $id_sub, $id_cat, $id_user_pengirim, $id_user_target, $message, $file_name;
+    public $search;
     public function render()
     {
+        if ($this->search) {
+            $submissions = Submission::where(function ($q) {
+                $q->where('message', 'LIKE', '%' . $this->search . '%');
+            })->get();
+        } else {
+            $submissions = Submission::all();
+        }
         return view('livewire.admin.submission-controller', [
-            'submissions' => Submission::all(),
+            'submissions' => $submissions
         ]);
     }
     public function deleteSubmission($id)
