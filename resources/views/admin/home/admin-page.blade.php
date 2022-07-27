@@ -31,10 +31,15 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                    <a class="nav-link  active" data-widget="control-sidebar" data-slide="true" href="#"
+                        role="button">
                         <img src="{{ asset('dist/img/image/icon-logo.jpg') }}" class="img-circle mr-1"
                             style="width: 30px" alt="">
+<<<<<<< HEAD
                         Admin 
+=======
+                        <b>Admin</b>
+>>>>>>> origin
                     </a>
                 </li>
             </ul>
@@ -55,7 +60,7 @@
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="{{ route('admin/home') }}#" class="d-block">Admin</a>
+                        <a href="{{ route('admin/home') }}#" class="d-block fs-2">Admin</a>
                     </div>
                 </div>
 
@@ -108,7 +113,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Admin</h1>
+                            <h1 class="">Admin <b></b></h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
 
