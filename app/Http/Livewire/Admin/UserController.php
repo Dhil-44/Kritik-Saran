@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class UserController extends Component
 {
-    public $name_user, $email, $role = "user", $logo = null, $password;
+    public $id_user, $name_user, $email, $role = "user", $logo = null, $password;
     public function render()
     {
 
@@ -19,7 +19,37 @@ class UserController extends Component
             'roles' => ['user', 'departmen']
         ]);
     }
+    function editUser($user)
+    {
+        $this->id_user = $user['id'];
+        $this->name_user = $user['name'];
+        $this->email = $user['email'];
+        $this->role = $user['role'];
+        $this->logo = $user['logo'];
+    }
+    public function updateUser()
+    {
+        try {
 
+            $this->validate([
+                'name_user' => 'required',
+                'email' => 'required',
+                'role' => 'required',
+                // 'logo' => 'required'
+            ]);
+            User::findOrFail($this->id_user)->update([
+                'name' => $this->name_user,
+                'email' => $this->email,
+                'role' => $this->role,
+                'logo' => $this->logo or null,
+            ]);
+            // dd($this->role);
+            $this->clearColumn();
+            return $this->dispatchBrowserEvent('closeEditModal');
+        } catch (\Exception $e) {
+            return "error";
+        }
+    }
     public function createNewUser()
     {
         $this->validate([

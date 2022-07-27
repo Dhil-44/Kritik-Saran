@@ -59,7 +59,6 @@
 
                 </div>
                 <div class="modal-footer">
-                    {{-- <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button> --}}
                     <button type="submit" data-bs-dismiss="modal" class="btn btn-green">Submit</button>
                 </div>
 

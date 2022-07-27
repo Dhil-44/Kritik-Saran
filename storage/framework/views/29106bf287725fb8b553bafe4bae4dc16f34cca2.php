@@ -29,8 +29,7 @@
                     </ul>
                     <div class="card-body">
                         <div class="tab-content">
-                            <div class="tab-pane active" id="tabs-home-10" role="tabpanel" style="margin-bottom:50%;">
-                                
+                            <div class="tab-pane active" id="tabs-home-10" role="tabpanel">
                                 <div class="row ">
                                     <div class="col col-md-12">
                                         <?php $__currentLoopData = $testimony; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tty): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -88,12 +87,10 @@
                                                 </div>
                                             </div>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
                                     </div>
-
                                 </div>
-
                             </div>
-
                             <div class="tab-pane " id="tabs-profile-10" role="tabpanel" style="">
                                 <div class="card" style="margin-bottom:50%;">
                                     <div class="card-body shadow-lg">
@@ -126,8 +123,6 @@
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-end">
                                                         <a class="dropdown-item" href="#">Edit message</a>
-                                                        
-                                                        
                                                     </div>
                                                 </div>
 
@@ -139,7 +134,6 @@
                                                     placeat quia repellat. Labore quam mollitia repudiandae id?</p>
                                             </div>
                                             <d class="col-md-6 col-sm-8">
-                                                
                                                 <input type="file" class="form-control">
                                         </div>
                                     </div>

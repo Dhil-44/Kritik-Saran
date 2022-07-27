@@ -75,7 +75,6 @@ unset($__errorArgs, $__bag); ?>
 
                 </div>
                 <div class="modal-footer">
-                    
                     <button type="submit" data-bs-dismiss="modal" class="btn btn-green">Submit</button>
                 </div>
 

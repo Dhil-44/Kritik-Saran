@@ -29,8 +29,7 @@
                     </ul>
                     <div class="card-body">
                         <div class="tab-content">
-                            <div class="tab-pane active" id="tabs-home-10" role="tabpanel" style="margin-bottom:50%;">
-                                {{-- testimony --}}
+                            <div class="tab-pane active" id="tabs-home-10" role="tabpanel">
                                 <div class="row ">
                                     <div class="col col-md-12">
                                         @foreach ($testimony as $tty)
@@ -86,12 +85,10 @@
                                                 </div>
                                             </div>
                                         @endforeach
+
                                     </div>
-
                                 </div>
-
                             </div>
-
                             <div class="tab-pane " id="tabs-profile-10" role="tabpanel" style="">
                                 <div class="card" style="margin-bottom:50%;">
                                     <div class="card-body shadow-lg">
@@ -124,8 +121,6 @@
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-end">
                                                         <a class="dropdown-item" href="#">Edit message</a>
-                                                        {{-- <a class="dropdown-item" href="#">Change permissions</a> --}}
-                                                        {{-- <a class="dropdown-item text-danger" href="#">Delete user</a> --}}
                                                     </div>
                                                 </div>
 
@@ -137,7 +132,6 @@
                                                     placeat quia repellat. Labore quam mollitia repudiandae id?</p>
                                             </div>
                                             <d class="col-md-6 col-sm-8">
-                                                {{-- <div class="form-label">File upload</div> --}}
                                                 <input type="file" class="form-control">
                                         </div>
                                     </div>

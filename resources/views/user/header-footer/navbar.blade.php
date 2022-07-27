@@ -48,7 +48,6 @@
                                 <h4 class="mt-2">Sign out</h4>
                             </a>
                         </li>
-
                     </ul>
                 </div>
             </div>

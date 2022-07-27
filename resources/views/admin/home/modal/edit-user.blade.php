@@ -1,5 +1,5 @@
-<div class="modal fade createUser" wire:ignore.self tabindex="-1" id="modal-lg" style="display: none;" aria-hidden="true"
-    data-keyboard="false" data-backdrop="static">
+<div class="modal fade editUser" wire:ignore.self tabindex="-1" id="edit-modal-user" style="display: none;"
+    aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form wire:submit.prevent="createNewUser()">
+                <form wire:submit.prevent="updateUser()">
                     <div class="form-group">
                         <label for="">Nama User</label>
                         <input type="text" class="form-control" placeholder="Nama user" wire:model="name_user">
@@ -29,29 +29,32 @@
                     <div class="form-group">
                         <label for="roleUser">Role</label>
                         <select wire:modal="role" id="roleUser" class="form-control">
-                            <option>Role</option>
                             @foreach ($roles as $rl)
-                                <option value="{{ $rl }}">{{ __($rl) }}</option>
+                                {{-- <option value="{{ $role }}" class="selected">{{ $role }}</option> --}}
+                                @if (!$rl == $role)
+                                    <option value="{{ $rl }}" class="">{{ $rl }}</option>
+                                @endif
                             @endforeach
 
                         </select>
-                        <span class="text-danger"> @error('role')
+                        <span class="text-danger">
+                            @error('role')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div>
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="">Password</label>
                         <input type="text" class="form-control" placeholder="Password" wire:model="password">
                         <span class="text-danger"> @error('password')
                                 {{ $message }}
                             @enderror
                         </span>
-                    </div>
-
+                    </div> --}}
                     <div class="form-group modal-footer justify-content-end">
                         <button type="submit" class="btn btn-success btn">Save</button>
+
                     </div>
                 </form>
             </div>
@@ -60,3 +63,10 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+@push('scripts')
+    <script>
+        window.addEventListener('closeEditModal', () => {
+            $('.editUser').modal('hide');
+        })
+    </script>
+@endpush
