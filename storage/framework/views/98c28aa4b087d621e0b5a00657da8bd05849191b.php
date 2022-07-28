@@ -60,8 +60,8 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="form-group mb-3 row">
                         <label class="form-label col-3 col-form-label">Message</label>
-                        <div class="col">
-                            <textarea wire:model="message" id="summernote" rows="5" class="form-control"></textarea>
+                        <div class="col" wire:ignore>
+                            <textarea wire:model="message" id="summernote" rows="4" class="form-control"></textarea>
                         </div>
                     </div>
 
@@ -82,5 +82,6 @@ unset($__errorArgs, $__bag); ?>
         </div>
     </div>
 </div>
-
+<?php $__env->startPush('scripts'); ?>
+<?php $__env->stopPush(); ?>
 <?php /**PATH C:\xampp\htdocs\Kritik-Saran\resources\views/user/home/modal/create-submission-form.blade.php ENDPATH**/ ?>

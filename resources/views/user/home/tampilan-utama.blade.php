@@ -20,7 +20,6 @@
 <body>
     {{-- @include('header-footer.navbar') --}}
     @yield('content')
-    {{-- <script src="{{ asset('dist/libs/tycy/tynymce.js') }}" defer></script> --}}
     <script src="{{ asset('dist/js/jquery.js') }}"></script>
     <script src="{{ asset('dist/js/tabler.js') }}"></script>
     <script src="{{ asset('dist/js/tabler.min.js') }}"></script>

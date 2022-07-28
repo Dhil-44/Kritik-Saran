@@ -44,8 +44,8 @@
                     </div>
                     <div class="form-group mb-3 row">
                         <label class="form-label col-3 col-form-label">Message</label>
-                        <div class="col">
-                            <textarea wire:model="message" id="summernote" rows="5" class="form-control"></textarea>
+                        <div class="col" wire:ignore>
+                            <textarea wire:model="message" id="summernote" rows="4" class="form-control"></textarea>
                         </div>
                     </div>
 
@@ -66,26 +66,5 @@
         </div>
     </div>
 </div>
-{{-- @push('name')
-    <script>
-        $('textarea#summernote').summernote({
-            placeholder: 'Hello bootstrap 4',
-            tabsize: 2,
-            height: 100,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'italic', 'underline', 'clear']],
-                // ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
-                //['fontname', ['fontname']],
-                // ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'hr']],
-                //['view', ['fullscreen', 'codeview']],
-                ['help', ['help']]
-            ],
-        });
-    </script>
-@endpush --}}
+@push('scripts')
+@endpush
