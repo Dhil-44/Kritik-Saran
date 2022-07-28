@@ -68,7 +68,7 @@
                         </tbody>
                     @empty
                         <tbody>
-                            <h3 class="text-danger text-center">Data Not Found!</h3>
+                            <h3 class="text-danger text-center">No Data Found!</h3>
                         </tbody>
                         @endforelse
 

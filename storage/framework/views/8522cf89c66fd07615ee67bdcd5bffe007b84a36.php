@@ -21,7 +21,6 @@
 <body>
     
     <?php echo $__env->yieldContent('content'); ?>
-    
     <script src="<?php echo e(asset('dist/js/jquery.js')); ?>"></script>
     <script src="<?php echo e(asset('dist/js/tabler.js')); ?>"></script>
     <script src="<?php echo e(asset('dist/js/tabler.min.js')); ?>"></script>
