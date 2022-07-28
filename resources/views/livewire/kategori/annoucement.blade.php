@@ -2,7 +2,7 @@
     <div class="card-body">
         <div class="space-y-4">
             <div>
-                <h2 class="mb-3">Suggestions</h2>
+                <h2 class="mb-3">Annoucements</h2>
                 @foreach ($annoucements as $annoucement)
                     <div class="card mb-3 mt-2 shadow-md">
                         <div class="card-header">
