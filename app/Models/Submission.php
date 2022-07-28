@@ -16,6 +16,20 @@ class Submission extends Model
         'created_at',
     ];
 
+    static function category(int $category)
+    {
+        $data = null;
+        if ($category == 1) {
+            $data = Submission::whereRaw("id_user_target =" . auth('web')->id() . " AND ID_CAT = $category")->latest()->get();
+        } else if ($category == 2) {
+            $data = Submission::whereRaw("id_user_target =" . auth('web')->id() . " AND ID_CAT = $category")->latest()->get();
+        } else if ($category == 3) {
+            $data = Submission::whereRaw("id_user_target =" . auth('web')->id() . " AND ID_CAT = $category")->latest()->get();
+        }
+
+        return $data;
+    }
+
     function getUser()
     {
         return $this->belongsTo(User::class, 'id_user_pengirim', 'id');
@@ -45,6 +59,7 @@ class Submission extends Model
     }
     public function setUpdatedAtAttribute($value)
     {
+        \Carbon\Carbon::parse($value)->format('d,M Y H:i');
     }
     // harus ada di magic property appends
     public function getUpdatedAtAttribute()

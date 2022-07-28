@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-white bg-light  shadow-sm sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light   shadow-sm sticky-top">
     <div class="container-lg">
         <div class="row">
             <div class="col-lg-6 d-md-flex d-sm-flex col-sm-112 flex-sm-row">

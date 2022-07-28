@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title', 'Kalbis | Critics and Suggestions'); ?>
 <?php $__env->startSection('content'); ?>
     <div class="wrapper ">
@@ -74,25 +73,15 @@
         <?php echo $__env->make('user.header-footer.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <header class="navbar navbar-light mt-4 d-none d-lg-flex d-print-none">
             <div class="container-xl">
-                <h2>Welcome, <strong>Kalbis Career and Alumni Center</strong> </h2>
+                <h2 class="text-dark">Welcome, <strong><?php echo e(Auth::user()->name); ?></strong> </h2>
             </div>
         </header>
 
         <div class="page-wrapper">
             <div class="container-xl">
-                <!-- Page title -->
-                <div class="page-header d-print-none">
-                    <div class="col-12 bg-info">
+                <div class="page-header">
+                    <div class="col-md-10">
                         <?php echo $__env->yieldContent('kategory'); ?>
-                    </div>
-                </div>
-            </div>
-            <div class="page-body">
-                <div class="container-xl">
-                    <div class="row row-deck row-cards">
-                        <div class="col-sm-6 col-lg-3">
-                        </div>
-
                     </div>
                 </div>
             </div>
