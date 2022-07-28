@@ -34,7 +34,6 @@
                             </tr>
                         </thead>
                         <tbody>
-
                             <?php $__empty_1 = true; $__currentLoopData = $submissions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $submission): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                 <tr>
                                     <td><?php echo e($loop->iteration); ?></td>
@@ -70,7 +69,6 @@
                         </tbody>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <tbody>
-
                             <h3 class="text-danger text-center">Data Not Found!</h3>
                         </tbody>
                         <?php endif; ?>
