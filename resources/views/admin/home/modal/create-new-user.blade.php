@@ -28,10 +28,19 @@
                     </div>
                     <div class="form-group">
                         <label for="roleUser">Role</label>
+<<<<<<< HEAD
                         <select wire:model="role" id="roleUser" class="form-control">
                             <option>
                                 <h6 class="text-muted">--choose role--</h6>
                             </option>
+=======
+                        <select wire:modal="role" id="roleUser" class="form-control">
+<<<<<<< HEAD
+                            <option>Choose Role..</option>
+=======
+                            <option>Role</option>
+>>>>>>> fe494af6529a33117bc9c198f93b0c51d5558aae
+>>>>>>> d610f662e6f26a02780809719e5a617571a40f90
                             @foreach ($roles as $rl)
                                 <option value="{{ $rl }}">{{ __($rl) }}</option>
                             @endforeach
