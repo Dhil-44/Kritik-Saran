@@ -31,13 +31,8 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-<<<<<<< HEAD
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-
-=======
                     <a class="nav-link  active" data-widget="control-sidebar" data-slide="true" href="#"
                         role="button">
->>>>>>> fe494af6529a33117bc9c198f93b0c51d5558aae
                         <img src="{{ asset('dist/img/image/icon-logo.jpg') }}" class="img-circle mr-1"
                             style="width: 30px" alt="">
                         <b>Admin</b>
@@ -70,17 +65,6 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <li class="nav-item menu-open">
-<<<<<<< HEAD
-=======
-                            <a href="#" class="nav-link active">
-
-                                <i class="nav-icon fas fa-table"></i>
-                                <p>
-                                    Tables
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
->>>>>>> d610f662e6f26a02780809719e5a617571a40f90
                             <ul class="nav nav-treeview">
                                 <li class="nav-item ">
                                     <a href="{{ route('user-tables') }}#"
