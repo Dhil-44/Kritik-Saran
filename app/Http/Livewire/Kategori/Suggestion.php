@@ -11,7 +11,7 @@ class Suggestion extends Component
     {
 
         return view('livewire.kategori.suggestion', [
-            'suggestions' => Submission::category(2),
+            'suggestions' => Submission::category(2, "id_user_target"),
         ]);
     }
 }

@@ -3,15 +3,35 @@
 @section('content')
     <div class="wrapper ">
         <aside class="navbar navbar-vertical navbar-expand-lg navbar-dark">
-            <div class="container-fluid mt-3">
+            <div class="container-fluid  mt-3">
                 <div class="row">
-                    <div class="col">
-                        <img class="avatar-rounded" src="{{ asset('dist/img/image/logo-cac.jpg') }}" alt="cac">
+                    <div class="col offset-2 mb-2">
+                        <img class="rounded-circle" src="{{ asset('dist/img/image/gedungkalbis.png') }}"
+                            style="width:70%; height:125%;" alt="cac">
                     </div>
                 </div>
                 <div class="container-fluid">
                     <div class="navbar-collapse" id="navbar-menu">{{-- collapse --}}
                         <ul class="navbar-nav pt-lg-3">
+                            <li class="nav-item {{ request()->is('inbox') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('inbox.message') }}">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-location" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path
+                                                d="M21 3l-6.5 18a0.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a0.55 .55 0 0 1 0 -1l18 -6.5">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        Sent messages
+                                    </span>
+                                </a>
+                            </li>
                             <li class="nav-item {{ request()->is('critics') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('critics') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
