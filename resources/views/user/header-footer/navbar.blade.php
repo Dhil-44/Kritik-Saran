@@ -23,10 +23,11 @@
 
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->is('profile') ? 'active' : '' }}"
-                                href="{{ route('profile') }}">
-                                <h4 class="mt-2 position-relative">Profile
+                        <li class="nav-item status">
+                            {{-- <a class="nav-link {{ request()->is('profile') ? 'active' : '' }}" --}}
+                            <a class="nav-link {{ request()->is('inbox') ? 'active' : '' }}"
+                                href="{{ route('inbox.message') }}">
+                                <h4 class="mt-2 position-relative">Inbox
                                     <span
                                         class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                         9
