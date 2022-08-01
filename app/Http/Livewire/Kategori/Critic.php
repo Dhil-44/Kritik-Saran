@@ -11,7 +11,7 @@ class Critic extends Component
     {
 
         return view('livewire.kategori.critic', [
-            'critics' => Submission::category(1),
+            'critics' => Submission::category(1, "id_user_target"),
         ]);
     }
 }

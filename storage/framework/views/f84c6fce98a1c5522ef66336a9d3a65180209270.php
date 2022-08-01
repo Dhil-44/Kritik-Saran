@@ -2,10 +2,11 @@
 <?php $__env->startSection('content'); ?>
     <div class="wrapper ">
         <aside class="navbar navbar-vertical navbar-expand-lg navbar-dark">
-            <div class="container-fluid mt-3">
+            <div class="container-fluid  mt-3">
                 <div class="row">
-                    <div class="col">
-                        <img class="avatar-rounded" src="<?php echo e(asset('dist/img/image/logo-cac.jpg')); ?>" alt="cac">
+                    <div class="col offset-2 mb-2">
+                        <img class="rounded-circle" src="<?php echo e(asset('dist/img/image/gedungkalbis.png')); ?>"
+                            style="width:70%; height:125%;" alt="cac">
                     </div>
                 </div>
                 <div class="container-fluid">

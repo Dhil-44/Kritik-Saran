@@ -28,11 +28,7 @@
                             <a class="nav-link {{ request()->is('inbox') ? 'active' : '' }}"
                                 href="{{ route('inbox.message') }}">
                                 <h4 class="mt-2 position-relative">Inbox
-                                    <span
-                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                        9
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
+                                    <span class="badge badge-pill bg-red position-relative mb-2"></span>
                                 </h4>
                             </a>
                         </li>
