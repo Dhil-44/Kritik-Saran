@@ -5,7 +5,7 @@
     {{-- background-image: url({{ asset('dist/img/image/group-people.jpg') }}); --}}
     <div class="mask flex-center" style="background-size:cover; height:300px; background:rgb(33, 109, 50)">
         <div class="container">
-            <div class="white-text text-center py-4" style="visibility: visible; animation-name: fadeInUp;">
+            <div class="white-text text-center py-5" style="visibility: visible; animation-name: fadeInUp;">
                 <img src="http://cac.kalbis.ac.id/frontend/img/logos/logo kalbis putih.png" alt="thumbnail"
                     class="mx-auto d-block" style="width: 100px">
                 {{-- <img src="{{ asset('dist/img/image/group-people.jpg') }}" alt="thumbnail" class="mx-auto d-block" --}}

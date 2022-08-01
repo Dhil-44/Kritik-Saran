@@ -5,7 +5,7 @@
     
     <div class="mask flex-center" style="background-size:cover; height:300px; background:rgb(33, 109, 50)">
         <div class="container">
-            <div class="white-text text-center py-4" style="visibility: visible; animation-name: fadeInUp;">
+            <div class="white-text text-center py-5" style="visibility: visible; animation-name: fadeInUp;">
                 <img src="http://cac.kalbis.ac.id/frontend/img/logos/logo kalbis putih.png" alt="thumbnail"
                     class="mx-auto d-block" style="width: 100px">
                 
@@ -21,6 +21,7 @@
     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('home.home-page')->html();
+<<<<<<< HEAD
 } elseif ($_instance->childHasBeenRendered('vgOa7yo')) {
     $componentId = $_instance->getRenderedChildComponentId('vgOa7yo');
     $componentTag = $_instance->getRenderedChildComponentTagName('vgOa7yo');
@@ -30,6 +31,17 @@ if (! isset($_instance)) {
     $response = \Livewire\Livewire::mount('home.home-page');
     $html = $response->html();
     $_instance->logRenderedChild('vgOa7yo', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+=======
+} elseif ($_instance->childHasBeenRendered('P4QIBsR')) {
+    $componentId = $_instance->getRenderedChildComponentId('P4QIBsR');
+    $componentTag = $_instance->getRenderedChildComponentTagName('P4QIBsR');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('P4QIBsR');
+} else {
+    $response = \Livewire\Livewire::mount('home.home-page');
+    $html = $response->html();
+    $_instance->logRenderedChild('P4QIBsR', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+>>>>>>> 5794835d898ecfd75e853a3ffc2a5da45c03e84b
 }
 echo $html;
 ?>

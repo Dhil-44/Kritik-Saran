@@ -15,7 +15,8 @@ Route::middleware(['guest:web'])->group(function () {
 
 Route::middleware(['auth:web'])->group(function () {
     Route::view('home-page', 'user.home.content-home')->name('home-page');
-    Route::view('profile', 'user.home.profile')->name('profile');
+    // Route::view('profile', 'user.home.profile')->name('profile');
+    Route::view('inbox', 'user.home.kategori.sending-message')->name('inbox.message');
     Route::view('critics', 'user.home.kategori.critics')->name('critics');
     Route::view('suggestions', 'user.home.kategori.suggestion')->name('suggestions');
     Route::view('announcements', 'user.home.kategori.annoucements')->name('announcements');
