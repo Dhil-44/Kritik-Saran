@@ -5,7 +5,7 @@
     
     <div class="mask flex-center" style="background-size:cover; height:300px; background:rgb(33, 109, 50)">
         <div class="container">
-            <div class="white-text text-center py-4" style="visibility: visible; animation-name: fadeInUp;">
+            <div class="white-text text-center py-5" style="visibility: visible; animation-name: fadeInUp;">
                 <img src="http://cac.kalbis.ac.id/frontend/img/logos/logo kalbis putih.png" alt="thumbnail"
                     class="mx-auto d-block" style="width: 100px">
                 
@@ -21,15 +21,15 @@
     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('home.home-page')->html();
-} elseif ($_instance->childHasBeenRendered('OdIxeCl')) {
-    $componentId = $_instance->getRenderedChildComponentId('OdIxeCl');
-    $componentTag = $_instance->getRenderedChildComponentTagName('OdIxeCl');
+} elseif ($_instance->childHasBeenRendered('CPmOcGb')) {
+    $componentId = $_instance->getRenderedChildComponentId('CPmOcGb');
+    $componentTag = $_instance->getRenderedChildComponentTagName('CPmOcGb');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('OdIxeCl');
+    $_instance->preserveRenderedChild('CPmOcGb');
 } else {
     $response = \Livewire\Livewire::mount('home.home-page');
     $html = $response->html();
-    $_instance->logRenderedChild('OdIxeCl', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('CPmOcGb', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

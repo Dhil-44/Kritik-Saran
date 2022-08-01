@@ -23,15 +23,12 @@
 
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link <?php echo e(request()->is('profile') ? 'active' : ''); ?>"
-                                href="<?php echo e(route('profile')); ?>">
-                                <h4 class="mt-2 position-relative">Profile
-                                    <span
-                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                        9
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
+                        <li class="nav-item status">
+                            
+                            <a class="nav-link <?php echo e(request()->is('inbox') ? 'active' : ''); ?>"
+                                href="<?php echo e(route('inbox.message')); ?>">
+                                <h4 class="mt-2 position-relative">Inbox
+                                    <span class="badge badge-pill bg-red position-relative mb-2"></span>
                                 </h4>
                             </a>
                         </li>
