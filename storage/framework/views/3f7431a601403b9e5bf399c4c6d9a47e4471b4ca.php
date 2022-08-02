@@ -17,18 +17,19 @@
     </div>
 
     
+
     <?php
 if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('home.home-page')->html();
-} elseif ($_instance->childHasBeenRendered('P4QIBsR')) {
-    $componentId = $_instance->getRenderedChildComponentId('P4QIBsR');
-    $componentTag = $_instance->getRenderedChildComponentTagName('P4QIBsR');
+    $html = \Livewire\Livewire::mount('home.home-feed-message')->html();
+} elseif ($_instance->childHasBeenRendered('i621iof')) {
+    $componentId = $_instance->getRenderedChildComponentId('i621iof');
+    $componentTag = $_instance->getRenderedChildComponentTagName('i621iof');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('P4QIBsR');
+    $_instance->preserveRenderedChild('i621iof');
 } else {
-    $response = \Livewire\Livewire::mount('home.home-page');
+    $response = \Livewire\Livewire::mount('home.home-feed-message');
     $html = $response->html();
-    $_instance->logRenderedChild('P4QIBsR', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('i621iof', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
