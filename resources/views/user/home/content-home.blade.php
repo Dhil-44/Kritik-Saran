@@ -18,7 +18,8 @@
     </div>
 
     {{-- </section> --}}
-    @livewire('home.home-page')
+{{--    @livewire('home.home-page')--}}
+    @livewire('home.home-feed-message')
     @include('user.header-footer.footer')
 
 @endsection

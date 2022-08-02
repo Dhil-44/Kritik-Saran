@@ -1,37 +1,39 @@
 <?php $__env->startSection('title', 'Kalbis | Critics and Suggestions'); ?>
 <?php $__env->startSection('content'); ?>
-<?php echo $__env->make('user.header-footer.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
-<div class="mask flex-center" style="background-size:cover; height:300px; background:rgb(33, 109, 50)">
-    <div class="container">
-        <div class="white-text text-center py-5" style="visibility: visible; animation-name: fadeInUp;">
-            <img src="http://cac.kalbis.ac.id/frontend/img/logos/logo kalbis putih.png" alt="thumbnail" class="mx-auto d-block" style="width: 100px">
-
-
-            <h1 class="text-center font-weight-bold">
-                <strong>Kalbis Critics and Suggestions</strong>
-            </h1>
+    <?php echo $__env->make('user.header-footer.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    
+    <div class="mask flex-center" style="background-size:cover; height:300px; background:rgb(33, 109, 50)">
+        <div class="container">
+            <div class="white-text text-center py-5" style="visibility: visible; animation-name: fadeInUp;">
+                <img src="http://cac.kalbis.ac.id/frontend/img/logos/logo kalbis putih.png" alt="thumbnail"
+                    class="mx-auto d-block" style="width: 100px">
+                
+                
+                <h1 class="text-center font-weight-bold">
+                    <strong>Kalbis Critics and Suggestions</strong>
+                </h1>
+            </div>
         </div>
     </div>
-</div>
 
+    
 
-<?php
-if (!isset($_instance)) {
-    $html = \Livewire\Livewire::mount('home.home-page')->html();
-} elseif ($_instance->childHasBeenRendered('P4QIBsR')) {
-    $componentId = $_instance->getRenderedChildComponentId('P4QIBsR');
-    $componentTag = $_instance->getRenderedChildComponentTagName('P4QIBsR');
+    <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('home.home-feed-message')->html();
+} elseif ($_instance->childHasBeenRendered('i621iof')) {
+    $componentId = $_instance->getRenderedChildComponentId('i621iof');
+    $componentTag = $_instance->getRenderedChildComponentTagName('i621iof');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('P4QIBsR');
+    $_instance->preserveRenderedChild('i621iof');
 } else {
-    $response = \Livewire\Livewire::mount('home.home-page');
+    $response = \Livewire\Livewire::mount('home.home-feed-message');
     $html = $response->html();
-    $_instance->logRenderedChild('P4QIBsR', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('i621iof', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
-<?php echo $__env->make('user.header-footer.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('user.header-footer.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <?php $__env->stopSection(); ?>
 
