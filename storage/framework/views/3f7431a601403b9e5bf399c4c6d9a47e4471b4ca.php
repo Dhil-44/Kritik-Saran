@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('title', 'Kalbis | Critics and Suggestions'); ?>
 <?php $__env->startSection('content'); ?>
     <?php echo $__env->make('user.header-footer.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -21,15 +22,15 @@
     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('home.home-feed-message')->html();
-} elseif ($_instance->childHasBeenRendered('i621iof')) {
-    $componentId = $_instance->getRenderedChildComponentId('i621iof');
-    $componentTag = $_instance->getRenderedChildComponentTagName('i621iof');
+} elseif ($_instance->childHasBeenRendered('gKWP2Hu')) {
+    $componentId = $_instance->getRenderedChildComponentId('gKWP2Hu');
+    $componentTag = $_instance->getRenderedChildComponentTagName('gKWP2Hu');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('i621iof');
+    $_instance->preserveRenderedChild('gKWP2Hu');
 } else {
     $response = \Livewire\Livewire::mount('home.home-feed-message');
     $html = $response->html();
-    $_instance->logRenderedChild('i621iof', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('gKWP2Hu', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

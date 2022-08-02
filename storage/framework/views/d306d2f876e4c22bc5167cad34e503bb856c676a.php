@@ -14,12 +14,10 @@
                                                 <?php for($i  = 5; $i <= 30; $i+=5): ?>
                                                     <option value="<?php echo e($i); ?>"><?php echo e($i); ?></option>
                                                 <?php endfor; ?>
-                                            </select>
-                                        </div>
+                                            </select></div>
 
                                         <div class="col-2">
                                             <select name="" class="form-control form-control-sm" id="">
-                                              
                                                 <option value="lastet">latest</option>
                                                 <option value="oldest">oldest</option>
                                             </select>
