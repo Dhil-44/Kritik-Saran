@@ -18,6 +18,9 @@
                     <span class="text-white">
                         {{ Session::get('fail') }}
                     </span>
+                    <span class="text-red">
+                        {{Session::get('exception')}}
+                    </span>
                 </div>
             </div>
             <a class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="close"></a>
