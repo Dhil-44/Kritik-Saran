@@ -29,7 +29,6 @@
                                     <div class="d-flex">
                                         <div class="me-3 d-none d-md-block">
                                             <div class="input-icon">
-
                                                 <input type="text" wire:model="search" class="form-control"
                                                        placeholder="Search…">
                                                 <span class="input-icon-addon">
@@ -72,7 +71,7 @@
         </div>
         <div class="col-12 ">
             <?php $__currentLoopData = $feeds; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $feed): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <div class="card shadow-sm mt-2" style="border-radius: 20px">
+                <div class="card shadow-sm mt-2 hover-shadow-lg" style="border-radius: 20px">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-auto">
