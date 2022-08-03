@@ -19,6 +19,10 @@
                         <?php echo e(Session::get('fail')); ?>
 
                     </span>
+                    <span class="text-red">
+                        <?php echo e(Session::get('exception')); ?>
+
+                    </span>
                 </div>
             </div>
             <a class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="close"></a>
