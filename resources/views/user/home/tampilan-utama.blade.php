@@ -16,7 +16,6 @@
         }
     </style>
 </head>
-
 <body>
     {{-- @include('header-footer.navbar') --}}
     @yield('content')

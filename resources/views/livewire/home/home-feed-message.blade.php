@@ -1,8 +1,8 @@
 <div class="container-lg">
     {{-- Stop trying to control. --}}
     <div class="row">
-        <div class="col-12 mt-2">
-            <div class="example no_toc_section example-bg card px-1 py-2">
+        <div class="col-12 mt-2 ">
+            <div class="example no_toc_section example-bg card px-1 py-2 border-success">
                 <div class="example-content">
                     <div class="example-column example-column-2">
                         <div class="page-header">
@@ -75,7 +75,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-auto">
-                                <div class="skeleton-avatar"></div>
+                                <span class="avatar me-1 avatar-rounded"
+                                      style="background-image: url({{ asset('dist/img/image/logo-kal.jpg') }})"></span>
                             </div>
                             <div class="col" style="font-family:'Roboto Medium' ">
                                 <div class=""><h3><b>{{$feed->title}}</b></h3></div>
