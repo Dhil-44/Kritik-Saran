@@ -17,20 +17,18 @@
         </div>
     </div>
 
-    
-
     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('home.home-feed-message')->html();
-} elseif ($_instance->childHasBeenRendered('NJzaiWy')) {
-    $componentId = $_instance->getRenderedChildComponentId('NJzaiWy');
-    $componentTag = $_instance->getRenderedChildComponentTagName('NJzaiWy');
+} elseif ($_instance->childHasBeenRendered('iTZWL0s')) {
+    $componentId = $_instance->getRenderedChildComponentId('iTZWL0s');
+    $componentTag = $_instance->getRenderedChildComponentTagName('iTZWL0s');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('NJzaiWy');
+    $_instance->preserveRenderedChild('iTZWL0s');
 } else {
     $response = \Livewire\Livewire::mount('home.home-feed-message');
     $html = $response->html();
-    $_instance->logRenderedChild('NJzaiWy', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('iTZWL0s', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
