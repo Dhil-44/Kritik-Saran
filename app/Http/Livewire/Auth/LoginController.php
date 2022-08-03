@@ -14,19 +14,19 @@ class LoginController extends Component
 
     public function loginUser()
     {
-        try {
-            $this->validate([
-                'email' => 'required',
-                'password' => 'required'
-            ], [
-                'email.required' => 'The email field is required.',
-                'password.required' => 'The password field is required.',
+        $this->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ], [
+            'email.required' => 'The email field is required.',
+            'password.required' => 'The password field is required.',
 
-            ]);
-            $user = array(
-                'email' => $this->email,
-                'password' => $this->password,
-            );
+        ]);
+        $user = array(
+            'email' => $this->email,
+            'password' => $this->password,
+        );
+        try {
             if (Auth::guard('web')->attempt($user)) {
                 return redirect()->route('home-page');
             } else {
@@ -34,7 +34,7 @@ class LoginController extends Component
                     ->with('fail', 'These credentials do not match our records.');
             }
         } catch (\Exception $e) {
-            return session()->flash('exception','There are something went wrong!');
+            return session()->flash('exception', 'There are something went wrong!');
         }
     }
 
