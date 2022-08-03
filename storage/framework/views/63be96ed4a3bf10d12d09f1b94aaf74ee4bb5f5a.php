@@ -6,18 +6,18 @@
                     <ul class="nav nav-tabs nav-tabs-alt" data-bs-toggle="tabs" role="tablist">
                         <li class="nav-item col-md-5" role="presentation">
                             <a href="#tabs-home-10" class="nav-link active" data-bs-toggle="tab" aria-selected="false"
-                               role="tab" tabindex="-1">Testimony</a>
+                                role="tab" tabindex="-1">Testimony</a>
                         </li>
                         <li class="nav-item col-md-5" role="presentation">
                             <a href="#tabs-profile-10" class="nav-link " data-bs-toggle="tab" aria-selected="true"
-                               role="tab">Critics and Advices</a>
+                                role="tab">Critics and Advices</a>
                         </li>
                         <li class="nav-item col-auto ms-auto" role="presentation">
                             <a href="#" class="btn btn-success d-none d-sm-inline-block" data-bs-toggle="modal"
-                               data-bs-target="#modal-large" style="background: #2e7d32;">
+                                data-bs-target="#modal-large" style="background: #2e7d32;">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil-plus"
-                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                     stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <path d="M8 20l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4h4z"></path>
                                     <path d="M13.5 6.5l4 4"></path>
@@ -32,19 +32,21 @@
                             <div class="tab-pane active" id="tabs-home-10" role="tabpanel">
                                 <div class="row ">
                                     <div class="col col-md-12">
-                                        @foreach ($testimony as $tty)
+                                        <?php $__currentLoopData = $testimony; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tty): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <div class="card mb-3 mt-2">
                                                 <div class="card-header">
                                                     <div>
                                                         <div class="row align-items-center">
                                                             <div class="col-auto">
                                                                 <span class="avatar me-2 avatar-rounded"
-                                                                      style="background-image: url({{ asset('dist/img/image/logo-ao.jpg') }})"></span>
+                                                                    style="background-image: url(<?php echo e(asset('dist/img/image/logo-ao.jpg')); ?>)"></span>
                                                             </div>
                                                             <div class="col">
-                                                                <div class="card-title">{{ $tty->getUser->name }}
+                                                                <div class="card-title"><?php echo e($tty->getUser->name); ?>
+
                                                                 </div>
-                                                                <div class="card-subtitle">{{ $tty->created_at }}
+                                                                <div class="card-subtitle"><?php echo e($tty->created_at); ?>
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -52,24 +54,24 @@
                                                     <div class="card-actions">
                                                         <div class="dropdown">
                                                             <a href="#" class="btn-action dropdown-toggle"
-                                                               data-bs-toggle="dropdown" aria-haspopup="true"
-                                                               aria-expanded="false">
+                                                                data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon"
-                                                                     width="24" height="24" viewBox="0 0 24 24"
-                                                                     stroke-width="2" stroke="currentColor"
-                                                                     fill="none" stroke-linecap="round"
-                                                                     stroke-linejoin="round">
+                                                                    width="24" height="24" viewBox="0 0 24 24"
+                                                                    stroke-width="2" stroke="currentColor"
+                                                                    fill="none" stroke-linecap="round"
+                                                                    stroke-linejoin="round">
                                                                     <path stroke="none" d="M0 0h24v24H0z"
-                                                                          fill="none">
+                                                                        fill="none">
                                                                     </path>
                                                                     <circle cx="12" cy="12"
-                                                                            r="1">
+                                                                        r="1">
                                                                     </circle>
                                                                     <circle cx="12" cy="19"
-                                                                            r="1">
+                                                                        r="1">
                                                                     </circle>
                                                                     <circle cx="12" cy="5"
-                                                                            r="1">
+                                                                        r="1">
                                                                     </circle>
                                                                 </svg>
                                                             </a>
@@ -81,10 +83,10 @@
                                                     </div>
                                                 </div>
                                                 <div class=" p-2">
-                                                    <p align="justify">{{ $tty->message }}</p>
+                                                    <p align="justify"><?php echo e($tty->message); ?></p>
                                                 </div>
                                             </div>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 <<<<<<< HEAD
                                     
@@ -109,12 +111,12 @@
                                             <div class="card-actions col-auto">
                                                 <div class="dropdown">
                                                     <a href="#" class="btn-action dropdown-toggle"
-                                                       data-bs-toggle="dropdown" aria-haspopup="true"
-                                                       aria-expanded="false">
+                                                        data-bs-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false">
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon"
-                                                             width="24" height="24" viewBox="0 0 24 24"
-                                                             stroke-width="2" stroke="currentColor" fill="none"
-                                                             stroke-linecap="round" stroke-linejoin="round">
+                                                            width="24" height="24" viewBox="0 0 24 24"
+                                                            stroke-width="2" stroke="currentColor" fill="none"
+                                                            stroke-linecap="round" stroke-linejoin="round">
                                                             <path stroke="none" d="M0 0h24v24H0z" fill="none">
                                                             </path>
                                                             <circle cx="12" cy="12" r="1">
@@ -137,7 +139,7 @@
                                                     incidunt non
                                                     placeat quia repellat. Labore quam mollitia repudiandae id?</p>
                                             </div>
-                                            <div class="col-md-6 col-sm-8">
+                                            <d class="col-md-6 col-sm-8">
                                                 <input type="file" class="form-control">
                                         </div>
                                     </div>
@@ -149,13 +151,14 @@
                 </div>
             </div>
         </div>
-        @include('user.home.modal.create-submission-form')
+        <?php echo $__env->make('user.home.modal.create-submission-form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
 </div>
-@push('scripts')
+<?php $__env->startPush('scripts'); ?>
     <script>
-        window.addEventListener('hide_modal_create_sub', function (e) {
+        window.addEventListener('hide_modal_create_sub', function(e) {
             $('.create_submission').modal('hide');
         })
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+<?php /**PATH C:\Users\User\Kritik-Saran\resources\views/livewire/home/home-page.blade.php ENDPATH**/ ?>

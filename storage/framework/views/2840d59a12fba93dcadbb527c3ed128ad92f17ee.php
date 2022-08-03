@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ asset('dist/img/image/icon-logo.jpg') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo e(asset('dist/img/image/icon-logo.jpg')); ?>" type="image/x-icon" />
     <title>Admin</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="admin/dist/css/adminlte.min.css">
 
-    @livewireStyles
+    <?php echo \Livewire\Livewire::styles(); ?>
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -33,7 +34,7 @@
                 <li class="nav-item">
                     <a class="nav-link  active" data-widget="control-sidebar" data-slide="true" href="#"
                         role="button">
-                        <img src="{{ asset('dist/img/image/icon-logo.jpg') }}" class="img-circle mr-1"
+                        <img src="<?php echo e(asset('dist/img/image/icon-logo.jpg')); ?>" class="img-circle mr-1"
                             style="width: 30px" alt="">
                         <b>Admin</b>
                     </a>
@@ -43,7 +44,7 @@
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <a href="{{ route('home-page') }}" class="brand-link bg-success">
+            <a href="<?php echo e(route('home-page')); ?>" class="brand-link bg-success">
                 <img src="http://cac.kalbis.ac.id/frontend/img/logos/kalbis_footer.png" class="img-fluid"
                     style="width:55%; margin-left:10%;" alt="" loading="lazy">
             </a>
@@ -52,11 +53,11 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{ asset('dist/img/image/icon-logo.jpg') }}" class="img-circle elevation-2"
+                        <img src="<?php echo e(asset('dist/img/image/icon-logo.jpg')); ?>" class="img-circle elevation-2"
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="{{ route('admin/home') }}#" class="d-block fs-2">Admin</a>
+                        <a href="<?php echo e(route('admin/home')); ?>#" class="d-block fs-2">Admin</a>
                     </div>
                 </div>
 
@@ -67,15 +68,15 @@
                         <li class="nav-item menu-open">
                             <ul class="nav nav-treeview">
                                 <li class="nav-item ">
-                                    <a href="{{ route('user-tables') }}#"
-                                        class="nav-link {{ request()->is('user-tables') ? 'active' : '' }}">
+                                    <a href="<?php echo e(route('user-tables')); ?>#"
+                                        class="nav-link <?php echo e(request()->is('user-tables') ? 'active' : ''); ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Users</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('submission-tables') }}#"
-                                        class="nav-link {{ request()->is('submission-tables') ? 'active' : '' }}">
+                                    <a href="<?php echo e(route('submission-tables')); ?>#"
+                                        class="nav-link <?php echo e(request()->is('submission-tables') ? 'active' : ''); ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Submission</p>
                                     </a>
@@ -109,7 +110,7 @@
                 <div class="container-fluid">
                     <!-- /.row -->
 
-                    @yield('content')
+                    <?php echo $__env->yieldContent('content'); ?>
                 </div>
                 <!-- /.container-fluid -->
             </div>
@@ -132,8 +133,10 @@
     <!-- AdminLTE -->
     <script src="admin/dist/js/adminlte.js"></script>
     <script src="admin/dist/js/pages/dashboard3.js"></script>
-    @stack('scripts')
-    @livewireScripts
+    <?php echo $__env->yieldPushContent('scripts'); ?>
+    <?php echo \Livewire\Livewire::scripts(); ?>
+
 </body>
 
 </html>
+<?php /**PATH C:\Users\User\Kritik-Saran\resources\views/admin/home/admin-page.blade.php ENDPATH**/ ?>
