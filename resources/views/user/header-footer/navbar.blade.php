@@ -15,7 +15,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto fs-3">
                         <li class="nav-item ">
-                            <a class="nav-link {{ request()->is('home-page') ? 'active' : '' }}" aria-current="page"
+                            <a class="nav-link {{ request()->is('home-page') ? 'active bg-dark text-white py-0 ' : '' }}" aria-current="page"
                                 href="{{ route('home-page') }}">
                                 <h4 class="mt-2">
                                     Home
@@ -23,18 +23,20 @@
 
                             </a>
                         </li>
+                        @if(Auth::user()->role != 'admin')
                         <li class="nav-item status">
                             {{-- <a class="nav-link {{ request()->is('profile') ? 'active' : '' }}" --}}
-                            <a class="nav-link {{ request()->is('inbox') ? 'active' : '' }}"
+                            <a class="nav-link {{ request()->is('inbox') ? 'active bg-dark text-white py-0' : '' }}"
                                 href="{{ route('inbox.message') }}">
                                 <h4 class="mt-2 position-relative">Inbox
                                     <span class="badge badge-pill bg-red position-relative mb-2"></span>
                                 </h4>
                             </a>
                         </li>
+                        @endif
                         @if (Auth::user()->role == 'admin')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin/home') }}#">
+                                <a class="nav-link text-dark shadow-lg border-success py-0 ms-1" href="{{ route('admin/home') }}#">
                                     <h4 class="mt-2">Backend
                                     </h4>
                                 </a>

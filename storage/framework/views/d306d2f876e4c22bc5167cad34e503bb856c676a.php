@@ -2,7 +2,7 @@
     
     <div class="row">
         <div class="col-12 mt-2 ">
-            <div class="example no_toc_section example-bg card px-1 py-2 border-success">
+            <div class="example no_toc_section example-bg card px-1 py-2">
                 <div class="example-content">
                     <div class="example-column example-column-2">
                         <div class="page-header">
@@ -75,14 +75,14 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-auto">
-                                <span class="avatar me-1 avatar-rounded"
+                                <span class="avatar me-1 avatar-rounded avatar-md"
                                       style="background-image: url(<?php echo e(asset('dist/img/image/logo-kal.jpg')); ?>)"></span>
                             </div>
                             <div class="col" style="font-family:'Roboto Medium' ">
                                 <div class=""><h3><b><?php echo e($feed->title); ?></b></h3></div>
-                                <div class=""><?php echo e($feed->created_at); ?></div>
+                                <div class="fs-5 mb-2 -mt-1" style="margin-top: -9px;"><?php echo e($feed->created_at); ?></div>
                                 <div class="text">
-                                    <p>
+                                    <p align="justify" class="" style="margin-right: 7px;">
                                         <?php echo e($feed->body); ?>
 
                                     </p>

@@ -13,7 +13,7 @@
                 <div class="container-fluid">
                     <div class="navbar-collapse" id="navbar-menu">
                         <ul class="navbar-nav pt-lg-3">
-                            <li class="nav-item {{ request()->is('inbox') ? 'active' : '' }}">
+                            <li class="nav-item {{ request()->is('inbox') ? 'active bg-dark rounded-pill' : '' }}">
                                 <a class="nav-link text-white" href="{{ route('inbox.message') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
 
@@ -32,7 +32,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item {{ request()->is('critics') ? 'active' : '' }}">
+                            <li class="nav-item {{ request()->is('critics') ? 'active bg-dark rounded-pill' : '' }}">
                                 <a class="nav-link text-white" href="{{ route('critics') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
@@ -49,7 +49,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item {{ request()->is('suggestions') ? 'active' : '' }}">
+                            <li class="nav-item {{ request()->is('suggestions') ? 'active bg-dark rounded-pill' : '' }}">
                                 <a class="nav-link text-white" href="{{ route('suggestions') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
@@ -67,7 +67,7 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item {{ request()->is('announcements') ? 'active' : '' }}">
+                            <li class="nav-item {{ request()->is('announcements') ? 'active bg-dark rounded-pill' : '' }}">
                                 <a class="nav-link text-white" href="{{ route('announcements') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
