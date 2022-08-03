@@ -10,7 +10,7 @@
                     class="mx-auto d-block" style="width: 100px">
                 {{-- <img src="{{ asset('dist/img/image/group-people.jpg') }}" alt="thumbnail" class="mx-auto d-block" --}}
                 {{-- style="width: 100px"> --}}
-                <h1 class="text-center font-weight-bold">
+                <h1 class="text-center font-weight-bold text-white">
                     <strong>Kalbis Critics and Suggestions</strong>
                 </h1>
             </div>

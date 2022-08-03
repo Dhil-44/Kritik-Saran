@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <link rel="shortcut icon" href="<?php echo e(asset('dist/img/image/icon-logo.jpg')); ?>">
     <title>Login</title>
-
     <link href="<?php echo e(asset('dist/css/tabler.css')); ?>" rel="stylesheet">
     <?php echo \Livewire\Livewire::styles(); ?>
 
@@ -21,15 +19,15 @@
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('auth.login-controller')->html();
-} elseif ($_instance->childHasBeenRendered('Ohe876Y')) {
-    $componentId = $_instance->getRenderedChildComponentId('Ohe876Y');
-    $componentTag = $_instance->getRenderedChildComponentTagName('Ohe876Y');
+} elseif ($_instance->childHasBeenRendered('Voe3zwE')) {
+    $componentId = $_instance->getRenderedChildComponentId('Voe3zwE');
+    $componentTag = $_instance->getRenderedChildComponentTagName('Voe3zwE');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('Ohe876Y');
+    $_instance->preserveRenderedChild('Voe3zwE');
 } else {
     $response = \Livewire\Livewire::mount('auth.login-controller');
     $html = $response->html();
-    $_instance->logRenderedChild('Ohe876Y', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('Voe3zwE', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
