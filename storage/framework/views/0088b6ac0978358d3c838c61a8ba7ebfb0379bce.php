@@ -2,7 +2,7 @@
 <?php $__env->startSection('title', 'Kalbis | Critics and Suggestions'); ?>
 <?php $__env->startSection('content'); ?>
     <div class="wrapper ">
-        <aside class="navbar navbar-vertical navbar-expand-lg navbar-dark">
+        <aside class="navbar navbar-vertical navbar-expand-lg bg-success" style="overflow: hidden;">
             <div class="container-fluid  mt-3">
                 <div class="row">
                     <div class="col offset-2 mb-2">
@@ -14,7 +14,7 @@
                     <div class="navbar-collapse" id="navbar-menu">
                         <ul class="navbar-nav pt-lg-3">
                             <li class="nav-item <?php echo e(request()->is('inbox') ? 'active' : ''); ?>">
-                                <a class="nav-link" href="<?php echo e(route('inbox.message')); ?>">
+                                <a class="nav-link text-white" href="<?php echo e(route('inbox.message')); ?>">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
 
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@
                                 </a>
                             </li>
                             <li class="nav-item <?php echo e(request()->is('critics') ? 'active' : ''); ?>">
-                                <a class="nav-link" href="<?php echo e(route('critics')); ?>">
+                                <a class="nav-link text-white" href="<?php echo e(route('critics')); ?>">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -50,7 +50,7 @@
                                 </a>
                             </li>
                             <li class="nav-item <?php echo e(request()->is('suggestions') ? 'active' : ''); ?>">
-                                <a class="nav-link" href="<?php echo e(route('suggestions')); ?>">
+                                <a class="nav-link text-white" href="<?php echo e(route('suggestions')); ?>">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -68,9 +68,8 @@
                             </li>
 
                             <li class="nav-item <?php echo e(request()->is('announcements') ? 'active' : ''); ?>">
-                                <a class="nav-link" href="<?php echo e(route('announcements')); ?>">
+                                <a class="nav-link text-white" href="<?php echo e(route('announcements')); ?>">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                             stroke-linecap="round" stroke-linejoin="round">

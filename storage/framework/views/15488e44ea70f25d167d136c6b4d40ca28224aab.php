@@ -10,7 +10,7 @@
                     class="mx-auto d-block" style="width: 100px">
                 
                 
-                <h1 class="text-center font-weight-bold">
+                <h1 class="text-center font-weight-bold text-white">
                     <strong>Kalbis Critics and Suggestions</strong>
                 </h1>
             </div>
@@ -18,18 +18,19 @@
     </div>
 
     
+
     <?php
 if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('home.home-page')->html();
-} elseif ($_instance->childHasBeenRendered('CPmOcGb')) {
-    $componentId = $_instance->getRenderedChildComponentId('CPmOcGb');
-    $componentTag = $_instance->getRenderedChildComponentTagName('CPmOcGb');
+    $html = \Livewire\Livewire::mount('home.home-feed-message')->html();
+} elseif ($_instance->childHasBeenRendered('NJzaiWy')) {
+    $componentId = $_instance->getRenderedChildComponentId('NJzaiWy');
+    $componentTag = $_instance->getRenderedChildComponentTagName('NJzaiWy');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('CPmOcGb');
+    $_instance->preserveRenderedChild('NJzaiWy');
 } else {
-    $response = \Livewire\Livewire::mount('home.home-page');
+    $response = \Livewire\Livewire::mount('home.home-feed-message');
     $html = $response->html();
-    $_instance->logRenderedChild('CPmOcGb', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('NJzaiWy', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
