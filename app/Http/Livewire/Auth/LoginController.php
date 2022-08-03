@@ -34,7 +34,7 @@ class LoginController extends Component
                     ->with('fail', 'These credentials do not match our records.');
             }
         } catch (\Exception $e) {
-            return to_route('home')->with('exception',"There are someting went wrong!");
+            return session()->flash('exception','There are something went wrong!');
         }
     }
 
