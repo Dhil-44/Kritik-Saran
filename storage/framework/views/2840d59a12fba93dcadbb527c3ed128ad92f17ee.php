@@ -81,6 +81,13 @@
                                         <p>Submission</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="<?php echo e(route('announcements')); ?>#"
+                                        class="nav-link <?php echo e(request()->is('announcements') ? 'active' : ''); ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Feeds</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>

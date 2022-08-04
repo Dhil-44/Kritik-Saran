@@ -23,6 +23,7 @@ Route::middleware(['auth:web'])->group(function () {
     Route::get('signout', [Home::class, 'signout'])->name('signout');
     Route::view('user-tables', 'admin.data.user-table')->name('user-tables');
     Route::view('submission-tables', 'admin.data.submission-table')->name('submission-tables');
+    // Route::view('feeds', 'admin.data.')
 });
 // admin
 Route::middleware(['auth:web'])->group(function () {

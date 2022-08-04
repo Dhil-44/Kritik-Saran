@@ -80,6 +80,13 @@
                                         <p>Submission</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('announcements') }}#"
+                                        class="nav-link {{ request()->is('announcements') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Feeds</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
