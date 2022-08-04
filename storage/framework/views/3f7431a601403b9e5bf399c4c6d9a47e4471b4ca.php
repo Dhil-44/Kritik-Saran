@@ -2,7 +2,7 @@
 <?php $__env->startSection('content'); ?>
     <?php echo $__env->make('user.header-footer.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     
-    <div class="mask flex-center" style="background-size:cover; height:300px; background:rgb(33, 109, 50)">
+    <div class="mask flex-center" style="background-size:cover; height:300px; background:rgb(33, 109, 50);">
         <div class="container">
             <div class="white-text text-center py-5" style="visibility: visible; animation-name: fadeInUp;">
                 <img src="http://cac.kalbis.ac.id/frontend/img/logos/logo kalbis putih.png" alt="thumbnail"
@@ -15,22 +15,22 @@
             </div>
         </div>
     </div>
-
     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('home.home-feed-message')->html();
-} elseif ($_instance->childHasBeenRendered('e0jk1AO')) {
-    $componentId = $_instance->getRenderedChildComponentId('e0jk1AO');
-    $componentTag = $_instance->getRenderedChildComponentTagName('e0jk1AO');
+} elseif ($_instance->childHasBeenRendered('l6oZtmp')) {
+    $componentId = $_instance->getRenderedChildComponentId('l6oZtmp');
+    $componentTag = $_instance->getRenderedChildComponentTagName('l6oZtmp');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('e0jk1AO');
+    $_instance->preserveRenderedChild('l6oZtmp');
 } else {
     $response = \Livewire\Livewire::mount('home.home-feed-message');
     $html = $response->html();
-    $_instance->logRenderedChild('e0jk1AO', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('l6oZtmp', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
+
     <?php echo $__env->make('user.header-footer.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <?php $__env->stopSection(); ?>
