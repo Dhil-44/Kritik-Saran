@@ -1,12 +1,12 @@
-<div class="container-fluid px-0 mx-3">
+<div class="container-fluid">
     
     <div class="row">
         <div class="col-2 mt-2 card shadow-lg" style="margin-bottom: 50%;">
                 <div class=" text-bold fs-2 mx-auto px-0 py-2"><b>Category</b></div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Dashboard</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Shortcuts</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Shortcuts</a>
+                    <a class="list-group-item list-group-item-action text-black list-group-item-light p-3" href="#!">Dashboard</a>
+                    <a class="list-group-item list-group-item-action text-dark list-group-item-light p-3" href="#!">Shortcuts</a>
+                    <a class="list-group-item list-group-item-action text-black list-group-item-light p-3" href="#!">Shortcuts</a>
 
                 </div>
         </div>
