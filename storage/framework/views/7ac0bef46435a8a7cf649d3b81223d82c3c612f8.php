@@ -10,7 +10,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-
+            
             <div class="col-lg-6">
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto fs-3">
@@ -25,7 +25,6 @@
                         </li>
                         <?php if(Auth::user()->role != 'admin'): ?>
                         <li class="nav-item status">
-                            
                             <a class="nav-link <?php echo e(request()->is('inbox') ? 'active bg-dark text-white py-0' : ''); ?>"
                                 href="<?php echo e(route('inbox.message')); ?>">
                                 <h4 class="mt-2 position-relative">Inbox

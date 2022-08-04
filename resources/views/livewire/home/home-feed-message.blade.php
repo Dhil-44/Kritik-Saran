@@ -11,7 +11,7 @@
                 </div>
         </div>
         <div class="col-8">
-            <div class="col-12 mt-2 ">
+            <div class="col-12 mt-2">
                 <div class="example no_toc_section example-bg card px-1 py-2">
                     <div class="example-content">
                         <div class="example-column example-column-2">
