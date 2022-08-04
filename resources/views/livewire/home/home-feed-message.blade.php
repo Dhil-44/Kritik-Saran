@@ -18,15 +18,15 @@
                                 <div class="row align-items-center">
                                     <div class="col">
                                         <div class="row">
-                                            <div class="col-2" style="margin-left: 10px;">
-                                                <select wire:model="paginate" class="form-control form-control-sm w-4">
+                                            <div class="col-1" style="margin-left: 10px;">
+                                                <select wire:model="paginate" class="form-control form-control-sm" style="width: 40px">
                                                     @for($i  = 5; $i <= 30; $i+=5)
-                                                        <option class="" value="{{$i}}">{{$i}}</option>
+                                                        <option style="text-align: center" value="{{$i}}">{{$i}}</option>
                                                     @endfor
                                                 </select></div>
 
-                                            <div class="col-2">
-                                                <select name="" class="form-control form-control-sm" id="">
+                                            <div class="col-2" style="margin-left: 10px;">
+                                                <select name="" class="form-control form-control-sm" id="" style="text-align: center">
                                                     <option value="lastet">latest</option>
                                                     <option value="oldest">oldest</option>
                                                 </select>

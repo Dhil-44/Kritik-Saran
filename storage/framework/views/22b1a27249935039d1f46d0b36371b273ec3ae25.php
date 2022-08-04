@@ -11,11 +11,6 @@
     <link rel="shortcut icon" href="<?php echo e(asset('dist/img/image/icon-logo.jpg')); ?>" type="image/x-icon" />
     <?php echo \Livewire\Livewire::styles(); ?>
 
-    <style>
-        body {
-            /* height: 1000px; */
-        }
-    </style>
 </head>
 <body>
     

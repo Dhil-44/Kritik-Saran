@@ -1,4 +1,4 @@
-<footer class="footer footer-transparent bg-dark" style="margin-top:10%;">
+<footer class="footer footer-transparent bg-dark">
     <div class="container-xl text-white">
         <div class="row text-center align-items-center flex-row-reverse">
             <div class="col-lg-auto ms-lg-auto">
