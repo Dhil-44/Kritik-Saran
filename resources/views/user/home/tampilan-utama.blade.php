@@ -10,11 +10,6 @@
     <link href="{{ asset('dist/css/tabler.min.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('dist/img/image/icon-logo.jpg') }}" type="image/x-icon" />
     @livewireStyles
-    <style>
-        body {
-            /* height: 1000px; */
-        }
-    </style>
 </head>
 <body>
     {{-- @include('header-footer.navbar') --}}
