@@ -1,4 +1,4 @@
-<div class="col-md-12 col-lg-12">
+<div class="col-md-12 col-lg-12 ">
     <!-- Cards with tabs component -->
     <div class="card-tabs ">
         <!-- Cards navigation -->
