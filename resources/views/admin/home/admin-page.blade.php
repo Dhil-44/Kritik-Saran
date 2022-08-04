@@ -31,7 +31,7 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link  active" data-widget="control-sidebar" data-slide="true" href="#"
+                    <a class="nav-link  active text-white" data-widget="control-sidebar" data-slide="true" href="#"
                         role="button">
                         <img src="{{ asset('dist/img/image/icon-logo.jpg') }}" class="img-circle mr-1"
                             style="width: 30px" alt="">
