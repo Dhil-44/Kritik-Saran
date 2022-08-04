@@ -13,7 +13,8 @@ class SendingAllMessage extends Component
     public function render()
     {
         return view('livewire.sending-form.sending-all-message',[
-            'users' => User::where("id", "!=", auth('web')->id(),"AND","emaisl","admin@gmail.com" )->get(),
+            'users' => User::where("id", "!=", auth('web')->id())
+                ->where("email","!=","admin@gmail.com" )->get(),
             'categories' => Category::all(),
             'testimony' => Submission::latest()->get(),
         ]);
