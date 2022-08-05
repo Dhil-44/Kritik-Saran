@@ -44,10 +44,9 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="form-group">
                         <label for="roleUser">Role</label>
-                        <select wire:model="role" id="roleUser" class="form-control">
-                            <option>
-                                <h6 class="text-muted">--choose role--</h6>
-                            </option>
+                        <select wire:modal="role" id="roleUser" class="form-control">
+                            <option>Choose Role..</option>
+                            <option>Role</option>
                             <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rl): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <option value="<?php echo e($rl); ?>"><?php echo e(__($rl)); ?></option>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
