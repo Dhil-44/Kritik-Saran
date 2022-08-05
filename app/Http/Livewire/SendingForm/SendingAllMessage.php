@@ -19,6 +19,10 @@ class SendingAllMessage extends Component
             'testimony' => Submission::latest()->get(),
         ]);
     }
+    public function  openModalCreateModal(){
+        return
+        $this->dispatchBrowserEvent('openModalCreateModal');
+    }
     public function createSubmission()
     {
         $this->validate(
