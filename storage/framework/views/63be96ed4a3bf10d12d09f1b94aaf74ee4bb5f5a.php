@@ -88,12 +88,6 @@
                                             </div>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-<<<<<<< HEAD
-                                    
-
-                                        </div>
-=======
->>>>>>> fe494af6529a33117bc9c198f93b0c51d5558aae
                                     </div>
                                 </div>
                             </div>

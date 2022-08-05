@@ -2,7 +2,7 @@
 @section('title', 'Kalbis | Critics and Suggestions')
 @section('content')
     <div class="wrapper ">
-        <aside class="navbar navbar-vertical navbar-expand-lg navbar-dark">
+        <aside class="navbar navbar-vertical navbar-expand-lg bg-success" style="overflow: hidden;">
             <div class="container-fluid  mt-3">
                 <div class="row">
                     <div class="col offset-2 mb-2">
@@ -11,10 +11,10 @@
                     </div>
                 </div>
                 <div class="container-fluid">
-                    <div class="navbar-collapse" id="navbar-menu">{{-- collapse --}}
+                    <div class="navbar-collapse" id="navbar-menu">
                         <ul class="navbar-nav pt-lg-3">
-                            <li class="nav-item {{ request()->is('inbox') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('inbox.message') }}">
+                            <li class="nav-item {{ request()->is('inbox') ? 'active bg-dark rounded-pill' : '' }}">
+                                <a class="nav-link text-white" href="{{ route('inbox.message') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
 
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -32,8 +32,8 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item {{ request()->is('critics') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('critics') }}">
+                            <li class="nav-item {{ request()->is('critics') ? 'active bg-dark rounded-pill' : '' }}">
+                                <a class="nav-link text-white" href="{{ route('critics') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -49,8 +49,8 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item {{ request()->is('suggestions') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('suggestions') }}">
+                            <li class="nav-item {{ request()->is('suggestions') ? 'active bg-dark rounded-pill' : '' }}">
+                                <a class="nav-link text-white" href="{{ route('suggestions') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -67,10 +67,9 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item {{ request()->is('announcements') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('announcements') }}">
+                            <li class="nav-item {{ request()->is('announcements') ? 'active bg-dark rounded-pill' : '' }}">
+                                <a class="nav-link text-white" href="{{ route('announcements') }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                             stroke-linecap="round" stroke-linejoin="round">

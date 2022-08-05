@@ -53009,4 +53009,8 @@ a.text-muted:hover {
 .dark-mode .border-dark {
   border-color: #4b545c !important;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
 /*# sourceMappingURL=adminlte.css.map */

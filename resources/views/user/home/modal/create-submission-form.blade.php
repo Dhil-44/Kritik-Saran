@@ -1,5 +1,5 @@
-<div wire:ignore.self class="modal fade create_submission" id="modal-large" tabindex="-1" aria-hidden="true"
-    aria-labelledby="exampleModalLabel" data-keyboard="false" data-backdrop="static">
+<div wire:ignore.self class="modal fade create_submission"  tabindex="-1" aria-hidden="true" style="display: none"
+    data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -59,7 +59,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" data-bs-dismiss="modal" class="btn btn-green">Submit</button>
+                    <button type="submit" class="btn btn-green">Submit</button>
                 </div>
 
             </form>

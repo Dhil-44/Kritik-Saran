@@ -13500,3 +13500,7 @@ Antialiasing
 .subpixel-antialiased {
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto; }
+
+::-webkit-scrollbar {
+  display: none;
+}

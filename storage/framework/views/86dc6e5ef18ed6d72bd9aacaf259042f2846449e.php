@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    {{-- Stop trying to control. --}}
+    
     <div class="row">
         <div class="col-2 mt-2 shadow-lg" style="max-height: 240px">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>Category</b></div>
@@ -20,9 +20,9 @@
                                         <div class="row">
                                             <div class="col-1" style="margin-left: 10px;">
                                                 <select wire:model="paginate" class="form-control form-control-sm" style="width: 40px">
-                                                    @for($i  = 5; $i <= 30; $i+=5)
-                                                        <option style="text-align: center" value="{{$i}}">{{$i}}</option>
-                                                    @endfor
+                                                    <?php for($i  = 5; $i <= 30; $i+=5): ?>
+                                                        <option style="text-align: center" value="<?php echo e($i); ?>"><?php echo e($i); ?></option>
+                                                    <?php endfor; ?>
                                                 </select></div>
 
                                             <div class="col-2" style="margin-left: 10px;">
@@ -81,30 +81,32 @@
                 </div>
             </div>
             <div class="col-12 ">
-                @foreach($feeds as $feed)
+                <?php $__currentLoopData = $feeds; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $feed): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="card shadow-sm mt-2 hover-shadow-lg" style="border-radius: 20px">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-auto">
                                 <span class="avatar me-1 avatar-rounded avatar-md"
-                                      style="background-image: url({{ asset('dist/img/image/logo-kal.jpg') }})"></span>
+                                      style="background-image: url(<?php echo e(asset('dist/img/image/logo-kal.jpg')); ?>)"></span>
                                 </div>
                                 <div class="col" style="font-family:'Roboto Medium' ">
-                                    <div class=""><h3><b>{{$feed->title}}</b></h3></div>
-                                    <div class="fs-5 mb-2 -mt-1" style="margin-top: -9px;">{{$feed->created_at}}</div>
+                                    <div class=""><h3><b><?php echo e($feed->title); ?></b></h3></div>
+                                    <div class="fs-5 mb-2 -mt-1" style="margin-top: -9px;"><?php echo e($feed->created_at); ?></div>
                                     <div class="text">
                                         <p align="justify" class="" style="margin-right: 7px;">
-                                            {{$feed->body}}
+                                            <?php echo e($feed->body); ?>
+
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
             <div class="mt-2 fs-3 ">
-                {{$feeds->links()}}
+                <?php echo e($feeds->links()); ?>
+
             </div>
         </div>
         <div class="col-2 mt-2">
@@ -112,25 +114,25 @@
             <div class="card" style="height: 35rem">
                 <div class="card-body card-body-scrollable px-1 card-body-scrollable-shadow">
                     <div class="divide-y">
-                        @for($i =0; $i<=10; $i++)
+                        <?php for($i =0; $i<=10; $i++): ?>
                             <div class="card mb-2 hover-shadow-lg">
                                 <div class="card-img-top img-responsive img-responsive-21x9"
-                                     style="background-image: url({{asset('dist/img/image/group-people.jpg')}})"></div>
+                                     style="background-image: url(<?php echo e(asset('dist/img/image/group-people.jpg')); ?>)"></div>
                                 <div class="card-body px-1">
                                     <h2 class="">judul annoument disni</h2>
                                 </div>
                             </div>
-                        @endfor
+                        <?php endfor; ?>
                     </div>
                 </div>
             </div>
 
 
         </div>
-        @include('user.home.modal.create-feed-message')
+        <?php echo $__env->make('user.home.modal.create-feed-message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
     </div>
-@push('scripts')
+<?php $__env->startPush('scripts'); ?>
     <script>
 
         $(function () {
@@ -142,4 +144,5 @@
             })
         })
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+<?php /**PATH C:\Users\User\Kritik-Saran\resources\views/livewire/home/home-feed-message.blade.php ENDPATH**/ ?>

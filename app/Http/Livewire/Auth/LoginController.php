@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Auth;
 
+use http\Env\Response;
+use Illuminate\Database\QueryException;
 use Livewire\Component;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
 
 
 class LoginController extends Component
@@ -23,14 +23,18 @@ class LoginController extends Component
 
         ]);
         $user = array(
-            'email'    => $this->email,
+            'email' => $this->email,
             'password' => $this->password,
         );
-        if (Auth::guard('web')->attempt($user)) {
-            return redirect()->route('home-page');
-        } else {
-            return redirect()->route('home')
-                ->with('fail', 'These credentials do not match our records.');
+        try {
+            if (Auth::guard('web')->attempt($user)) {
+                return redirect()->route('home-page');
+            } else {
+                return redirect()->route('home')
+                    ->with('fail', 'These credentials do not match our records.');
+            }
+        } catch (\Exception $e) {
+            return session()->flash('exception', 'There are something went wrong!');
         }
     }
 
