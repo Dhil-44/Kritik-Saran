@@ -6,7 +6,7 @@
                 <h5 class="modal-title">Create new Feed</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form wire:submit.prevent="createFeedMessage">
+            <form wire:submit.prevent="createFeedMessage()">
                 <div class="modal-body ">
                     <div class="form-group mb-2">
                         <label for="title" class="form-label">Title

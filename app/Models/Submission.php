@@ -16,9 +16,7 @@ class Submission extends Model
     protected $appends = [
         'created_at',
     ];
-    protected $touches = [
-        'submissions'
-    ];
+
 
     static function category(int $category, string $column)
     {

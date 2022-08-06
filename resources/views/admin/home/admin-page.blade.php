@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="{{ asset('dist/img/image/icon-logo.jpg') }}" type="image/x-icon" />
     <title>Admin</title>
-    <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="admin/plugins/fontawesome-free/css/all.min.css">
@@ -79,14 +78,18 @@
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Submission</p>
                                     </a>
+                                </li><li class="nav-item">
+                                    <a href="{{ route('submission-tables') }}#"
+                                        class="nav-link {{ request()->is('submission-tables') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Feed</p>
+                                    </a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </nav>
-                <!-- /.sidebar-menu -->
             </div>
-            <!-- /.sidebar -->
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
@@ -102,7 +105,6 @@
 
                 </div><!-- /.container-fluid -->
             </div>
-            <!-- /.content-header -->
 
             <!-- Main content -->
             <div class="content">
@@ -111,9 +113,7 @@
 
                     @yield('content')
                 </div>
-                <!-- /.container-fluid -->
             </div>
-            <!-- /.content -->
         </div>
 
         <!-- Main Footer -->
@@ -122,12 +122,8 @@
             All rights reserved.
         </footer>
     </div>
-    <!-- ./wrapper -->
 
-    <!-- REQUIRED SCRIPTS -->
-    <!-- jQuery -->
     <script src="admin/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap -->
     <script src="admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
     <script src="admin/dist/js/adminlte.js"></script>

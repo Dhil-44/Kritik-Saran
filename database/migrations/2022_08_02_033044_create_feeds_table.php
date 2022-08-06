@@ -18,6 +18,11 @@ return new class extends Migration
             $table->string('title',30)->unique();
             $table->string('category');
             $table->text('body');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }
