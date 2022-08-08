@@ -3,15 +3,15 @@
 namespace App\Http\Livewire\Home;
 
 use App\Models\Feed;
-use http\Env\Response;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithPagination;
 class HomeFeedMessage extends Component
 {
     use WithPagination;
-    public $title,$body,$category;public $search,$paginate =5;
+    public $title,$body,$category,$search,$paginate = 5;
     protected $paginationTheme = 'bootstrap';
+    public $upd_body,$id_update;
 
     public function render()
     {
@@ -27,15 +27,33 @@ class HomeFeedMessage extends Component
         ]);
     }
     public function openModal(){
+
             $this->dispatchBrowserEvent('openCreateFeedMsg');
+    }
+    function editFeed($feed){
+        $this->id_update = $feed['id'];
+       $this->upd_body = $feed['body'];
+    }
+    public function deleteFeed($id){
+        dd($id);
+    }
+    public function updateFeed(){
+        $this->validate([
+            'upd_boyd' => ['required','min:4'],
+
+        ]);
+        Feed::findOrFail($this->id_update)->update([
+            'body'=>$this->upd_body,
+        ]);
+
     }
     public function createFeedMessage(){
 
         try{
             $this->validate([
-                'title'=> 'required|unique:feeds,title|max:30|min:6',
+                'title'=> 'required|unique:feeds,title|max:30|min:4',
                 'body' => 'required|string',
-                'category' => 'required|string|max:12|min:5'
+                'category' => 'required|string|max:12|min:4'
             ],[
                 'title.required'=> 'enter title',
                 'title.max'     => 'title cant be more than 30 characters',
@@ -45,15 +63,15 @@ class HomeFeedMessage extends Component
                 'category.required' => 'enter category'
             ]);
            $feed = new Feed();
-           $feed->title = Str::of($this->title)->title();
-           $feed->body =$this->body;
+           $feed->title    = Str::of($this->title)->title();
            $feed->category = $this->category;
+           $feed->body     = $this->body;
+           $feed->user_id  = auth('web')->id();
            $save = $feed->save();
            if($save){
                $this->title = $this->body=$this->category = null;
                $this->closeModal();
            }
-
 
         }catch (\Exception $e){
             return Response()->json([
@@ -66,6 +84,7 @@ class HomeFeedMessage extends Component
     }
     public function closeModal()
     {
+        $this->title = $this->body=$this->category = null;
        return $this->dispatchBrowserEvent('closeModalFeedMsg');
     }
 }
