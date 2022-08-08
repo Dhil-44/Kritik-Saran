@@ -31,8 +31,8 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link  active text-white" data-widget="control-sidebar" data-slide="true" href="#"
-                        role="button">
+                    <a class="nav-link  active text-white" data-widget="control-sidebar" data-slide="true"
+                        href="#" role="button">
                         <img src="<?php echo e(asset('dist/img/image/icon-logo.jpg')); ?>" class="img-circle mr-1"
                             style="width: 30px" alt="">
                         <b>Admin</b>
@@ -69,21 +69,30 @@
                                 <li class="nav-item ">
                                     <a href="<?php echo e(route('user-tables')); ?>#"
                                         class="nav-link <?php echo e(request()->is('user-tables') ? 'active' : ''); ?>">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="far fa-user nav-icon"></i>
+
                                         <p>Users</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="<?php echo e(route('submission-tables')); ?>#"
                                         class="nav-link <?php echo e(request()->is('submission-tables') ? 'active' : ''); ?>">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="far fa-comments nav-icon"></i>
                                         <p>Submission</p>
                                     </a>
-                                </li><li class="nav-item">
-                                    <a href="<?php echo e(route('submission-tables')); ?>#"
-                                        class="nav-link <?php echo e(request()->is('submission-tables') ? 'active' : ''); ?>">
-                                        <i class="far fa-circle nav-icon"></i>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?php echo e(route('feed-tables')); ?>#"
+                                        class="nav-link <?php echo e(request()->is('feed-tables') ? 'active' : ''); ?>">
+                                        <i class="far fa-edit nav-icon"></i>
                                         <p>Feed</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?php echo e(route('news-tables')); ?>#"
+                                        class="nav-link <?php echo e(request()->is('news-tables') ? 'active' : ''); ?>">
+                                        <i class="far fa-newspaper nav-icon"></i>
+                                        <p>News</p>
                                     </a>
                                 </li>
                             </ul>
@@ -93,9 +102,7 @@
             </div>
         </aside>
 
-        <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
@@ -111,7 +118,6 @@
             <div class="content">
                 <div class="container-fluid">
                     <!-- /.row -->
-
                     <?php echo $__env->yieldContent('content'); ?>
                 </div>
             </div>
