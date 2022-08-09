@@ -105,7 +105,7 @@
                                                 <h3 class="col-auto"><b>{{ $feed->title }}</b></h3>
                                                 <p class="col-auto text-muted"
                                                    style="margin-top: 3px; margin-left:-7px;">
-                                                    {{ $feed->user->name }}
+                                                    {{-- {{ $feed->user->name }} --}}
                                                 </p>
                                             </div>
                                         </div>
