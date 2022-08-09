@@ -22,7 +22,8 @@ class FeedDummy extends Seeder
             DB::table('feeds')->insert([
                 'title' => $faker->name(),
                 'category' => $faker->word(),
-                'body' => $faker->sentence
+                'body' => $faker->sentence,
+                'user_id'=>$faker->numberBetween(1,6)
             ]);
         }
     }

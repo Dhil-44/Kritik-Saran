@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Home;
 
 use App\Models\Feed;
+use App\Models\News;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithPagination;
@@ -24,6 +25,7 @@ class HomeFeedMessage extends Component
         }
         return view('livewire.home.home-feed-message',[
             'feeds'=>$feeds,
+            'news'=>News::latest()->get()
         ]);
     }
     public function openModal(){

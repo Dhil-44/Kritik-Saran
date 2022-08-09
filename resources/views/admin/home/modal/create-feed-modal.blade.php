@@ -1,5 +1,5 @@
 <div class="modal fade " wire:ignore.self tabindex="-1" id="modal-news" style="display: none;" aria-hidden="true"
-    data-keyboard="false" data-backdrop="static">
+     data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,29 +9,47 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form wire:submit.prevent="createNews">
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">News Title</label>
-                            <input type="email" class="form-control" id="" placeholder="Enter title">
+                            <label for="newstitle"><span class="text-red">*</span> News Title</label>
+                            <input type="text" wire:model="title" class="form-control" id="newstitle"
+                                   placeholder="Enter title">
+                            @error('title')
+                            <span class="text-red">
+                                {{$message}}
+                            </span>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <label for="body">News Body</label>
-                            <textarea class="form-control" placeholder=". . ." id="body" rows="5"></textarea>
-
+                            <label for="body"> <span class="text-red">*</span> News Body</label>
+                            <textarea class="form-control" wire:model="body" placeholder=". . ." id="body"
+                                      rows="8"></textarea>
+                            @error('body')
+                            <span class="text-red">
+                                {{$message}}
+                            </span>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputFile">Input Picture</label>
+                            <label for="">Link</label><span class="text-muted"> (optional)</span>
+                            <input type="text" wire:model="link" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputFile">Input Picture</label><span class="text-muted"> (optional)</span>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="exampleInputFile">
-                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <input type="file" wire:model="gambar" class="custom-file-input" id="InputFile">
+                                    <label class="custom-file-label" for="InputFile">Choose file</label>
                                 </div>
                             </div>
+                                @error('gambar')
+                            <span class="text-red">{{$message}}</span>
+                            @enderror
                         </div>
                         <div class="form-group justify-content-between">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-success"><i class=""></i>Submit </button>
+                            <button type="submit" class="btn btn-success"><i class=""></i>Publish</button>
                         </div>
 
                     </div>

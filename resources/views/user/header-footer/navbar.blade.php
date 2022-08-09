@@ -6,36 +6,41 @@
                     <img src="{{ asset('dist/img/image/Logo-kalbis-utama.png') }}" alt="kalbis" style="width:30%;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-            
+
             <div class="col-lg-6">
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto fs-3">
                         <li class="nav-item ">
-                            <a class="nav-link {{ request()->is('home-page') ? 'active bg-dark text-white py-0 ' : '' }}" aria-current="page"
-                                href="{{ route('home-page') }}">
-                                <h4 class="mt-2">
-                                    Home
-                                </h4>
-
+                            <a class="nav-link {{ request()->is('home-page') ? 'active bg-dark text-white py-0 ' : '' }}"
+                               aria-current="page"
+                               href="{{ route('home-page') }}">
+                                <h4 class="mt-2">Home</h4>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link {{ request()->is('news-page') ? 'active bg-dark text-white py-0 ' : '' }}"
+                               aria-current="page" href="{{ route('news-page') }}">
+                                <h4 class="mt-2">News</h4>
                             </a>
                         </li>
                         @if(Auth::user()->role != 'admin')
-                        <li class="nav-item status">
-                            <a class="nav-link {{ request()->is('inbox') ? 'active bg-dark text-white py-0' : '' }}"
-                                href="{{ route('inbox.message') }}">
-                                <h4 class="mt-2 position-relative">Inbox
-                                    <span class="badge badge-pill bg-red position-relative mb-2"></span>
-                                </h4>
-                            </a>
-                        </li>
+                            <li class="nav-item status">
+                                <a class="nav-link {{ request()->is('inbox') ? 'active bg-dark text-white py-0' : '' }}"
+                                   href="{{ route('inbox.message') }}">
+                                    <h4 class="mt-2 position-relative">Inbox
+                                        <span class="badge badge-pill bg-red position-relative mb-2"></span>
+                                    </h4>
+                                </a>
+                            </li>
                         @endif
                         @if (Auth::user()->role == 'admin')
                             <li class="nav-item">
-                                <a class="nav-link text-dark shadow-lg border-success py-0 ms-1" href="{{ route('admin/home') }}#">
+                                <a class="nav-link text-dark border-success py-0 ms-1"
+                                   href="{{ route('admin/home') }}#">
                                     <h4 class="mt-2">Backend
                                     </h4>
                                 </a>

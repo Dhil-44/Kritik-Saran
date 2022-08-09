@@ -29,35 +29,35 @@ class UserSeed extends Seeder
         DB::table('users')->insert([
             'name'  => 'CAC Kalbis',
             'email' => 'cackalbis@gmail.com',
-            'role'  => 'departmen',
+            'role'  => 'department',
             'logo'  => '',
             'password' => Hash::make('123456'),
         ]);
         DB::table('users')->insert([
             'name'  => 'AO Kalbis',
             'email' => 'aokalbis@gmail.com',
-            'role'  => 'departmen',
+            'role'  => 'department',
             'logo'  => '',
             'password' => Hash::make('123456'),
         ]);
         DB::table('users')->insert([
             'name'  => 'CSD Kalbis',
             'email' => 'csdkalbis@gmail.com',
-            'role'  => 'departmen',
+            'role'  => 'department',
             'logo'  => '',
             'password' => Hash::make('123456'),
         ]);
         DB::table('users')->insert([
             'name'  => 'Finance Kalbis',
             'email' => 'financekalbis@gmail.com',
-            'role'  => 'departmen',
+            'role'  => 'department',
             'logo'  => '',
             'password' => Hash::make('123456'),
         ]);
         DB::table('users')->insert([
             'name'  => 'Rektorat Kalbis',
             'email' => 'rektoratkalbis@gmail.com',
-            'role'  => 'departmen',
+            'role'  => 'department',
             'logo'  => '',
             'password' => Hash::make('123456'),
         ]);
