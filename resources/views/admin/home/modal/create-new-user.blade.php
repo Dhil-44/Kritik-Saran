@@ -1,5 +1,6 @@
-<div class="modal fade createUser" wire:ignore.self tabindex="-1" id="modal-lg" style="display: none;" aria-hidden="true"
-    data-keyboard="false" data-backdrop="static">
+<div class="modal fade createUser" wire:ignore.self tabindex="-1" id="modal-lg" style="display: none;"
+     aria-hidden="true"
+     data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -14,7 +15,7 @@
                         <label for="">Nama User</label>
                         <input type="text" class="form-control" placeholder="Nama user" wire:model="name_user">
                         <span class="text-danger"> @error('name_user')
-                                {{ $message }}
+                            {{ $message }}
                             @enderror
                         </span>
                     </div>
@@ -22,22 +23,21 @@
                         <label for="">Email</label>
                         <input type="email" class="form-control" placeholder="Email" wire:model="email">
                         <span class="text-danger"> @error('email')
-                                {{ $message }}
+                            {{ $message }}
                             @enderror
                         </span>
                     </div>
                     <div class="form-group">
                         <label for="roleUser">Role</label>
-                        <select wire:modal="role" id="roleUser" class="form-control">
+                        <select wire:model="role" id="roleUser" class="form-control">
                             <option>Choose Role..</option>
-                            <option>Role</option>
                             @foreach ($roles as $rl)
                                 <option value="{{ $rl }}">{{ __($rl) }}</option>
                             @endforeach
 
                         </select>
                         <span class="text-danger"> @error('role')
-                                {{ $message }}
+                            {{ $message }}
                             @enderror
                         </span>
                     </div>
@@ -46,7 +46,7 @@
                         <label for="">Password</label>
                         <input type="text" class="form-control" placeholder="Password" wire:model="password">
                         <span class="text-danger"> @error('password')
-                                {{ $message }}
+                            {{ $message }}
                             @enderror
                         </span>
                     </div>

@@ -177,20 +177,20 @@
             </div>
         </div>
         <div class="col-2 mt-2">
-            <div class="text-bold fs-2 mx-auto px-0 py-2"><b>Announcement</b></div>
+            <div class="text-bold fs-2 mx-auto px-0 py-2"><b>News</b></div>
             <div class="card" style="height: 35rem">
                 <div class="card-body card-body-scrollable px-1 card-body-scrollable-shadow">
                     <div class="divide-y">
-                        <?php for($i = 0; $i <= 10; $i++): ?>
+                        <?php $__currentLoopData = $news; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $new): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="card mb-2 hover-shadow-lg">
                                 <div class="card-img-top img-responsive img-responsive-21x9"
-                                    style="background-image: url(<?php echo e(asset('dist/img/image/group-people.jpg')); ?>)">
+                                     style="background-image: url(<?php echo e(asset('dist/img/image/group-people.jpg')); ?>)">
                                 </div>
                                 <div class="card-body px-1">
-                                    <h2 class="">judul annoument disni</h2>
+                                    <h2 class=""><?php echo e($new->title); ?></h2>
                                 </div>
                             </div>
-                        <?php endfor; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
             </div>

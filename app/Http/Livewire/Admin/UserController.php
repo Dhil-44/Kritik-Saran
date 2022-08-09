@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class UserController extends Component
 {
-    public $id_user, $name_user, $email, $role, $logo, $password;
+    public $id_user, $name_user, $email, $role="user", $logo, $password;
     public  $upd_name_user, $upd_email, $upd_role, $upd_logo, $upd_password;
     public $search;
     public function render()
@@ -21,12 +21,11 @@ class UserController extends Component
                     ->orWhere('email', 'LIKE', "%$this->search%");
             })->orderBy('name', 'asc')->get();
         } else {
-
             $users = User::latest()->where('id', '!=', auth('web')->id())->orderBy('name')->get();
         }
         return view('livewire.admin.user-controller', [
             'users' => $users,
-            'roles' => ['user', 'departmen']
+            'roles' => ['user','department']
         ]);
     }
     function openModal()

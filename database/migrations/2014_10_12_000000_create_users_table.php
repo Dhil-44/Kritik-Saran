@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->enum('role', ['ormawa', 'departmen', 'admin']);
+            $table->enum('role', ['user', 'department', 'admin']);
             $table->string('logo')->nullable();
             $table->string('password');
             $table->timestamps();

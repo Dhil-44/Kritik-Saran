@@ -28,7 +28,6 @@ class SubmissionController extends Component
         Submission::findOrFail($id)->delete();
     }
     public function editSubmission($submission)
-
     {
         $this->id_sub = $submission['id'];
         $this->id_cat = $submission['get_category']["name_cat"];
@@ -51,7 +50,7 @@ class SubmissionController extends Component
 
     private function clearColumn()
     {
-        $this->id_cat =
+         $this->id_cat =
             $this->id_user_pengirim =
             $this->id_user_target =
             $this->message =
