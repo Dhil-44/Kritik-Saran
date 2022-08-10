@@ -18,7 +18,7 @@ class NewsSeed extends Seeder
         for ($i = 1; $i<=100; $i++){
             DB::table('news')->insert([
                 'title'=> $faker->word(),
-                'body' => $faker->sentence,
+                'body' => $faker->sentence(80),
                 'link' => $faker->imageUrl(),
                 'gambar'=> $faker->imageUrl(),
                 'created_at'=>date('Y-m-d H:i:s'),

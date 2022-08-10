@@ -22,7 +22,7 @@ class SubSeed extends Seeder
                 'id_cat' => $f->numberBetween(1, 3),
                 'id_user_target' => $f->numberBetween(1, 11),
                 'id_user_pengirim' => $f->numberBetween(1, 11),
-                'message' => $f->sentence(20),
+                'message' => $f->sentence(70),
                 'file_name' => '',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')

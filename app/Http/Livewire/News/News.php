@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\News;
 
+use Illuminate\View\View;
 use Livewire\Component;
 use App\Models\News as Berita;
 use Livewire\WithPagination;
@@ -10,14 +11,49 @@ class News extends Component
 {
     public $paginate = 10;
     use WithPagination;
+
     protected $paginationTheme = 'bootstrap';
+    public $title, $body, $gambar = '', $link = '';
+
     public function render()
     {
-        return view('livewire.news.news',[
+        return view('livewire.news.news', [
             'news' => Berita::latest()->paginate($this->paginate),
         ]);
     }
- public function  openDetailNews(){
-        dd('create soon');
-}
+
+    public function openDetailNews($data)
+    {
+        return $this->dispatchBrowserEvent('show-detail', [
+            'data' => $data
+        ]);
+    }
+
+    public function openModalNews()
+    {
+        return $this->dispatchBrowserEvent('openModalNews');
+    }
+
+    public function closeModalNews()
+    {
+        return $this->dispatchBrowserEvent('closeModalNews');
+    }
+
+    public function createNews()
+    {
+        $this->validate([
+            'title' => ['required', 'max:32', 'min:4', 'string'],
+            'body' => ['required', 'string'],
+//            'gambar' => ['required', 'file', 'mimes:png,jpg,image'],
+            'link' => ['nullable']
+        ], [
+            'title.required' => 'Judul tidak boleh kosong',
+            'title.max' => 'maximal 32 karakter',
+            'title.min' => 'manimal 4 karakter',
+            'body.required' => 'Kolom ini tidak boleh kosong'
+//            'gambar.required'=> 'Masukkan gambar',
+        ]);
+        $this->closeModalNews();
+    }
+
 }

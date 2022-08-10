@@ -1,6 +1,6 @@
-<div class="modal fade " wire:ignore.self tabindex="-1" id="modal-news" style="display: none;" aria-hidden="true"
+<div class="modal fade modal-blur" wire:ignore.self tabindex="-1" id="modal-news" style="display: none;" aria-hidden="true"
      data-keyboard="false" data-backdrop="static">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Create News</h4>
