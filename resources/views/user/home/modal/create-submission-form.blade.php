@@ -9,7 +9,7 @@
             <form wire:submit.prevent="createSubmission">
                 <div class="modal-body">
                     <div class="form-group mb-3 row">
-                        <label class="form-label col-3 col-form-label">Assign to</label>
+                        <label class="form-label col-3 col-form-label"> <span class="text-danger">*</span> Assign to</label>
                         <div class="col">
                             <select class="form-select" wire:model="id_user_target">
                                 <option>To</option>
@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="form-group mb-3 row">
-                        <label class="form-label col-3 col-form-label">Category</label>
+                        <label class="form-label col-3 col-form-label">  <span class="text-danger">*</span> Category</label>
                         <div class="col">
                             <select class="form-select" wire:model="id_cat">
                                 <option>choose</option>
@@ -43,7 +43,7 @@
                         @enderror
                     </div>
                     <div class="form-group mb-3 row">
-                        <label class="form-label col-3 col-form-label">Message</label>
+                        <label class="form-label col-3 col-form-label">  <span class="text-danger">*</span> Message</label>
                         <div class="col" wire:ignore>
                             <textarea wire:model="message" id="summernote" rows="4" class="form-control"></textarea>
                         </div>
@@ -51,7 +51,7 @@
 
                     {{-- file --}}
                     <div class="form-group mb-3 row">
-                        <label class="form-label col-3 col-form-label">Attachments</label>
+                        <label class="form-label col-3 col-form-label">Attachments  <span class="text-muted fs-5">(optional)</span> </label>
                         <div class="col">
                             <input type="file" wire:model="fill_name" class="form-control sm:form-control">
                         </div>

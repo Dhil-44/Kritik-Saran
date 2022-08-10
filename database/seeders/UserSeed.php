@@ -18,47 +18,86 @@ class UserSeed extends Seeder
      */
     public function run()
     {
+        $users = [
+
+        ];
 
         DB::table('users')->insert([
-            'name'  => 'Kita Group',
-            'email' => 'kita@gmail.com',
-            'role'  => 'admin',
-            'logo'  => '',
+            'name' => 'Kita Group',
+            'email' => 'admin@gmail.com',
+            'role' => 'admin',
+            'logo' => '',
             'password' => Hash::make('123456'),
         ]);
         DB::table('users')->insert([
-            'name'  => 'CAC Kalbis',
+            'name' => 'CAC Kalbis',
             'email' => 'cackalbis@gmail.com',
-            'role'  => 'department',
-            'logo'  => '',
+            'role' => 'department',
+            'logo' => '',
             'password' => Hash::make('123456'),
         ]);
         DB::table('users')->insert([
-            'name'  => 'AO Kalbis',
+            'name' => 'AO Kalbis',
             'email' => 'aokalbis@gmail.com',
-            'role'  => 'department',
-            'logo'  => '',
+            'role' => 'department',
+            'logo' => '',
             'password' => Hash::make('123456'),
         ]);
         DB::table('users')->insert([
-            'name'  => 'CSD Kalbis',
+            'name' => 'CSD Kalbis',
             'email' => 'csdkalbis@gmail.com',
-            'role'  => 'department',
-            'logo'  => '',
+            'role' => 'department',
+            'logo' => '',
             'password' => Hash::make('123456'),
         ]);
         DB::table('users')->insert([
-            'name'  => 'Finance Kalbis',
+            'name' => 'Finance Kalbis',
             'email' => 'financekalbis@gmail.com',
-            'role'  => 'department',
-            'logo'  => '',
+            'role' => 'department',
+            'logo' => '',
             'password' => Hash::make('123456'),
         ]);
         DB::table('users')->insert([
-            'name'  => 'Rektorat Kalbis',
+            'name' => 'Rektorat Kalbis',
             'email' => 'rektoratkalbis@gmail.com',
-            'role'  => 'department',
-            'logo'  => '',
+            'role' => 'department',
+            'logo' => '',
+            'password' => Hash::make('123456'),
+        ]);
+//        HIMSI, HIMIF, HIMAN, HIMAK, HIMIK
+        DB::table('users')->insert([
+            'name' => ' HIMSI',
+            'email' => 'himsi@gmail.com',
+            'role' => 'user',
+            'logo' => '',
+            'password' => Hash::make('123456'),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'HIMIF',
+            'email' => 'himif@gmail.com',
+            'role' => 'user',
+            'logo' => '',
+            'password' => Hash::make('123456'),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'HIMAN',
+            'email' => 'himan@gmail.com',
+            'role' => 'user',
+            'logo' => '',
+            'password' => Hash::make('123456'),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'HIMAK',
+            'email' => 'himak@gmail.com',
+            'role' => 'user',
+            'logo' => '',
+            'password' => Hash::make('123456'),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'HIMIK',
+            'email' => 'himik@gmail.com',
+            'role' => 'user',
+            'logo' => '',
             'password' => Hash::make('123456'),
         ]);
     }
