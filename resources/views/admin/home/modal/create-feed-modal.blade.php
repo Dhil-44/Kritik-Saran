@@ -23,8 +23,8 @@
                         </div>
                         <div class="form-group">
                             <label for="body"> <span class="text-red">*</span> News Body</label>
-                            <textarea class="form-control" wire:model="body" placeholder=". . ." id="body"
-                                      rows="8"></textarea>
+                            <textarea class="form-control" wire:model="body" placeholder="" id="body"
+                                      rows=""></textarea>
                             @error('body')
                             <span class="text-red">
                                 {{$message}}

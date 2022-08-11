@@ -19,7 +19,7 @@ class SubSeed extends Seeder
         $f = \Faker\Factory::create();
         for ($i = 1; $i < 101; $i++ ) {
             DB::table('submissions')->insert([
-                'id_cat' => $f->numberBetween(1, 3),
+                'id_cat' => $f->numberBetween(1, 7),
                 'id_user_target' => $f->numberBetween(1, 11),
                 'id_user_pengirim' => $f->numberBetween(1, 11),
                 'message' => $f->sentence(70),

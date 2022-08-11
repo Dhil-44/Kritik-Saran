@@ -1,19 +1,17 @@
 <div class="container-fluid">
     {{-- Stop trying to control. --}}
     <div class="row">
-        <div class="col-2 mt-2 shadow-lg" style="max-height: 55vh">
+        <div class="col-2 mt-2 shadow-lg" style="max-height: 57vh">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>Category</b></div>
             <div class="list-group list-group-flush card">
-                <a class="list-group-item list-group-item-action text-black list-group-item-light p-3"
-                   href="#!">{{__('All')}}</a>
-                <a class="list-group-item list-group-item-action text-dark list-group-item-light p-3"
-                   href="#!">{{__('AO Kalbis')}}</a>
-                <a class="list-group-item list-group-item-action text-black list-group-item-light p-3"
-                   href="#!">{{__('CAC Kalbis')}}</a>
-                <a class="list-group-item list-group-item-action text-black list-group-item-light p-3"
-                   href="#!">{{__('CSD Kalbis')}}</a>
-                <a class="list-group-item list-group-item-action text-black list-group-item-light p-3"
-                   href="#!">{{__('Finance Kalbis')}}</a>
+                <a
+                    class="list-group-item list-group-item-action text-black active list-group-item-light p-3" type="button">{{__("All")}}</a>
+                <a class="list-group-item list-group-item-action text-black list-group-item-light p-3">{{__('CSD Kalbis')}}</a>
+                <a wire:click="$set('emailToCategory', 'aokalbis@gmail.com')" class="list-group-item list-group-item-action text-black list-group-item-light p-3"
+                    >{{__('AO Kalbis')}}</a>
+                <a class="list-group-item list-group-item-action text-black list-group-item-light p-3 active"
+                    >{{__('CAC Kalbis')}}</a>
+                <a class="list-group-item list-group-item-action text-black list-group-item-light p-3">{{__('Finance Kalbis')}}</a>
             </div>
         </div>
         <div class="col-8">
@@ -28,7 +26,7 @@
                                             <div class="col-1" style="margin-left: 10px;">
                                                 <select wire:model="paginate" class="form-control form-control-sm"
                                                         style="width: 40px">
-                                                    @for ($i = 5; $i <= 30; $i += 5)
+                                                    @for ($i = 1; $i <= $submissions->count(); $i ++)
                                                         <option style="text-align: center" value="{{ $i }}">
                                                             {{ $i }}</option>
                                                     @endfor
@@ -67,20 +65,6 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                            <button class="btn btn-green" wire:click="openModal()">
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                     class="icon icon-tabler icon-tabler-pencil-plus" width="24"
-                                                     height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                     stroke="currentColor" fill="none" stroke-linecap="round"
-                                                     stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                    <path d="M8 20l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4h4z">
-                                                    </path>
-                                                    <path d="M13.5 6.5l4 4"></path>
-                                                    <path d="M16 18h4m-2 -2v4"></path>
-                                                </svg>
-                                                Add new feed
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -90,7 +74,7 @@
                 </div>
             </div>
             <div class="col-12 ">
-                @foreach ($feeds as $feed)
+                @foreach ($submissions as $submission)
                     <div class="card shadow-sm mt-2 hover-shadow-lg" style="border-radius: 20px">
                         <div class="card-body">
                             <div class="row">
@@ -102,18 +86,18 @@
                                     <div class="row justify-content-between">
                                         <div class="col-auto">
                                             <div class="row">
-                                                <h3 class="col-auto"><b>{{ $feed->title }}</b></h3>
+                                                <h3 class="col-auto"><b>{{ $submission->getUser->name }}</b></h3>
                                                 <p class="col-auto text-muted"
                                                    style="margin-top: 3px; margin-left:-7px;">
-                                                    {{ $feed->user->name }}
+                                                    {{ $submission->getUserTarget->name }}
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-auto">
                                             <div class="row">
-                                                @if (auth('web')->id() === $feed->user_id)
+                                                @if (auth('web')->id() === $submission->id_user_pengirim)
                                                     <div class="col-auto btn-group">
-                                                        <button wire:click="editFeed({{ $feed }})"
+                                                        <button wire:click="editFeed({{ $submission }})"
                                                                 class="btn btn-sm border-0 text-warning">
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                  class="icon icon-tabler icon-tabler-edit"
@@ -131,7 +115,7 @@
                                                                 <path d="M16 5l3 3"></path>
                                                             </svg>
                                                         </button>
-                                                        <button wire:click.prevent="deleteFeed({{ $feed['id'] }})"
+                                                        <button wire:click.prevent="deleteFeed({{ $submission['id'] }})"
                                                                 class="btn btn-sm border-0 text-danger">
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                  class="icon icon-tabler icon-tabler-trash"
@@ -159,10 +143,10 @@
                                         </div>
 
                                     </div>
-                                    <div class="fs-5 mb-2" style="margin-top: -9px;">{{ $feed->created_at }}</div>
+                                    <div class="fs-5 mb-2" style="margin-top: -9px;">{{ $submission->created_at }}</div>
                                     <div class="text">
                                         <p align="justify" class="" style="margin-right: 7px;">
-                                            {{ $feed->body }}
+                                            {{ $submission->message }}
                                         </p>
                                     </div>
 
@@ -173,9 +157,9 @@
                     </div>
                 @endforeach
             </div>
-            <div class="mt-2 fs-3 ">
-                {{ $feeds->links() }}
-            </div>
+            {{--            <div class="mt-2 fs-3 ">--}}
+            {{--                {{ $submissions->links() }}--}}
+            {{--            </div>--}}
         </div>
         <div class="col-2 mt-2">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>News</b></div>
@@ -208,10 +192,10 @@
     <script>
         $(function () {
             window.addEventListener('openCreateFeedMsg', function (e) {
-                $('.create_feed_message').modal('show')
+                $('.create_submission').modal('show')
             })
             window.addEventListener('closeModalFeedMsg', (e) => {
-                $('.create_feed_message').modal('hide')
+                $('.create_submission').modal('hide')
             })
         })
     </script>

@@ -25,6 +25,7 @@ class SubmissionController extends Component
     }
     public function deleteSubmission($id)
     {
+
         Submission::findOrFail($id)->delete();
     }
     public function editSubmission($submission)

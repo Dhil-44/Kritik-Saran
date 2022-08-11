@@ -31,8 +31,8 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="form-group">
                             <label for="body"> <span class="text-red">*</span> News Body</label>
-                            <textarea class="form-control" wire:model="body" placeholder=". . ." id="body"
-                                      rows="8"></textarea>
+                            <textarea class="form-control" wire:model="body" placeholder="" id="body"
+                                      rows=""></textarea>
                             <?php $__errorArgs = ['body'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

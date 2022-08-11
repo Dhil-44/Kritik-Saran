@@ -4,7 +4,6 @@
             <div class="modal-body">
                 <h2><?php echo e(__('')); ?></h2>
                 <img src="https://via.placeholder.com/640x480.png/000033?text=et" alt="">
-
                 <p class="mt-3">Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas
                     eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
                 <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue
