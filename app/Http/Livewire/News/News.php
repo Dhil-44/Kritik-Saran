@@ -13,20 +13,20 @@ class News extends Component
     use WithPagination;
 
     protected $paginationTheme = 'bootstrap';
-    public $title, $body, $gambar = '', $link = '';
+    public $title, $body, $gambar = '', $link = '',$data ;
 
     public function render()
     {
         return view('livewire.news.news', [
             'news' => Berita::latest()->paginate($this->paginate),
+            'detail' => $this->data
         ]);
     }
 
-    public function openDetailNews($data)
+    public function openDetailNews($new)
     {
-        return $this->dispatchBrowserEvent('show-detail', [
-            'data' => $data
-        ]);
+        $x = $this->data = $new;
+        return $this->dispatchBrowserEvent('show-detail');
     }
 
     public function openModalNews()
