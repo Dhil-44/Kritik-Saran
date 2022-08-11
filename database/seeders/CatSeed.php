@@ -15,7 +15,7 @@ class CatSeed extends Seeder
      */
     public function run()
     {
-        $cats = ['Critic','Suggestion','Announcement'];
+        $cats = ['Critic','Suggestion','Announcement','aokalbis','cackalbis','csdkalbis','financekalbis'];
 
         foreach ($cats as $cat){
         DB::table('categories')->insert([

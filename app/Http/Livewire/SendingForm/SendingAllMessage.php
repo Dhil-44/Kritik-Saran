@@ -9,19 +9,26 @@ use App\Models\Submission;
 
 class SendingAllMessage extends Component
 {
-    public $id_cat, $id_user_target, $message, $file_name;
+    public $id_cat, $id_user_target, $message, $file_name, $status;
     public function render()
     {
+//
         return view('livewire.sending-form.sending-all-message',[
             'users' => User::where("id", "!=", auth('web')->id())
-                ->where("email","!=","admin@gmail.com" )->get(),
+                ->where("email","!=","admin@gmail.com" )
+                ->where("email","!=","rektoratkalbis@gmail.com" )
+                ->where('role','department')->get(),
             'categories' => Category::all(),
             'testimony' => Submission::latest()->get(),
         ]);
     }
-    public function  openModalCreateModal(){
-        return
-        $this->dispatchBrowserEvent('openModalCreateModal');
+    public function openModalCreateModal(){
+        $this->clear_column();
+        return $this->dispatchBrowserEvent('openModalCreateModal');
+    }
+     public function closeModal(){
+        $this->clear_column();
+        return $this->dispatchBrowserEvent('closeModal');
     }
     public function createSubmission()
     {
@@ -29,13 +36,11 @@ class SendingAllMessage extends Component
             [
                 'id_cat'  => 'required',
                 'id_user_target' => 'required',
-                // 'id_user_pengirim' => 'required',
                 'message' => 'required|max:1000',
             ],
             [
                 'id_cat.required' => 'Choose category',
                 'id_user_target.required' => 'Choose email',
-                // 'id_user_pengirim.required' => 'Choose email',
                 'message.required' => 'Enter your message',
                 'message.max' => 'Character cannot be more than 1000 characters',
             ]
@@ -46,11 +51,14 @@ class SendingAllMessage extends Component
             'id_user_pengirim' =>  auth('web')->id(),
             'message' => $this->message,
             'file_name' => '',
+            'status' => $this->status ? 'public' : 'private',
+
         ]);
 
         if ($data_submission) {
-            $this->clear_column();
-            $this->dispatchBrowserEvent('hide_modal_create_sub',);
+            $this->closeModal();
+//            $this->clear_column();
+//            $this->dispatchBrowserEvent('hide_modal_create_sub',);
         }
     }
     private function clear_column()
