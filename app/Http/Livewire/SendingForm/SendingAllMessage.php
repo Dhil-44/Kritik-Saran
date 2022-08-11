@@ -12,7 +12,6 @@ class SendingAllMessage extends Component
     public $id_cat, $id_user_target, $message, $file_name, $status;
     public function render()
     {
-//
         return view('livewire.sending-form.sending-all-message',[
             'users' => User::where("id", "!=", auth('web')->id())
                 ->where("email","!=","admin@gmail.com" )

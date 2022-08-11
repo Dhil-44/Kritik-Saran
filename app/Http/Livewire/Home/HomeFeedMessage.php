@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Home;
 
-//use App\Models\Feed;
 use App\Models\News;
 use App\Models\Submission;
 use App\Models\User;
@@ -19,6 +18,7 @@ class HomeFeedMessage extends Component
     protected $paginationTheme = 'bootstrap';
     public $id_cat, $id_user_target, $message, $file_name, $status;
     public $emailToCategory;
+
     public function render()
     {
 //        if($this->emailToCategory){
@@ -36,7 +36,7 @@ class HomeFeedMessage extends Component
             })->latest()->paginate($this->paginate);
 
         } else {
-            $submissions = Submission::where("status", "public")->paginate($this->paginate);
+            $submissions = Submission::where("status", "public")->latest('created_at')->paginate($this->paginate);
         }
 
         return view('livewire.home.home-feed-message', [
@@ -54,13 +54,14 @@ class HomeFeedMessage extends Component
 
     function editFeed($submission)
     {
-
+        dd($submission);
     }
 
     public function deleteFeed($id)
     {
         dd($id);
     }
+
     // tidak dipakai
     public function updateFeed()
     {
