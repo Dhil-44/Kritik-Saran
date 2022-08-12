@@ -13,68 +13,44 @@ use Livewire\WithPagination;
 class HomeFeedMessage extends Component
 {
     use WithPagination;
-
     public $search, $paginate = 5;
     protected $paginationTheme = 'bootstrap';
     public $id_cat, $id_user_target, $message, $file_name, $status;
-    public $emailToCategory;
-
+    private $submissions = null;
     public function render()
     {
-//        if($this->emailToCategory){
-//            $submissions =  Submission::getGroupByCategory(4);
-//        }
-        $users = User::where('role', 'department')
-            ->where('email', "!=", 'rektoratkalbis@gmail.com')
-            ->where('email', "!=", 'admin@gmail.com')
-            ->get();
-        // search
         if ($this->search) {
-            $submissions = Submission::where(function ($q) {
+            $this->submissions = Submission::where(function ($q) {
                 $q->where("message", "LIKE", "%" . $this->search . "%")
                     ->where("status", "public");
             })->latest()->paginate($this->paginate);
-
         } else {
-            $submissions = Submission::where("status", "public")->latest('created_at')->paginate($this->paginate);
+            if ($this->submissions != null) {
+                $this->submissions = $this->submissions;
+            } else {
+                $this->submissions = null;
+                $this->submissions = Submission::where("status", "public")->latest('created_at')->paginate($this->paginate);
+            }
         }
-
         return view('livewire.home.home-feed-message', [
-//            'feeds'=>$feeds,
-            'submissions' => $submissions,
+            'submissions' => $this->submissions,
             'news' => News::latest()->get(),
-            'users' => $users
+            'users' => User::getAllRoleDepartent(),
         ]);
     }
-
+    function all(){
+        $this->submissions = null;
+    }
+    function group($user)
+    {
+        $this->submissions = Submission::where('id_user_pengirim', $user['id'])
+            ->where("status", "public")
+            ->paginate($this->paginate);
+    }
     public function openModal()
     {
-        $this->dispatchBrowserEvent('openCreateFeedMsg');
+        dd($this->dispatchBrowserEvent('openCreateFeedMsg'));
     }
-
-    function editFeed($submission)
-    {
-        dd($submission);
-    }
-
-    public function deleteFeed($id)
-    {
-        dd($id);
-    }
-
-    // tidak dipakai
-    public function updateFeed()
-    {
-        $this->validate([
-            'upd_boyd' => ['required', 'min:4'],
-
-        ]);
-        Feed::findOrFail($this->id_update)->update([
-            'body' => $this->upd_body,
-        ]);
-
-    }
-
     // tidak dipakai
     public function createFeedMessage()
     {
@@ -101,7 +77,6 @@ class HomeFeedMessage extends Component
                 $this->title = $this->body = $this->category = null;
                 $this->closeModal();
             }
-
         } catch (\Exception $e) {
             return Response()->json([
                 'message' => 'Failed',
@@ -109,7 +84,5 @@ class HomeFeedMessage extends Component
                 'error' => $e
             ]);
         }
-
     }
-
 }

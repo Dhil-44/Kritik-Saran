@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\DB;
 
 
 class Submission extends Model
@@ -15,6 +18,16 @@ class Submission extends Model
         'created_at',
         'updated_at'
     ];
+    protected $with = ['getUser','getUserTarget','getCategory'];
+
+    // tidak dipakai
+    public static function groupByThisItem($email) : array
+    {
+        $hasil = DB::select("SELECT * FROM submissions INNER JOIN users
+                                        ON submissions.id_user_pengirim = users.id
+                                        where users.email = %s", $email);
+        return $hasil;
+    }
     static function getGroupByCategory($id_cat)
     {
         $result = null;
@@ -58,13 +71,13 @@ class Submission extends Model
         return $data;
     }
 
-
-    function getUser()
+    //
+    function getUser(): BelongsTo
     {
         return $this->belongsTo(User::class, 'id_user_pengirim', 'id');
     }
 
-    function getUserTarget()
+    function getUserTarget():BelongsTo
     {
         return $this->belongsTo(User::class, 'id_user_target', 'id');
     }
@@ -85,20 +98,20 @@ class Submission extends Model
         $this->attributes['created_at'] = $value;
     }
 
-    public function getCreatedAtAttribute()
+    public function getCreatedAtAttribute():string
     {
         // \Carbon\Carbon::parse($this->attributes['created_at'])->format('d,M Y H:i');
-        return \Carbon\Carbon::parse($this->attributes['created_at'])->diffForHumans();
+        return Carbon::parse($this->attributes['created_at'])->diffForHumans();
     }
 
-    public function setUpdatedAtAttribute($value)
+    public function setUpdatedAtAttribute($value):void
     {
         $this->attributes['updated_at'] = $value;
     }
 
     // harus ada di magic property appends
-    public function getUpdatedAtAttribute()
+    public function getUpdatedAtAttribute() : string
     {
-        return \Carbon\Carbon::parse($this->attributes['updated_at'])->diffForHumans();
+        return Carbon::parse($this->attributes['updated_at'])->diffForHumans();
     }
 }
