@@ -31,7 +31,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($feeds as $feed)
+                            @forelse($feeds as $feed)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td> {{ $feed->user->name }} </td>

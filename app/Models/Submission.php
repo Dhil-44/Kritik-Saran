@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 
 class Submission extends Model
@@ -15,31 +16,38 @@ class Submission extends Model
         'created_at',
         'updated_at'
     ];
-
-    static function getGroupByCategory($id_cat){
+    public static function groupByThisItem($email)
+    {
+        $hasil = DB::select("SELECT * FROM submissions INNER JOIN users
+                                        ON submissions.id_user_pengirim = users.id
+                                        where users.email = %s", $email);
+        return $hasil;
+    }
+    static function getGroupByCategory($id_cat)
+    {
         $result = null;
         // CAC
-        if($id_cat == 5){
-           $result =  Submission::where("id_cat",$id_cat)
-               ->where('status','public')
-               ->get();
+        if ($id_cat == 5) {
+            $result =  Submission::where("id_cat", $id_cat)
+                ->where('status', 'public')
+                ->get();
         }
         // AO Kalbis
         else if ($id_cat == 4) {
             $result = Submission::where("id_cat", $id_cat)
-//                ->where('status','public')
+                //                ->where('status','public')
                 ->get();
         }
         // CSD
         else if ($id_cat == 6) {
             $result = Submission::where("id_cat", $id_cat)
-                ->where('status','public')
+                ->where('status', 'public')
                 ->get();
         }
         // Finance
         else if ($id_cat == 7) {
             $result = Submission::where("cat", $id_cat)
-                ->where('status','public')
+                ->where('status', 'public')
                 ->get();
         }
         return $result;
