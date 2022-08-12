@@ -4,6 +4,8 @@
         <div class="col-2 mt-2 shadow-lg" style="max-height: 57vh">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>Category</b></div>
             <div class="list-group list-group-flush card">
+                <button type="button" wire:click.prevent="all()"
+                        class="list-group-item  list-group-item-action text-black list-group-item-light p-3"><?php echo e(__('All')); ?></button>
                 <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <button type="button" wire:click.prevent="group(<?php echo e($user); ?>)"
                         class="list-group-item  list-group-item-action text-black list-group-item-light p-3"><?php echo e(__($user->name)); ?></button>

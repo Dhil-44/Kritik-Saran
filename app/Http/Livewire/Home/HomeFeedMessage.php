@@ -43,9 +43,14 @@ class HomeFeedMessage extends Component
             'users' => $users,
         ]);
     }
+    function all(){
+        $this->submissions = null;
+    }
     function group($user)
     {
-        $this->submissions = Submission::where('id_user_pengirim', $user['id'])->paginate($this->paginate);
+        $this->submissions = Submission::where('id_user_pengirim', $user['id'])
+            ->where("status", "public")
+            ->paginate($this->paginate);
     }
     public function openModal()
     {
