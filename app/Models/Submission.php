@@ -16,6 +16,8 @@ class Submission extends Model
         'created_at',
         'updated_at'
     ];
+
+    // tidak dipakai
     public static function groupByThisItem($email)
     {
         $hasil = DB::select("SELECT * FROM submissions INNER JOIN users
