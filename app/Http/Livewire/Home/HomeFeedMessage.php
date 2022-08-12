@@ -19,11 +19,6 @@ class HomeFeedMessage extends Component
     private $submissions = null;
     public function render()
     {
-        $users = User::where('role', 'department')
-            ->where('email', "!=", 'rektoratkalbis@gmail.com')
-            ->where('email', "!=", 'admin@gmail.com')
-            ->orderBy('name', 'asc')
-            ->get();
         if ($this->search) {
             $this->submissions = Submission::where(function ($q) {
                 $q->where("message", "LIKE", "%" . $this->search . "%")
@@ -40,7 +35,7 @@ class HomeFeedMessage extends Component
         return view('livewire.home.home-feed-message', [
             'submissions' => $this->submissions,
             'news' => News::latest()->get(),
-            'users' => $users,
+            'users' => User::getAllRoleDepartent(),
         ]);
     }
     function all(){

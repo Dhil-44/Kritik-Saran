@@ -1,17 +1,18 @@
+
 <?php $__env->startSection('title', 'User Tables'); ?>
 <?php $__env->startSection('content'); ?>
     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('admin.feed-controller')->html();
-} elseif ($_instance->childHasBeenRendered('DV76Rpb')) {
-    $componentId = $_instance->getRenderedChildComponentId('DV76Rpb');
-    $componentTag = $_instance->getRenderedChildComponentTagName('DV76Rpb');
+} elseif ($_instance->childHasBeenRendered('DpwFegu')) {
+    $componentId = $_instance->getRenderedChildComponentId('DpwFegu');
+    $componentTag = $_instance->getRenderedChildComponentTagName('DpwFegu');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('DV76Rpb');
+    $_instance->preserveRenderedChild('DpwFegu');
 } else {
     $response = \Livewire\Livewire::mount('admin.feed-controller');
     $html = $response->html();
-    $_instance->logRenderedChild('DV76Rpb', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('DpwFegu', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
