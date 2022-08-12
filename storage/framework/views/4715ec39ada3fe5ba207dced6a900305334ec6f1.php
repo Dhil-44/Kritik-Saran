@@ -10,7 +10,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-auto">
                                         <span class="avatar me-2 avatar-rounded"
-                                            style="background-image: url(http://127.0.0.1:8000/dist/img/image/logo-ao.jpg)"></span>
+                                            style="background-image: url(http://127.0.0.1:8000/dist/img/image/logo-kal.jpg)"></span>
                                     </div>
                                     <div class="col">
                                         <div class="card-title"><?php echo e($annoucement->getUser->name); ?></div>

@@ -105,7 +105,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="card-title"><?php echo e($data->getUser->name); ?></div>
-                                            <div class="card-subtitle"><?php echo e($data->created_at); ?></div>
+                                            <div class="card-subtitle"><?php echo e($data->updated_at); ?></div>
                                         </div>
                                     </div>
                                 </div>
@@ -128,7 +128,11 @@
             $('.create_submission').modal('hide');
         })
         window.addEventListener('openModalCreateModal', () => {
+            $('.create_submission').find('span.text-danger').html('')
             $('.create_submission').modal('show')
+        })
+        window.addEventListener('closeModal', (e) => {
+            $('.create_submission').modal('hide');
         })
     </script>
 <?php $__env->stopPush(); ?>

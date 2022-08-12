@@ -1,5 +1,6 @@
-<div class="modal fade createUser" wire:ignore.self tabindex="-1" id="modal-lg" style="display: none;" aria-hidden="true"
-    data-keyboard="false" data-backdrop="static">
+<div class="modal fade createUser" wire:ignore.self tabindex="-1" id="modal-lg" style="display: none;"
+     aria-hidden="true"
+     data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -18,7 +19,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <?php echo e($message); ?>
+                            <?php echo e($message); ?>
 
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
@@ -34,7 +35,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <?php echo e($message); ?>
+                            <?php echo e($message); ?>
 
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
@@ -44,9 +45,8 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="form-group">
                         <label for="roleUser">Role</label>
-                        <select wire:modal="role" id="roleUser" class="form-control">
+                        <select wire:model="role" id="roleUser" class="form-control">
                             <option>Choose Role..</option>
-                            <option>Role</option>
                             <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rl): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <option value="<?php echo e($rl); ?>"><?php echo e(__($rl)); ?></option>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -57,7 +57,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <?php echo e($message); ?>
+                            <?php echo e($message); ?>
 
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
@@ -74,7 +74,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <?php echo e($message); ?>
+                            <?php echo e($message); ?>
 
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }

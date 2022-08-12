@@ -7,10 +7,25 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
+Use Illuminate\Support\Str;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+    //new added
+//    public $incrementing = false;
+//    protected $keyType = 'string';
+
+//    protected static function boot()
+//    {
+//        parent::boot(); //
+//        User::creating(function ($model){
+//            $model->setId();
+//        });
+//    }
+//    public function setId(){
+//        $this->attributes['id'] = Str::uuid();
+//    }
 
     /**
      * The attributes that are mass assignable.

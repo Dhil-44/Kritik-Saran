@@ -9,17 +9,41 @@ use Illuminate\Database\Eloquent\Model;
 class Submission extends Model
 {
     use HasFactory;
-
     protected $table = 'submissions';
     protected $guarded = ['id',];
-
     protected $appends = [
         'created_at',
+        'updated_at'
     ];
-    // protected $touches = [
-    //     'submissions'
-    // ];
-
+    static function getGroupByCategory($id_cat)
+    {
+        $result = null;
+        // CAC
+        if ($id_cat == 5) {
+            $result =  Submission::where("id_cat", $id_cat)
+                ->where('status', 'public')
+                ->get();
+        }
+        // AO Kalbis
+        else if ($id_cat == 4) {
+            $result = Submission::where("id_cat", $id_cat)
+                //                ->where('status','public')
+                ->get();
+        }
+        // CSD
+        else if ($id_cat == 6) {
+            $result = Submission::where("id_cat", $id_cat)
+                ->where('status', 'public')
+                ->get();
+        }
+        // Finance
+        else if ($id_cat == 7) {
+            $result = Submission::where("cat", $id_cat)
+                ->where('status', 'public')
+                ->get();
+        }
+        return $result;
+    }
     static function category(int $category, string $column)
     {
         $data = null;
@@ -69,7 +93,7 @@ class Submission extends Model
 
     public function setUpdatedAtAttribute($value)
     {
-        \Carbon\Carbon::parse($value)->format('d,M Y H:i');
+        $this->attributes['updated_at'] = $value;
     }
 
     // harus ada di magic property appends

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="{{ asset('dist/img/image/icon-logo.jpg') }}" type="image/x-icon" />
     <title>Admin</title>
-    <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="admin/plugins/fontawesome-free/css/all.min.css">
@@ -31,8 +30,8 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link  active text-white" data-widget="control-sidebar" data-slide="true" href="#"
-                        role="button">
+                    <a class="nav-link  active text-white" data-widget="control-sidebar" data-slide="true"
+                        href="#" role="button">
                         <img src="{{ asset('dist/img/image/icon-logo.jpg') }}" class="img-circle mr-1"
                             style="width: 30px" alt="">
                         <b>Admin</b>
@@ -69,29 +68,40 @@
                                 <li class="nav-item ">
                                     <a href="{{ route('user-tables') }}#"
                                         class="nav-link {{ request()->is('user-tables') ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="far fa-user nav-icon"></i>
+
                                         <p>Users</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('submission-tables') }}#"
                                         class="nav-link {{ request()->is('submission-tables') ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="far fa-comments nav-icon"></i>
                                         <p>Submission</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('feed-tables') }}#"
+                                        class="nav-link {{ request()->is('feed-tables') ? 'active' : '' }}">
+                                        <i class="far fa-edit nav-icon"></i>
+                                        <p>Feed</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('news-tables') }}#"
+                                        class="nav-link {{ request()->is('news-tables') ? 'active' : '' }}">
+                                        <i class="far fa-newspaper nav-icon"></i>
+                                        <p>News</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </nav>
-                <!-- /.sidebar-menu -->
             </div>
-            <!-- /.sidebar -->
         </aside>
 
-        <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
@@ -102,18 +112,14 @@
 
                 </div><!-- /.container-fluid -->
             </div>
-            <!-- /.content-header -->
 
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
                     <!-- /.row -->
-
                     @yield('content')
                 </div>
-                <!-- /.container-fluid -->
             </div>
-            <!-- /.content -->
         </div>
 
         <!-- Main Footer -->
@@ -122,12 +128,8 @@
             All rights reserved.
         </footer>
     </div>
-    <!-- ./wrapper -->
 
-    <!-- REQUIRED SCRIPTS -->
-    <!-- jQuery -->
     <script src="admin/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap -->
     <script src="admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
     <script src="admin/dist/js/adminlte.js"></script>
