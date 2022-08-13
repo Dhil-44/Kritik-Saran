@@ -30,7 +30,7 @@ class HomeFeedMessage extends Component
             if ($this->submissions != null) {
                 $this->submissions = $this->submissions;
             } else {
-                $this->submissions = null;
+//                $this->submissions = null;
                 $this->submissions = Submission::where("status", "public")->latest('created_at')->paginate($this->paginate);
             }
         }
@@ -60,16 +60,18 @@ class HomeFeedMessage extends Component
 
     function delete()
     {
-        $this->showToastr('funckyou', 'success');
 
+        $this->showToastr('funckyou asnflanfalnfkanamdnakehaoihdandmanwo', 'success');
     }
 
     public function showToastr($message, $type)
     {
-        return $this->dispatchBrowserEvent('showToastr', [
-            'type' => $type,
-            'message' => $message
-        ]);
+        return $this->dispatchBrowserEvent('showToastr',
+            [
+                'type' => $type,
+                'message' => $message
+            ]
+        );
     }
 
     // tidak dipakai
