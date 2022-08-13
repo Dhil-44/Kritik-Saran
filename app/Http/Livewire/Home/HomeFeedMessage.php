@@ -13,10 +13,12 @@ use Livewire\WithPagination;
 class HomeFeedMessage extends Component
 {
     use WithPagination;
+
     public $search, $paginate = 5;
     protected $paginationTheme = 'bootstrap';
     public $id_cat, $id_user_target, $message, $file_name, $status;
     private $submissions = null;
+
     public function render()
     {
         if ($this->search) {
@@ -38,19 +40,38 @@ class HomeFeedMessage extends Component
             'users' => User::getAllRoleDepartent(),
         ]);
     }
-    function all(){
+
+    function all()
+    {
         $this->submissions = null;
     }
+
     function group($user)
     {
         $this->submissions = Submission::where('id_user_pengirim', $user['id'])
             ->where("status", "public")
             ->paginate($this->paginate);
     }
+
     public function openModal()
     {
         dd($this->dispatchBrowserEvent('openCreateFeedMsg'));
     }
+
+    function delete()
+    {
+        $this->showToastr('funckyou', 'success');
+
+    }
+
+    public function showToastr($message, $type)
+    {
+        return $this->dispatchBrowserEvent('showToastr', [
+            'type' => $type,
+            'message' => $message
+        ]);
+    }
+
     // tidak dipakai
     public function createFeedMessage()
     {
