@@ -23,7 +23,7 @@ class UserSeed extends Seeder
         ];
 
         DB::table('users')->insert([
-            'name' => 'Kita Group',
+            'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'role' => 'admin',
             'logo' => '',
