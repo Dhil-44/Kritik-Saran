@@ -5,23 +5,23 @@
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <a href="#tab-top-1" class="nav-link hover-shadow-lg" data-bs-toggle="tab" aria-selected="true"
-                   role="tab">
+                    role="tab">
                     Critics</a>
             </li>
             <li class="nav-item" role="presentation">
                 <a href="#tab-top-2" class="nav-link  hover-shadow-lg" data-bs-toggle="tab" aria-selected="false"
-                   role="tab" tabindex="-1">Suggestions</a>
+                    role="tab" tabindex="-1">Suggestions</a>
             </li>
             <li class="nav-item" role="presentation">
                 <a href="#tab-top-3" class="nav-link  hover-shadow-lg" data-bs-toggle="tab" aria-selected="false"
-                   role="tab" tabindex="-1">Announcements</a>
+                    role="tab" tabindex="-1">Announcements</a>
             </li>
             <li class="nav-item col-auto ms-auto" role="presentation">
                 <button class="btn btn-success d-none d-sm-inline-block" wire:click="openModalCreateModal()"
-                        style="background: #2e7d32;">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail-forward" width="24"
-                         height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                         stroke-linecap="round" stroke-linejoin="round">
+                    style="background: #2e7d32;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail-forward"
+                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                        fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M12 18h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v7.5"></path>
                         <path d="M3 6l9 6l9 -6"></path>
@@ -45,7 +45,7 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <span class="avatar me-2 avatar-rounded"
-                                                  style="background-image: url(http://127.0.0.1:8000/dist/img/image/gedungkalbis.png)"></span>
+                                                style="background-image: url(http://127.0.0.1:8000/dist/img/image/gedungkalbis.png)"></span>
                                         </div>
                                         <div class="col">
                                             <div class="card-title"><?php echo e($data->getUser->name); ?></div>
@@ -73,7 +73,7 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <span class="avatar me-2 avatar-rounded"
-                                                  style="background-image: url(http://127.0.0.1:8000/dist/img/image/gedungkalbis.png)"></span>
+                                                style="background-image: url(http://127.0.0.1:8000/dist/img/image/gedungkalbis.png)"></span>
                                         </div>
                                         <div class="col">
                                             <div class="card-title"><?php echo e($data->getUser->name); ?></div>
@@ -101,7 +101,7 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <span class="avatar me-2 avatar-rounded"
-                                                  style="background-image: url(http://127.0.0.1:8000/dist/img/image/gedungkalbis.png)"></span>
+                                                style="background-image: url(http://127.0.0.1:8000/dist/img/image/gedungkalbis.png)"></span>
                                         </div>
                                         <div class="col">
                                             <div class="card-title"><?php echo e($data->getUser->name); ?></div>
@@ -124,7 +124,7 @@
 </div>
 <?php $__env->startPush('scripts'); ?>
     <script>
-        window.addEventListener('hide_modal_create_sub', function (e) {
+        window.addEventListener('hide_modal_create_sub', function(e) {
             $('.create_submission').modal('hide');
         })
         window.addEventListener('openModalCreateModal', () => {

@@ -19,6 +19,7 @@
     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('home.home-feed-message')->html();
+
 } elseif ($_instance->childHasBeenRendered('IyPuHdy')) {
     $componentId = $_instance->getRenderedChildComponentId('IyPuHdy');
     $componentTag = $_instance->getRenderedChildComponentTagName('IyPuHdy');
@@ -28,6 +29,7 @@ if (! isset($_instance)) {
     $response = \Livewire\Livewire::mount('home.home-feed-message');
     $html = $response->html();
     $_instance->logRenderedChild('IyPuHdy', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+
 }
 echo $html;
 ?>
