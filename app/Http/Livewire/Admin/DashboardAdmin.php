@@ -16,7 +16,6 @@ class DashboardAdmin extends Component
         return view('livewire.admin.dashboard-admin', [
             'users' => User::countUsers(),
             'subms' => Submission::countSubs(),
-            'feeds' => Feed::get()->count(),
             'news' => News::get()->count()
 
         ]);
