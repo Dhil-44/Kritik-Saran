@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 Use Illuminate\Support\Str;
 class User extends Authenticatable
@@ -32,6 +34,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
     protected $fillable = [
         'name',
         'email',
@@ -49,6 +52,10 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    static function getAllRoleDepartent() {
+       return User::whereRaw("users.role = 'department' order by users.name asc")->get();
+    }
 
     /**
      * The attributes that should be cast.

@@ -13,17 +13,14 @@ use Livewire\WithPagination;
 class HomeFeedMessage extends Component
 {
     use WithPagination;
+
     public $search, $paginate = 5;
     protected $paginationTheme = 'bootstrap';
     public $id_cat, $id_user_target, $message, $file_name, $status;
     private $submissions = null;
+
     public function render()
     {
-        $users = User::where('role', 'department')
-            ->where('email', "!=", 'rektoratkalbis@gmail.com')
-            ->where('email', "!=", 'admin@gmail.com')
-            ->orderBy('name', 'asc')
-            ->get();
         if ($this->search) {
             $this->submissions = Submission::where(function ($q) {
                 $q->where("message", "LIKE", "%" . $this->search . "%")
@@ -40,17 +37,41 @@ class HomeFeedMessage extends Component
         return view('livewire.home.home-feed-message', [
             'submissions' => $this->submissions,
             'news' => News::latest()->get(),
-            'users' => $users,
+            'users' => User::getAllRoleDepartent(),
         ]);
     }
+
+    function all()
+    {
+        $this->submissions = null;
+    }
+
     function group($user)
     {
-        $this->submissions = Submission::where('id_user_pengirim', $user['id'])->paginate($this->paginate);
+        $this->submissions = Submission::where('id_user_pengirim', $user['id'])
+            ->where("status", "public")
+            ->paginate($this->paginate);
     }
+
     public function openModal()
     {
         dd($this->dispatchBrowserEvent('openCreateFeedMsg'));
     }
+
+    function delete()
+    {
+        $this->showToastr('funckyou', 'success');
+
+    }
+
+    public function showToastr($message, $type)
+    {
+        return $this->dispatchBrowserEvent('showToastr', [
+            'type' => $type,
+            'message' => $message
+        ]);
+    }
+
     // tidak dipakai
     public function createFeedMessage()
     {

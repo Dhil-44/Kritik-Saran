@@ -8,18 +8,36 @@
     <title>@yield('title')</title>
     <link href="{{ asset('dist/css/tabler.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/tabler.min.css') }}" rel="stylesheet">
-    <link rel="shortcut icon" href="{{ asset('dist/img/image/icon-logo.jpg') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ asset('dist/img/image/icon-logo.jpg') }}" type="image/x-icon"/>
+    <script src="{{asset('dist/libs/iJabo/ijabo.min.css')}}"></script>
     @livewireStyles
 </head>
 <body>
-    {{-- @include('header-footer.navbar') --}}
-    @yield('content')
-    <script src="{{ asset('dist/js/jquery.js') }}"></script>
-    <script src="{{ asset('dist/js/tabler.js') }}"></script>
-    <script src="{{ asset('dist/js/tabler.min.js') }}"></script>
+{{-- @include('header-footer.navbar') --}}
+@yield('content')
+<script src="{{ asset('dist/js/jquery.js') }}"></script>
+<script src="{{ asset('dist/js/tabler.js') }}"></script>
+<script src="{{ asset('dist/js/tabler.min.js') }}"></script>
+<script src="{{asset('dist/libs/iJabo/ijabo.min.js')}}"></script>
 
-    @stack('scripts')
-    @livewireScripts
+@stack('scripts')
+@livewireScripts
+<script>
+    window.addEventListener("showToastr", function (event) {
+        alert('adadd')
+        toastr.remove();
+        if (event.detail.type === 'info') {
+            toastr.info(event.detail.message)
+        } else if (event.detail.type === 'success') {
+            toastr.success(event.detail.message)
+        } else if (event.detail.type === 'error') {
+            toastr.error(event.detail.message)
+        } else if (event.detail.type === 'warning') {
+            toastr.warning(event.detail.message)
+        } else {
+            return false
+        }
+    })
+</script>
 </body>
-
 </html>

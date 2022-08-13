@@ -18,6 +18,7 @@ class Feed extends Model
     protected $appends = [
         'created_at'
     ];
+    protected $with = ['user'];
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
