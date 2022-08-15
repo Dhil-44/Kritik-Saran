@@ -67,8 +67,7 @@ class HomeFeedMessage extends Component
 
     function delete()
     {
-
-        $this->showToastr('-_-', 'info');
+        $this->showToastr('delete successfully', 'success');
     }
 
     public function showToastr($message, $type)

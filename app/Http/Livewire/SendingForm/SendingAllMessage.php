@@ -6,10 +6,12 @@ use App\Models\Category;
 use App\Models\User;
 use Livewire\Component;
 use App\Models\Submission;
+use Livewire\WithFileUploads;
 
 class SendingAllMessage extends Component
 {
-    public $id_cat, $id_user_target, $message, $file_name, $status;
+    use WithFileUploads;
+    public $id_cat, $id_user_target, $message, $file_name = '', $status, $iteration;
     public function render()
     {
         return view('livewire.sending-form.sending-all-message', [
@@ -26,6 +28,7 @@ class SendingAllMessage extends Component
     }
     public function closeModal()
     {
+        $this->iteration++;
         $this->clear_column();
         return $this->dispatchBrowserEvent('closeModal');
     }
@@ -36,6 +39,7 @@ class SendingAllMessage extends Component
                 'id_cat'  => 'required',
                 'id_user_target' => 'required',
                 'message' => 'required|max:1000',
+                'file_name' => 'nullable|file|mimes:png,jpg,pdf,docx|max:2048'
             ],
             [
                 'id_cat.required' => 'Choose category',
@@ -44,24 +48,38 @@ class SendingAllMessage extends Component
                 'message.max' => 'Character cannot be more than 1000 characters',
             ]
         );
+        // $filename = $this->file_name->storeAs("documents", "attacment" . "" . rand(1, 10000) . explode(' ', $this->title)[0] . time());
+        $filename = $this->file_name->storeAs("documents", "attacment" . "" . rand(1, 10000) . time() . "." . $this->file_name->extension());
+        $path = explode('/', $filename)[1];
         $data_submission = Submission::create([
             'id_cat' => $this->id_cat,
             'id_user_target' => $this->id_user_target,
             'id_user_pengirim' =>  auth('web')->id(),
             'message' => $this->message,
-            'file_name' => '',
+            'file_name' => $path,
             'status' => $this->status ? 'public' : 'private',
 
         ]);
 
         if ($data_submission) {
             $this->closeModal();
-            //            $this->clear_column();
-            //            $this->dispatchBrowserEvent('hide_modal_create_sub',);
+            $this->showToastr('This data successfully submitted', 'success');
+            $this->dispatchBrowserEvent('hide_modal_create_sub');
         }
+    }
+    public function showToastr($message, $type)
+    {
+        return $this->dispatchBrowserEvent(
+            'showToastr',
+            [
+                'type' => $type,
+                'message' => $message
+            ]
+        );
     }
     private function clear_column()
     {
+
         return $this->id_cat = $this->id_user_target = $this->message = $this->file_name = null;
     }
 }

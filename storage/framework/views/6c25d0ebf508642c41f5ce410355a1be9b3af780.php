@@ -45,7 +45,7 @@
                             
                             <a href="">
                                 
-                                <img src="<?php echo e(asset('storage/public/' . $new->gambar)); ?>" class="img-fluid">
+                                <img src="<?php echo e($new->gambar); ?>" class="img-fluid">
                             </a>
                             <p align="justify" class="mt-2"><?php echo e($new->body); ?></p>
                             <p>
