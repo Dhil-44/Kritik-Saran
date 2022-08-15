@@ -45,7 +45,7 @@ class Submission extends Model
 
     public function user($as): BelongsTo
     {
-        return $this->belongsTo(User::class, foreignKey:__("$as"),ownerKey: 'id');
+        return $this->belongsTo(User::class, foreignKey: __("$as"), ownerKey: 'id');
     }
 
     //-------------------sama-----------------

@@ -14,7 +14,7 @@ class HomeFeedMessage extends Component
 {
     use WithPagination;
 
-    public $search, $paginate = 5;
+    public $search, $paginate = 5, $data;
     protected $paginationTheme = 'bootstrap';
     public $id_cat, $id_user_target, $message, $file_name, $status;
     private $submissions = null;
@@ -30,20 +30,27 @@ class HomeFeedMessage extends Component
             if ($this->submissions != null) {
                 $this->submissions = $this->submissions;
             } else {
-//                $this->submissions = null;
+                //                $this->submissions = null;
                 $this->submissions = Submission::where("status", "public")->latest('created_at')->paginate($this->paginate);
             }
         }
         return view('livewire.home.home-feed-message', [
             'submissions' => $this->submissions,
-            'news' => News::latest()->get(),
+            'news' => News::latest()->paginate(10),
             'users' => User::getAllRoleDepartent(),
+            'detail' => $this->data
         ]);
     }
 
     function all()
     {
         $this->submissions = null;
+    }
+
+    public function openDetailThisNews($new)
+    {
+        $this->data = $new;
+        return $this->dispatchBrowserEvent('show-detail');
     }
 
     function group($user)
@@ -66,7 +73,8 @@ class HomeFeedMessage extends Component
 
     public function showToastr($message, $type)
     {
-        return $this->dispatchBrowserEvent('showToastr',
+        return $this->dispatchBrowserEvent(
+            'showToastr',
             [
                 'type' => $type,
                 'message' => $message
