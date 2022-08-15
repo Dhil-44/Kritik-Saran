@@ -22,10 +22,10 @@ class News extends Model
     ];
 
 
-    // protected function getGambarAttribute($value)
-    // {
-    //     return asset('image/' . $value);
-    // }
+    protected function getGambarAttribute($value)
+    {
+        return asset('storage/public/' . $value);
+    }
     protected function setCreatedAtAttribute($value)
     {
         $this->attributes['created_at'] = $value;

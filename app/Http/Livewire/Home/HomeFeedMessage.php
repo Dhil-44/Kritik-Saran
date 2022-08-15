@@ -68,7 +68,7 @@ class HomeFeedMessage extends Component
     function delete()
     {
 
-        $this->showToastr('funckyou asnflanfalnfkanamdnakehaoihdandmanwo', 'success');
+        $this->showToastr('delete successfully', 'success');
     }
 
     public function showToastr($message, $type)
@@ -80,40 +80,5 @@ class HomeFeedMessage extends Component
                 'message' => $message
             ]
         );
-    }
-
-    // tidak dipakai
-    public function createFeedMessage()
-    {
-        try {
-            $this->validate([
-                'title' => 'required|unique:feeds,title|max:30|min:4',
-                'body' => 'required|string',
-                'category' => 'required|string|max:12|min:4'
-            ], [
-                'title.required' => 'enter title',
-                'title.max' => 'title cant be more than 30 characters',
-                'title.min' => 'title cant be less than 6 characters',
-                'body.required' => 'enter message',
-                'body.string' => 'only character',
-                'category.required' => 'enter category'
-            ]);
-            $feed = new Feed();
-            $feed->title = Str::of($this->title)->title();
-            $feed->category = $this->category;
-            $feed->body = $this->body;
-            $feed->user_id = auth('web')->id();
-            $save = $feed->save();
-            if ($save) {
-                $this->title = $this->body = $this->category = null;
-                $this->closeModal();
-            }
-        } catch (\Exception $e) {
-            return Response()->json([
-                'message' => 'Failed',
-                'code' => 500,
-                'error' => $e
-            ]);
-        }
     }
 }

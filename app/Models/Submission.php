@@ -30,6 +30,10 @@ class Submission extends Model
         return $hasil;
     }
 
+    protected function getFileNameAttribute($value)
+    {
+        return asset('storage/documents/' . $value);
+    }
     static function category(int $category, string $column)
     {
         $data = null;

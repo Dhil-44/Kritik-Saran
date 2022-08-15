@@ -45,7 +45,7 @@
                             {{-- <img src="{{ $new->gambar }}" class="img-thumbnail  bg-light" alt=""> --}}
                             <a href="">
                                 {{-- <img src="{{ asset('storage/app/image/' . $new->gambar) }}" class="img-fluid"> --}}
-                                <img src="{{ asset('storage/public/' . $new->gambar) }}" class="img-fluid">
+                                <img src="{{ $new->gambar }}" class="img-fluid">
                             </a>
                             <p align="justify" class="mt-2">{{ $new->body }}</p>
                             <p>
