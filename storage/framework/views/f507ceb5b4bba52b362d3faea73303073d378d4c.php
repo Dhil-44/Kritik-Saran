@@ -28,7 +28,6 @@
                                 <th>Role</th>
                                 <th>Logo</th>
                                 <th class="text-center">
-                                    
                                     <button type="button" class="btn btn-success btn-sm" wire:click="openModal()">
                                         <i class="fas fa-add"></i>
                                         Create new
@@ -43,7 +42,9 @@
                                     <td><?php echo e($user->name); ?></td>
                                     <td><?php echo e($user->email); ?></td>
                                     <td><span class="tag tag-primary"><?php echo e($user->role); ?></span></td>
-                                    <td><?php echo e(__($user->logo) > 0 ? 'Ada logo' : 'NO LOGO'); ?></td>
+                                    <td>
+                                        <img src="<?php echo e($user->logo); ?>" alt="" width="45" height="45">
+                                    </td>
                                     <td class="text-center py-0 align-middle">
                                         <div class="btn-group btn-group-sm">
                                             <button data-toggle="modal" wire:click="editUser(<?php echo e($user); ?>)"
@@ -54,17 +55,13 @@
                                     </td>
                                 </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-
                                 <h3 class="text-danger text-center">No Data Found!</h3>
                             <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
-                <!-- /.card-body -->
             </div>
-            <!-- /.card -->
         </div>
-        
         <?php echo $__env->make('admin.home.modal.create-new-user', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <?php echo $__env->make('admin.home.modal.edit-user', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>

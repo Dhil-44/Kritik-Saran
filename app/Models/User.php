@@ -9,7 +9,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
-Use Illuminate\Support\Str;
+use Illuminate\Support\Str;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -29,11 +30,14 @@ class User extends Authenticatable
 //        $this->attributes['id'] = Str::uuid();
 //    }
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    protected function getLogoAttribute($logo)
+    {
+
+        if (!$logo) {
+            return asset('dist/img/user/guest.png');
+        }
+        return asset('storage/users/' . $logo);
+    }
 
     protected $fillable = [
         'name',
@@ -53,8 +57,9 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    static function getAllRoleDepartent() {
-       return User::whereRaw("users.role = 'department' order by users.name asc")->get();
+    static function getAllRoleDepartent()
+    {
+        return User::whereRaw("users.role = 'department' order by users.name asc")->get();
     }
 
     /**
