@@ -12,10 +12,12 @@ class News extends Component
 {
     public $paginate = 10;
     use WithPagination;
+
     protected $paginationTheme = 'bootstrap';
-    public $title, $body, $gambar = '', $link = '', $data, $iteration;
+    public $title, $body, $gambar, $link = '', $data, $iteration;
 
     use WithFileUploads;
+
     public function createNews()
     {
         $this->validate([
@@ -30,13 +32,14 @@ class News extends Component
             'body.required' => 'Kolom ini tidak boleh kosong',
             'gambar.mimes' => 'required image'
         ]);
-        $fillname = $this->gambar->storeAs("public", "news-" . "" . rand(1, 10000) . explode(' ', $this->title)[0] . time() . ".jpg");
+
+        $fillname = $this->gambar->storeAs("public", "news-" . rand(1, 10000) . explode(' ', $this->title)[0] . time() . ".jpg");
         $path = explode("/", $fillname)[1];
-        $news =  Berita::create([
+        $news = Berita::create([
             'title' => Str::of($this->title)->title()->trim(),
-            'body'  => Str::of($this->body)->trim(),
-            'link'  => $this->link,
-            'gambar'  => $path,
+            'body' => Str::of($this->body)->trim(),
+            'link' => $this->link,
+            'gambar' => $path,
         ]);
         if ($news) {
             $this->closeModalNews();
@@ -51,6 +54,7 @@ class News extends Component
             'iteration' => $this->iteration
         ]);
     }
+
     public function openDetailNews($new)
     {
         $this->data = $new;
@@ -66,9 +70,9 @@ class News extends Component
     {
         $this->iteration++;
         $this->title =
-            $this->body =
-            $this->link =
-            $this->gambar = null;
+        $this->body =
+        $this->link =
+        $this->gambar = null;
         return $this->dispatchBrowserEvent('closeModalNews');
     }
 }

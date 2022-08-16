@@ -1,4 +1,4 @@
-<div class="modal fade modal-blur openModalNews" wire:ignore.self tabindex="-1" id="" style="display: none;"
+<div class="modal fade modal-blur openModalNews" wire:ignore.self tabindex="-1" id="modal-news" style="display: none;"
     aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -108,7 +108,6 @@ unset($__errorArgs, $__bag); ?>
                             <?php if($gambar): ?>
                                 <div class="mt-3">
                                     <p class="fs-2 text-center my-0"><b>Preview Gambar</b></p>
-
                                     <div class="mt-2 shadow-sm card">
                                         <img class="img-fluid" src="<?php echo e($gambar->temporaryUrl()); ?>">
                                     </div>

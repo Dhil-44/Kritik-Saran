@@ -9,8 +9,9 @@ use Livewire\WithFileUploads;
 
 class NewsController extends Component
 {
-    public $title, $body, $gambar = '', $link = '';
+    public $title, $body, $gambar, $link = '', $iteration;
     use WithFileUploads;
+
     public function render()
     {
         return view('livewire.admin.news-controller', [
@@ -23,8 +24,13 @@ class NewsController extends Component
         return $this->dispatchBrowserEvent('openModalNews');
     }
 
-    public function closeModalFeed()
+    public function closeModalNews()
     {
+        $this->iteration++;
+        $this->title =
+        $this->body =
+        $this->link =
+        $this->gambar = null;
         return $this->dispatchBrowserEvent('closeModalNews');
     }
 
@@ -33,31 +39,34 @@ class NewsController extends Component
         $this->validate([
             'title' => ['required', 'max:150', 'min:4', 'string'],
             'body' => ['required', 'string'],
-//            'gambar' => ['required', 'file', 'mimes:png,jpg,image'],
+            'gambar' => ['nullable', 'mimes:png,jpg,image'],
             'link' => ['nullable']
         ], [
-            'title.required' => 'Judul tidak boleh kosong',
-            'title.max' => 'maximal 150 karakter',
-            'title.min' => 'manimal 4 karakter',
-            'body.required' => 'Kolom ini tidak boleh kosong'
-//            'gambar.required'=> 'Masukkan gambar',
+
+            'title.required' => 'Judul tidak boleh kosong.',
+            'title.max' => 'maximal 150 karakter.',
+            'title.min' => 'manimal 4 karakter.',
+            'body.required' => 'Kolom ini tidak boleh kosong.',
+            'gambar.mimes' => 'required type of image.',
+
         ]);
+        $fillname = $this->gambar->storeAs("public", "news-" . rand(1, 10001) . explode(' ', $this->title)[0] . time() . $this->gambar->extension());
+        $path = explode("/", $fillname)[1];
         $news = News::create([
-            'title' => Str::of($this->title)->title(),
-            'body' => $this->body,
-            'link' => $this->link,
-            'gambar' => $this->gambar,
+            'title'  => Str::of($this->title)->upper()->trim(),
+            'body'   => $this->body,
+            'link'   => Str::of($this->link)->trim(),
+            'gambar' => $path,
         ]);
         if ($news) {
-            $this->title = $this->body = $this->gambar = $this->link = null;
-            $this->closeModalFeed();
+           $this->closeModalNews();
         } else {
-            dd('error');
+            return back();
         }
 
     }
 
-    public function delete($id)
+    public function delete($id):void
     {
         News::findOrFail($id)->delete();
     }
