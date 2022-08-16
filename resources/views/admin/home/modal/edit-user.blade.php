@@ -69,7 +69,7 @@
                             <div class="col">
                                 @if($upd_logo)
                                     <p class="fs-2 text-center my-0"><b>Preview Gambar</b></p>
-                                    <img src="{{$upd_logo->temporaryUrl()}}" alt="{{$upd_logo->extension()}}" class="img-fluid">
+                                    <img src="{{$upd_logo->temporaryUrl()}}" alt="" class="img-fluid">
                                 @endif
                             </div>
                         </div>

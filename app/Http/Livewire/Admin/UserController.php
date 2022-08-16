@@ -40,13 +40,13 @@ class UserController extends Component
 
     function editUser($user)
     {
-        $arr = explode('/',$user['logo']);
-        $file_name = $arr[count($arr)-1];
+        $arr = explode('/', $user['logo']);
+        $file_name = $arr[count($arr) - 1];
         $this->logo = $user['logo'];
         $this->id_user = $user['id'];
         $this->upd_name_user = $user['name'];
         $this->upd_email = $user['email'];
-        $this->upd_role =  $user['role'];
+        $this->upd_role = $user['role'];
         $this->upd_logo = null;
         $this->dispatchBrowserEvent('openEditOpen');
     }
@@ -57,27 +57,65 @@ class UserController extends Component
             'upd_name_user' => 'required|string|max:50|min:4|regex:/^[\pL\s\-]+$/u',
             'upd_email' => 'required',
             'upd_role' => 'required',
-            'logo' => 'nullable|mimes:jpg,png,jpeg|image'
+            'upd_logo' => 'nullable|mimes:jpg,png,jpeg|image'
         ], [
             'upd_name_user.regex' => 'Only character',
             'upd_name_user.required' => 'Name user is required',
             'upd_email.required' => 'Email is required',
             'upd_role.required' => 'Role is required',
-            'logo.mimes' => 'only image',
+            'upd_logo.mimes' => 'only image',
         ]);
+        $name_user = $this->upd_name_user;
+        $path = null;
+
+        if ($this->upd_logo === null) {
+            $arr = explode('/', $this->logo);
+            $path = $arr[count($arr) - 1];
+        } else {
+            $path = $this->upd_logo->storeAs("users", "logo-user" . time() . explode(' ', $name_user)[0] . rand(1, 99999) . "." . $this->upd_logo->extension());
+            $path = explode('/', $path)[1];
+        }
+
         $user = User::findOrFail($this->id_user)->update([
-            'name' => Str::of($this->upd_name_user)->title(),
+            'name' => Str::of($name_user)->title()->trim(),
             'email' => $this->upd_email,
             'role' => $this->upd_role,
-            'logo' => $this->upd_logo,
+            'logo' => $path,
         ]);
-        $this->clearColumn();
-        return $this->dispatchBrowserEvent('closeEditModal');
+        if ($user) {
+            $this->clearColumn();
+            return $this->dispatchBrowserEvent('closeEditModal');
+        } else {
+            dd('hghgcg');
+        }
     }
 
+    function changeProfilePicture(Request $request)
+    {
+        $user = User::find(auth("web")->id());
+        $path = "back/dist/img/authors/";
+        $file = $request->file('file');
+        $oldPicture = $user->getAttributes()['picture'];
+        $filePath = $path . $oldPicture;
+        $new_picture_name = 'AIMG' . $user->id . time() . rand(1, 10000) . ".jpg";
+
+        if ($oldPicture != null && File::exists(public_path($filePath))) {
+            File::delete(public_path($filePath));
+        }
+        $upload = $file->move(public_path($path), $new_picture_name);
+        if ($upload) {
+            $user->update([
+                "picture" => $new_picture_name
+            ]);
+            return response()->json(['status' => 1, 'msg' => 'Your profile picture has been successfully updated.']);
+        } else {
+            return response()->json(['status' => 0, 'Something went wrong']);
+        }
+    }
+
+    // cek jika gambar kosong
     public function createNewUser()
     {
-        // 'name' => 'required|regex:/^[a-zA-Z]+$/u|max:255|unique:users,name,'.$user->id,
         $this->validate([
             'name_user' => 'required|string|max:50|min:4|regex:/^[\pL\s\-]+$/u',
             'email' => ['required', 'email', 'max:100', 'unique:users,email'],
@@ -91,8 +129,13 @@ class UserController extends Component
             'logo.image' => 'only image is accepted.',
         ]);
         $name_user = $this->name_user;
-        $filename = $this->logo->storeAs("users", "logo-user" . time() . explode(' ', $name_user)[0] . rand(1, 99999) . "." . $this->logo->extension());
-        $path = explode("/", $filename)[1];
+        $path = null;
+        if ($this->logo === null) {
+            $path = 'guest.png';
+        } else {
+            $filename = $this->logo->storeAs("users", "logo-user" . time() . explode(' ', $name_user)[0] . rand(1, 99999) . "." . $this->logo->extension());
+            $path = explode("/", $filename)[1];
+        }
         $user = User::create([
             'name' => Str::of($name_user)->title(),
             'email' => $this->email,
@@ -102,7 +145,10 @@ class UserController extends Component
         ]);
         if ($user) {
             $this->clearColumn();
-            return $this->dispatchBrowserEvent('closeAddUserModal');
+            $this->showToastr('Data user created successfully', 'success');
+            return $this->dispatchBrowserEvent('closeAddUserModal', []);
+        } else {
+            return back();
         }
     }
 
@@ -114,6 +160,15 @@ class UserController extends Component
 
     private function clearColumn()
     {
-        return $this->name_user = $this->email = $this->role = $this->logo = $this->password = null;
+        return $this->name_user = $this->email = $this->role = $this->logo = $this->password =
+        $this->upd_name_user = $this->upd_email = $this->upd_role = $this->upd_logo = $this->upd_password = null;
+    }
+
+    private function showToastr($msg, $type)
+    {
+        return $this->dispatchBrowserEvent('showToastr', [
+            'message' => $msg,
+            'type' => $type
+        ]);
     }
 }
