@@ -91,6 +91,8 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
+
+
                     <div class="form-group">
                         <div class="row">
                             <div class="col">
@@ -99,7 +101,7 @@ unset($__errorArgs, $__bag); ?>
                             <div class="col">
                                 <?php if($upd_logo): ?>
                                     <p class="fs-2 text-center my-0"><b>Preview Gambar</b></p>
-                                    <img src="<?php echo e($upd_logo->temporaryUrl()); ?>" alt="<?php echo e($upd_logo->extension()); ?>" class="img-fluid">
+                                    <img src="<?php echo e($upd_logo->temporaryUrl()); ?>" alt="" class="img-fluid">
                                 <?php endif; ?>
                             </div>
                         </div>
