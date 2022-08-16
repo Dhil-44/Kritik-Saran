@@ -157,7 +157,7 @@
             $('.create_submission').modal('hide');
         })
         window.addEventListener('openModalCreateModal', () => {
-            $('.create_submission').find('span.text-danger.clear').html('')
+            $('.create_submission').find('.text-danger.clear').html('')
             $('.create_submission').modal('show')
         })
         window.addEventListener('closeModal', (e) => {

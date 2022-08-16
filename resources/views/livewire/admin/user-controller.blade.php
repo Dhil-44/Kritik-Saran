@@ -28,10 +28,6 @@
                                 <th>Role</th>
                                 <th>Logo</th>
                                 <th class="text-center">
-                                    {{-- <a class="btn btn-success btn-sm" data-bs-toggle="modal"
-                                        data-bs-target="#createuser">
-                                        <i class="fas fa-add"></i>Create new
-                                    </a> --}}
                                     <button type="button" class="btn btn-success btn-sm" wire:click="openModal()">
                                         <i class="fas fa-add"></i>
                                         Create new
@@ -46,7 +42,9 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td><span class="tag tag-primary">{{ $user->role }}</span></td>
-                                    <td>{{ __($user->logo) > 0 ? 'Ada logo' : 'NO LOGO' }}</td>
+                                    <td>
+                                        <img src="{{$user->logo}}" alt="" width="45" height="45">
+                                    </td>
                                     <td class="text-center py-0 align-middle">
                                         <div class="btn-group btn-group-sm">
                                             <button data-toggle="modal" wire:click="editUser({{ $user }})"
@@ -57,17 +55,13 @@
                                     </td>
                                 </tr>
                             @empty
-
                                 <h3 class="text-danger text-center">No Data Found!</h3>
                             @endforelse
                         </tbody>
                     </table>
                 </div>
-                <!-- /.card-body -->
             </div>
-            <!-- /.card -->
         </div>
-        {{-- tidak bisa --}}
         @include('admin.home.modal.create-new-user')
         @include('admin.home.modal.edit-user')
     </div>
