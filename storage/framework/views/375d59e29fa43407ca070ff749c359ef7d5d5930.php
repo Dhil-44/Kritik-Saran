@@ -8,12 +8,11 @@
         <?php $__currentLoopData = $news; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $new): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-12 col-lg-6 col-xl-4 mb-2">
                 <div class="card mb-1">
-
                     <img class="card-img-top" src="<?php echo e($new->gambar); ?>" alt="Dist Photo 3">
                     <div class="card-img-overlay">
                         <h5 class="card-title text-white text-bold"><?php echo e($new->title); ?></h5>
                         <p class="card-text pb-1 pt-1 text-white">
-                            <?php echo e(Str::limit($new->body, 200)); ?>
+                            <?php echo e(Str::limit($new->body, 150)); ?>
 
                         </p>
                         </p>
@@ -27,7 +26,9 @@
             </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
-    <?php echo $__env->make('admin.home.modal.create-feed-modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+    <?php echo $__env->make('user.home.modal.create-news-modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 </div>
 <?php $__env->startPush('scripts'); ?>
     <script>

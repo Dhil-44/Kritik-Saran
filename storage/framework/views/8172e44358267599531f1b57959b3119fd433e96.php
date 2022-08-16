@@ -1,4 +1,5 @@
-<div class="modal fade modal-blur" wire:ignore.self tabindex="-1" id="modal-news" style="display: none;" aria-hidden="true"
+<div class="modal fade modal-blur" wire:ignore.self tabindex="-1" id="modal-news" style="display: none;"
+     aria-hidden="true"
      data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -55,11 +56,11 @@ unset($__errorArgs, $__bag); ?>
                             <label for="InputFile">Input Picture</label><span class="text-muted"> (optional)</span>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" wire:model="gambar" class="custom-file-input" id="InputFile">
+                                    <input type="file" wire:model="gambar" name="gambar" class="custom-file-input" id="InputFile">
                                     <label class="custom-file-label" for="InputFile">Choose file</label>
                                 </div>
                             </div>
-                                <?php $__errorArgs = ['gambar'];
+                            <?php $__errorArgs = ['gambar'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -69,6 +70,7 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
+
                         </div>
                         <div class="form-group justify-content-between">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
