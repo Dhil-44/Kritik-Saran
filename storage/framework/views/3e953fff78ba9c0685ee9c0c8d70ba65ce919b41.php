@@ -108,7 +108,6 @@ unset($__errorArgs, $__bag); ?>
                             <?php if($gambar): ?>
                                 <div class="mt-3">
                                     <p class="fs-2 text-center my-0"><b>Preview Gambar</b></p>
-
                                     <div class="mt-2 shadow-sm card">
                                         <img class="img-fluid" src="<?php echo e($gambar->temporaryUrl()); ?>">
                                     </div>

@@ -5,11 +5,12 @@ namespace App\Http\Livewire\Admin;
 use App\Models\News;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class NewsController extends Component
 {
     public $title, $body, $gambar = '', $link = '';
-
+    use WithFileUploads;
     public function render()
     {
         return view('livewire.admin.news-controller', [
@@ -30,13 +31,13 @@ class NewsController extends Component
     public function createNews()
     {
         $this->validate([
-            'title' => ['required', 'max:32', 'min:4', 'string'],
+            'title' => ['required', 'max:150', 'min:4', 'string'],
             'body' => ['required', 'string'],
 //            'gambar' => ['required', 'file', 'mimes:png,jpg,image'],
             'link' => ['nullable']
         ], [
             'title.required' => 'Judul tidak boleh kosong',
-            'title.max' => 'maximal 32 karakter',
+            'title.max' => 'maximal 150 karakter',
             'title.min' => 'manimal 4 karakter',
             'body.required' => 'Kolom ini tidak boleh kosong'
 //            'gambar.required'=> 'Masukkan gambar',
