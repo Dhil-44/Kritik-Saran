@@ -32,9 +32,9 @@ class NewsController extends Component
     {
         $this->iteration++;
         $this->title =
-        $this->body =
-        $this->link =
-        $this->gambar = null;
+            $this->body =
+            $this->link =
+            $this->gambar = null;
         return $this->dispatchBrowserEvent('closeModalNews');
     }
 
@@ -63,14 +63,13 @@ class NewsController extends Component
             'gambar' => $path,
         ]);
         if ($news) {
-           $this->closeModalNews();
+            $this->closeModalNews();
         } else {
             return back();
         }
-
     }
 
-    public function delete($id):void
+    public function delete($id)
     {
         News::findOrFail($id)->delete();
     }
