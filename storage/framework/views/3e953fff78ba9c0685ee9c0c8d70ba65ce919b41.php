@@ -1,4 +1,4 @@
-<div class="modal fade modal-blur openModalNews" wire:ignore.self tabindex="-1" id="" style="display: none;"
+<div class="modal fade modal-blur openModalNews" wire:ignore.self tabindex="-1" id="modal-news" style="display: none;"
     aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
