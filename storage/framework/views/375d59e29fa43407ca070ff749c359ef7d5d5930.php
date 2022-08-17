@@ -1,3 +1,12 @@
+<style>
+    #trans {
+        opacity: 0.5;
+    }
+
+    #trans:hover {
+        opacity: 1.0;
+    }
+</style>
 <div>
     <div class="row mr-2">
         <button wire:click="openModalFeed()" class="btn btn-success ml-auto mb-1">
@@ -7,15 +16,16 @@
     <div class="row">
         <?php $__currentLoopData = $news; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $new): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-12 col-lg-6 col-xl-4 mb-2">
-                    <h5 class="card-title text-black"><?php echo e($new->title); ?></h5>
-                <div class=" mb-1">
-                    <img class="card-img-top" src="<?php echo e($new->gambar); ?>" alt="Dist Photo 3">
-                    <div class="card-img-overlay mt-5">
-                        <p class="card-text pb-1 pt-1">
+                <div class="card mb-1">
+                    <img class="card-img-top" id="trans" src="<?php echo e($new->gambar); ?>" alt="Dist Photo 3">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title text-black text-bold"><?php echo e($new->title); ?></h5>
+                        <p class="card-text pb-1 pt-1 text-black">
                             <?php echo e(Str::limit($new->body, 150)); ?>
 
                         </p>
-                        <a href="#" class="text-black" style="max-height: 50px;"><?php echo e($new->created_at); ?></a>
+                        </p>
+                        <a href="#" class="text-black " style="max-height: 50px;"><?php echo e($new->created_at); ?></a>
                     </div>
                 </div>
                 <div class="">
