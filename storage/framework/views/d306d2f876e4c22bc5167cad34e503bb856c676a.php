@@ -1,14 +1,14 @@
 <div class="container-fluid">
     
     <div class="row">
-        <div class="col-2 mt-2 shadow-lg" style="max-height: 50vh">
+        <div class="col-2 mt-2 shadow-lg" style="max-height: 30em">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>Category</b></div>
             <div class="list-group list-group-flush card">
                 <button type="button" wire:click.prevent="all()"
-                    class="list-group-item  list-group-item-action text-black list-group-item-light p-3"><?php echo e(__('All')); ?></button>
+                    class="list-group-item  list-group-item-action text-black list-group-item-light p-3"><?php echo e(__('ALL')); ?></button>
                 <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <button type="button" wire:click.prevent="group(<?php echo e($user); ?>)"
-                        class="list-group-item  list-group-item-action text-black list-group-item-light p-3"><?php echo e(__($user->name)); ?></button>
+                        class="list-group-item  list-group-item-action text-black list-group-item-light p-3"><?php echo e(Str::of($user->name)->upper()); ?></button>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
@@ -116,7 +116,25 @@
                                                             </svg>
                                                         </button>
 
-                                                        
+                                                         <button wire:click="delete()"
+                                                            class="btn btn-sm border-0 text-warning">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                class="icon icon-tabler icon-tabler-edit"
+                                                                width="24" height="24" viewBox="0 0 24 24"
+                                                                stroke-width="2" stroke="currentColor" fill="none"
+                                                                stroke-linecap="round" stroke-linejoin="round">
+                                                                <path stroke="none" d="M0 0h24v24H0z"
+                                                                    fill="none">
+                                                                </path>
+                                                                <path
+                                                                    d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1">
+                                                                </path>
+                                                                <path
+                                                                    d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z">
+                                                                </path>
+                                                                <path d="M16 5l3 3"></path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 <?php endif; ?>
                                             </div>

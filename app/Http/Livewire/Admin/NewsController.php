@@ -11,15 +11,23 @@ use Livewire\WithPagination;
 
 class NewsController extends Component
 {
-    public $title, $body, $gambar, $link = '', $iteration;
-    public $paginate = 20;
-    use WithFileUploads;
-    use WithPagination;
+    public $title, $body, $gambar, $link = '', $iteration, $paginate = 20;
+    use WithFileUploads, WithPagination;
+
     protected $paginationTheme = 'bootstrap';
+
     public function render()
     {
         return view('livewire.admin.news-controller', [
             'news' => News::latest()->paginate($this->paginate),
+        ]);
+    }
+
+    private function showToastr($msg, $type)
+    {
+        return $this->dispatchBrowserEvent('showToastr', [
+            'message' => $msg,
+            'type' => $type
         ]);
     }
 
@@ -32,9 +40,9 @@ class NewsController extends Component
     {
         $this->iteration++;
         $this->title =
-            $this->body =
-            $this->link =
-            $this->gambar = null;
+        $this->body =
+        $this->link =
+        $this->gambar = null;
         return $this->dispatchBrowserEvent('closeModalNews');
     }
 
@@ -54,15 +62,21 @@ class NewsController extends Component
             'gambar.mimes' => 'required type of image.',
 
         ]);
-        $fillname = $this->gambar->storeAs("public", "news-" . rand(1, 10001) . explode(' ', $this->title)[0] . time() . $this->gambar->extension());
-        $path = explode("/", $fillname)[1];
+        $path = null;
+        if ($this->gambar === null) {
+            $path = '';
+        } else {
+            $path = $this->gambar->storeAs("public", "news-" . rand(1, 10001) . explode(' ', $this->title)[0] . time() . $this->gambar->extension());
+            $path = explode("/", $path)[1];
+        }
         $news = News::create([
-            'title'  => Str::of($this->title)->upper()->trim(),
-            'body'   => $this->body,
-            'link'   => Str::of($this->link)->trim(),
+            'title' => Str::of($this->title)->upper()->trim(),
+            'body' => $this->body,
+            'link' => Str::of($this->link)->trim(),
             'gambar' => $path,
         ]);
         if ($news) {
+            $this->showToastr('Create News Succeed!', 'success');
             $this->closeModalNews();
         } else {
             return back();
@@ -72,5 +86,6 @@ class NewsController extends Component
     public function delete($id)
     {
         News::findOrFail($id)->delete();
+        $this->showToastr("Delete Succeed!", "success");
     }
 }
