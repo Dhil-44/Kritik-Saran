@@ -6,16 +6,20 @@ use App\Models\News;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
+
 
 class NewsController extends Component
 {
     public $title, $body, $gambar, $link = '', $iteration;
+    public $paginate = 20;
     use WithFileUploads;
-
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public function render()
     {
         return view('livewire.admin.news-controller', [
-            'news' => News::latest()->get(),
+            'news' => News::latest()->paginate($this->paginate),
         ]);
     }
 

@@ -17,7 +17,7 @@ class SubmissionController extends Component
                 $q->where('message', 'LIKE', '%' . $this->search . '%');
             })->get();
         } else {
-            $submissions = Submission::all();
+            $submissions = Submission::latest()->get();
         }
         return view('livewire.admin.submission-controller', [
             'submissions' => $submissions

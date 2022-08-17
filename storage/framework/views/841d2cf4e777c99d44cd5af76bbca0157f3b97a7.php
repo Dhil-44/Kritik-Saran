@@ -24,19 +24,6 @@
         </a>
     </div>
     <div class="col-12 col-sm-6 col-md-3">
-        <a class="info-box text-dark" href="<?php echo e(route('feed-tables')); ?>">
-            <span class="info-box-icon bg-red elevation-1"><i class="fas fa-edit"></i></span>
-
-            <div class="info-box-content">
-                <span class="info-box-text">Feed</span>
-                <span class="info-box-number">
-                    <?php echo e(__(0)); ?>
-
-                </span>
-            </div>
-        </a>
-    </div>
-    <div class="col-12 col-sm-6 col-md-3">
         <a class="info-box text-dark" href="<?php echo e(route('news-tables')); ?>">
             <span class="info-box-icon bg-green elevation-1"><i class="fas fa-newspaper"></i></span>
 

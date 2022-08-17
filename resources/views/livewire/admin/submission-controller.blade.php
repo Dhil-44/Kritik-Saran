@@ -28,7 +28,8 @@
                             <th>Receiver</th>
                             <th>Category</th>
                             <th>Message</th>
-                            <th>Sent</th>
+                            <th>Status</th>
+                            <th>Sent at</th>
                             <th>File</th>
                             <th class="text-center">Action</th>
                         </tr>
@@ -36,37 +37,41 @@
                         <tbody>
                         @forelse ($submissions as $submission)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $submission->getUser->name }}</td>
-                                <td>{{ $submission->getUserTarget->name }}</td>
-                                <td><span class="tag tag-warning">{{ $submission->getCategory->name_cat }}</span>
-                                </td>
-                                {{-- <td>{{ __($submission->message) }}</td> --}}
+                                <td>{{ __($loop->iteration) }}</td>
+                                <td>{{ __($submission->getUser->name) }}</td>
+                                <td>{{ __($submission->getUserTarget->name) }}</td>
                                 <td>
-                                        <span class="d-inline-block text-truncate " data-bs-toggle="tooltip"
-                                              data-bs-placement="top" title=" {{ __($submission->message) }}"
-                                              style="max-width: 100px;">
-                                            {{ __($submission->message) }}
-                                        </span>
+                                    <span class="tag tag-warning">{{ __($submission->getCategory->name_cat) }}</span>
                                 </td>
-                                <td>{{ $submission->created_at }}</td>
-                                <td>No File</td>
+                                <td>
+                                    <span class="d-inline-block text-truncate " data-bs-toggle="tooltip"
+                                          data-bs-placement="top" title=" {{ __($submission->message) }}"
+                                          style="max-width: 100px;">
+                                            {{ __($submission->message) }}
+                                    </span>
+                                </td>
+                                <td class="">
+                                    <span
+                                        class="float-right badge {{ $submission->status == 'public' ? 'bg-blue': 'bg-danger' }}">
+                                        {{ __($submission->status) }}
+                                    </span>
+                                </td>
+
+                                <td>{{ __($submission->created_at) }}</td>
+                                <td>
+                                    <a href="{{$submission->filename ?? ''}}">lihat</a>
+                                </td>
                                 <td class="text-center py-0 align-middle">
                                     <div class="btn-group btn-group-sm">
                                         <button type="button" wire:click="editSubmission({{ $submission }})"
                                                 class="btn btn-info">
                                             <i class="fas fa-pen"></i>
                                         </button>
-                                        <button class="btn-danger" type="button"
+                                        <button class="btn btn-danger" type="button"
                                                 onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
                                                 wire:click="deleteSubmission({{$submission->id}})">
                                             <i class="fas fa-trash"></i>
                                         </button>
-
-                                        {{--                                            <button type="button" wire:click="deleteSubmission({{ $submission->id }})"--}}
-                                        {{--                                                class="btn btn-danger">--}}
-                                        {{--                                                <i class="fas fa-trash"></i>--}}
-                                        {{--                                            </button>--}}
                                     </div>
                                 </td>
                             </tr>

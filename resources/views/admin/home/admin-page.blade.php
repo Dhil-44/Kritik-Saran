@@ -81,13 +81,6 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('feed-tables') }}#"
-                                        class="nav-link {{ request()->is('feed-tables') ? 'active' : '' }}">
-                                        <i class="far fa-edit nav-icon"></i>
-                                        <p>Feed</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
                                     <a href="{{ route('news-tables') }}#"
                                         class="nav-link {{ request()->is('news-tables') ? 'active' : '' }}">
                                         <i class="far fa-newspaper nav-icon"></i>

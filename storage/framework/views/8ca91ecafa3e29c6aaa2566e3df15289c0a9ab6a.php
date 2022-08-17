@@ -62,6 +62,7 @@
                                 </p>
                             </div>
                             <div class="m-3">
+                                
                                 <img src="https://www.svgrepo.com/show/144578/pdf.svg" width="5%" height="5%"
                                     alt="" srcset="">
                                 <a href="<?php echo e(__($data->file_name)); ?>" class="btn btn-primary btn-sm">Open file
@@ -157,7 +158,7 @@
             $('.create_submission').modal('hide');
         })
         window.addEventListener('openModalCreateModal', () => {
-            $('.create_submission').find('span.text-danger.clear').html('')
+            $('.create_submission').find('.text-danger.clear').html('')
             $('.create_submission').modal('show')
         })
         window.addEventListener('closeModal', (e) => {
