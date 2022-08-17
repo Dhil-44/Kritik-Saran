@@ -1,6 +1,6 @@
-<footer class="footer footer-transparent bg-dark">
+<footer class="footer footer-transparent bg-dark py-sm-1 py-md-4">
     <div class="container-xl text-white">
-        <div class="row text-center align-items-center flex-row-reverse">
+        <div class="row text-center align-items-center flex-row-reverse fs">
             <div class="col-lg-auto ms-lg-auto">
                 <ul class="list-inline list-inline-dots text-white mb-0">
                     <li class="list-inline-item">
@@ -14,7 +14,6 @@
                         <a href="#" class="link-secondary text-white">
                             careercenter@kalbis.ac.id</a>
                     </li>
-
                     <li class="list-inline-item text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone"
                             width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
@@ -29,7 +28,6 @@
                             4788-3900</a>
                     </li>
                     <li class="list-inline-item">
-
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp"
                             width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
                             fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -39,9 +37,7 @@
                                 d="M9 10a0.5 .5 0 0 0 1 0v-1a0.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a0.5 .5 0 0 0 0 -1h-1a0.5 .5 0 0 0 0 1">
                             </path>
                         </svg>
-
                         <a class="link-secondary text-white" rel="noopener">
-
                             Wa.(+62) 821-9356-5088</a>
                     </li>
                 </ul>

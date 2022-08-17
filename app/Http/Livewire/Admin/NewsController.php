@@ -46,11 +46,13 @@ class NewsController extends Component
             'gambar' => ['nullable', 'mimes:png,jpg,image'],
             'link' => ['nullable']
         ], [
+
             'title.required' => 'Judul tidak boleh kosong.',
             'title.max' => 'maximal 150 karakter.',
             'title.min' => 'manimal 4 karakter.',
             'body.required' => 'Kolom ini tidak boleh kosong.',
             'gambar.mimes' => 'required type of image.',
+
         ]);
         $fillname = $this->gambar->storeAs("public", "news-" . rand(1, 10001) . explode(' ', $this->title)[0] . time() . $this->gambar->extension());
         $path = explode("/", $fillname)[1];

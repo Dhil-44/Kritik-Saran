@@ -66,7 +66,6 @@ class HomeFeedMessage extends Component
 
     function delete()
     {
-
         $this->showToastr('delete successfully', 'success');
     }
 

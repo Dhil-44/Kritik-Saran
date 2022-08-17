@@ -1,3 +1,12 @@
+<style>
+    #trans {
+        opacity: 0.5;
+    }
+
+    #trans:hover {
+        opacity: 1.0;
+    }
+</style>
 <div>
     <div class="row mr-2">
         <button wire:click="openModalFeed()" class="btn btn-success ml-auto mb-1">
@@ -5,27 +14,28 @@
         </button>
     </div>
     <div class="row">
-        @foreach($news as $new)
+        @foreach ($news as $new)
             <div class="col-md-12 col-lg-6 col-xl-4 mb-2">
-                    <h5 class="card-title text-black">{{$new->title}}</h5>
-                <div class=" mb-1">
-                    <img class="card-img-top" src="{{ $new->gambar }}" alt="Dist Photo 3">
-                    <div class="card-img-overlay mt-5">
-                        <p class="card-text pb-1 pt-1">
+                <div class="card mb-1">
+                    <img class="card-img-top" id="trans" src="{{ $new->gambar }}" alt="Dist Photo 3">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title text-black text-bold">{{ $new->title }}</h5>
+                        <p class="card-text pb-1 pt-1 text-black">
                             {{ Str::limit($new->body, 150) }}
                         </p>
-                        <a href="#" class="text-black" style="max-height: 50px;">{{$new->created_at}}</a>
+                        </p>
+                        <a href="#" class="text-black " style="max-height: 50px;">{{ $new->created_at }}</a>
                     </div>
                 </div>
                 <div class="">
                     <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-primary" wire:click="delete({{$new->id}})">Hapus</button>
+                    <button class="btn btn-primary" wire:click="delete({{ $new->id }})">Hapus</button>
                 </div>
             </div>
         @endforeach
     </div>
     <div class="">
-        {{$news->links()}}
+        {{ $news->links() }}
     </div>
     @include('user.home.modal.create-news-modal')
 

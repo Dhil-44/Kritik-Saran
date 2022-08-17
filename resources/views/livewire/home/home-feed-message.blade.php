@@ -1,7 +1,7 @@
 <div class="container-fluid">
     {{-- Stop trying to control. --}}
     <div class="row">
-        <div class="col-2 mt-2 shadow-lg" style="max-height: 57vh">
+        <div class="col-2 mt-2 shadow-lg" style="max-height: 50vh">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>Category</b></div>
             <div class="list-group list-group-flush card">
                 <button type="button" wire:click.prevent="all()"
@@ -115,7 +115,7 @@
                                                             </svg>
                                                         </button>
 
-                                                        <button wire:click="delete()"
+                                                        {{-- <button wire:click="delete()"
                                                             class="btn btn-sm border-0 text-warning">
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                 class="icon icon-tabler icon-tabler-edit"
@@ -133,7 +133,7 @@
                                                                 </path>
                                                                 <path d="M16 5l3 3"></path>
                                                             </svg>
-                                                        </button>
+                                                        </button> --}}
                                                     </div>
                                                 @endif
                                             </div>
