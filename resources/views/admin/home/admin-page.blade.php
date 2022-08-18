@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="admin/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="admin/dist/css/adminlte.min.css">
-
+    <link rel="stylesheet" href="{{asset('admin/plugins/toastr/toastr.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/plugins/toastr/toastr.min.css')}}">
     @livewireStyles
 </head>
 
@@ -126,9 +127,26 @@
     <script src="admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
     <script src="admin/dist/js/adminlte.js"></script>
-    <script src="admin/dist/js/pages/dashboard3.js"></script>
+    <script src="{{asset('admin/plugins/toastr/toastr.min.js')}}"> </script>
+{{--    <script src="admin/dist/js/pages/dashboard3.js"></script>--}}
     @stack('scripts')
     @livewireScripts
+    <script>
+        window.addEventListener("showToastr", function (event) {
+            toastr.remove();
+            if (event.detail.type === 'info') {
+                toastr.info(event.detail.message)
+            } else if (event.detail.type === 'success') {
+                toastr.success(event.detail.message)
+            } else if (event.detail.type === 'error') {
+                toastr.error(event.detail.message)
+            } else if (event.detail.type === 'warning') {
+                toastr.warning(event.detail.message)
+            } else {
+                return false
+            }
+        })
+    </script>
 </body>
 
 </html>

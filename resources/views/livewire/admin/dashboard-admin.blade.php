@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-12 col-sm-6 col-md-3">
+    <div class="col-12 col-sm-6 col-md-4">
         <a class="info-box mb-3 text-dark" href="{{ route('user-tables') }}">
             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
             <div class="info-box-content">
@@ -10,7 +10,7 @@
         </a>
         <!-- /.info-box -->
     </div>
-    <div class="col-12 col-sm-6 col-md-3">
+    <div class="col-12 col-sm-6 col-md-4">
         <a class="info-box text-dark" href="{{ route('submission-tables') }}">
             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-comments"></i></span>
 
@@ -20,9 +20,10 @@
                     {{ __($subms )}}
                 </span>
             </div>
+
         </a>
     </div>
-    <div class="col-12 col-sm-6 col-md-3">
+    <div class="col-12 col-sm-6 col-md-4">
         <a class="info-box text-dark" href="{{ route('news-tables') }}">
             <span class="info-box-icon bg-green elevation-1"><i class="fas fa-newspaper"></i></span>
 

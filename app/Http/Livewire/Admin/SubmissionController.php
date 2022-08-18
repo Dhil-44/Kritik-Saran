@@ -25,11 +25,12 @@ class SubmissionController extends Component
     }
     public function deleteSubmission($id)
     {
-
         Submission::findOrFail($id)->delete();
+        $this->showToastr("Delete Succeed!","info");
     }
     public function editSubmission($submission)
     {
+
         $this->id_sub = $submission['id'];
         $this->id_cat = $submission['get_category']["name_cat"];
         $this->id_user_pengirim = $submission["get_user"]["name"];
@@ -45,6 +46,7 @@ class SubmissionController extends Component
             'message' => $this->message,
             'updated_at' => \Carbon\Carbon::now()->format('Y-m-d')
         ]);
+        $this->showToastr('Updated Succeed!','info');
         $this->clearColumn();
         return $this->dispatchBrowserEvent('closeUpdateModal');
     }
@@ -56,5 +58,11 @@ class SubmissionController extends Component
             $this->id_user_target =
             $this->message =
             $this->file_name = null;
+    }
+    private function showToastr($msg, $type){
+        return $this->dispatchBrowserEvent('showToastr',[
+            'message'=>$msg,
+            'type' => $type
+        ]);
     }
 }

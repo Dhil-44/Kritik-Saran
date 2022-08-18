@@ -83,10 +83,11 @@ class UserController extends Component
             'logo' => $path,
         ]);
         if ($user) {
+            $this->showToastr("User " . Str::of($name_user)->title()->trim() . " updated successfully!", "info");
             $this->clearColumn();
             return $this->dispatchBrowserEvent('closeEditModal');
         } else {
-            dd('hghgcg');
+            $this->showToastr("We're sorry there are something went wrong!", "error");
         }
     }
 
@@ -155,6 +156,7 @@ class UserController extends Component
     public function deleteUser($id)
     {
         User::findOrFail($id)->delete();
+        $this->showToastr("Delete Succeed!","success");
 
     }
 

@@ -12,7 +12,6 @@ class News extends Component
 {
     public $paginate = 10;
     use WithPagination;
-
     protected $paginationTheme = 'bootstrap';
     public $title, $body, $gambar, $link = '', $data, $iteration;
 
@@ -32,9 +31,13 @@ class News extends Component
             'body.required' => 'Kolom ini tidak boleh kosong',
             'gambar.mimes' => 'required image'
         ]);
-
-        $fillname = $this->gambar->storeAs("public", "news-" . rand(1, 10000) . explode(' ', $this->title)[0] . time() . ".jpg");
-        $path = explode("/", $fillname)[1];
+        $path = null;
+        if ($this->gambar === null) {
+            $path = '';
+        } else {
+            $path = $this->gambar->storeAs("public", "news-" . rand(1, 10001) . explode(' ', $this->title)[0] . time() . $this->gambar->extension());
+            $path = explode("/", $path)[1];
+        }
         $news = Berita::create([
             'title' => Str::of($this->title)->title()->trim(),
             'body' => Str::of($this->body)->trim(),
@@ -42,8 +45,20 @@ class News extends Component
             'gambar' => $path,
         ]);
         if ($news) {
+            $this->showToastr("Create News Succeed!",'Success');
             $this->closeModalNews();
         }
+    }
+
+    public function showToastr($message, $type)
+    {
+        return $this->dispatchBrowserEvent(
+            'showToastr',
+            [
+                'type' => $type,
+                'message' => $message
+            ]
+        );
     }
 
     public function render()
