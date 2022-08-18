@@ -13,7 +13,7 @@ use Livewire\WithPagination;
 class HomeFeedMessage extends Component
 {
     use WithPagination;
-    public $search, $paginate = 5, $data;
+    public $search, $paginate = 8   , $data;
     protected $paginationTheme = 'bootstrap';
     public $id_cat, $id_user_target, $message, $file_name, $status;
     private $submissions = null;
@@ -29,7 +29,6 @@ class HomeFeedMessage extends Component
             if ($this->submissions != null) {
                 $this->submissions = $this->submissions;
             } else {
-                //                $this->submissions = null;
                 $this->submissions = Submission::where("status", "public")->latest('created_at')->paginate($this->paginate);
             }
         }

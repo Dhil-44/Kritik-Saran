@@ -8,7 +8,7 @@
                     class="list-group-item  list-group-item-action text-black list-group-item-light p-3"><?php echo e(__('ALL')); ?></button>
                 <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <button type="button" wire:click.prevent="group(<?php echo e($user); ?>)"
-                        class="list-group-item  list-group-item-action text-black list-group-item-light p-3"><?php echo e(Str::of($user->name)->upper()); ?></button>
+                        class="list-group-item  list-group-item-action text-black list-group-item-light text-uppercase p-3"><?php echo e(__($user->name)); ?></button>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
@@ -24,6 +24,7 @@
                                             <div class="col-1" style="margin-left: 10px;">
                                                 <select wire:model="paginate" class="form-control form-control-sm"
                                                     style="width: 40px">
+
                                                     <?php for($i = 1; $i <= $submissions->count(); $i++): ?>
                                                         <option style="text-align: center" value="<?php echo e($i); ?>">
                                                             <?php echo e($i); ?></option>
@@ -85,7 +86,7 @@
                                     <div class="row justify-content-between">
                                         <div class="col-auto">
                                             <div class="row">
-                                                <h3 class="col-auto"><b><?php echo e($submission->getUser->name); ?></b></h3>
+                                                <h3 class="col-auto text-uppercase"><b><?php echo e($submission->getUser->name); ?></b></h3>
                                                 <p class="col-auto text-muted"
                                                     style="margin-top: 3px; margin-left:-7px;">
                                                     <?php echo e($submission->getUserTarget->name); ?>

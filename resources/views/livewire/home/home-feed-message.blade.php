@@ -8,7 +8,7 @@
                     class="list-group-item  list-group-item-action text-black list-group-item-light p-3">{{ __('ALL') }}</button>
                 @foreach ($users as $user)
                     <button type="button" wire:click.prevent="group({{ $user }})"
-                        class="list-group-item  list-group-item-action text-black list-group-item-light p-3">{{ Str::of($user->name)->upper() }}</button>
+                        class="list-group-item  list-group-item-action text-black list-group-item-light text-uppercase p-3">{{ __($user->name) }}</button>
                 @endforeach
             </div>
         </div>
@@ -24,6 +24,7 @@
                                             <div class="col-1" style="margin-left: 10px;">
                                                 <select wire:model="paginate" class="form-control form-control-sm"
                                                     style="width: 40px">
+
                                                     @for ($i = 1; $i <= $submissions->count(); $i++)
                                                         <option style="text-align: center" value="{{ $i }}">
                                                             {{ $i }}</option>
@@ -85,7 +86,7 @@
                                     <div class="row justify-content-between">
                                         <div class="col-auto">
                                             <div class="row">
-                                                <h3 class="col-auto"><b>{{ $submission->getUser->name }}</b></h3>
+                                                <h3 class="col-auto text-uppercase"><b>{{ $submission->getUser->name }}</b></h3>
                                                 <p class="col-auto text-muted"
                                                     style="margin-top: 3px; margin-left:-7px;">
                                                     {{ $submission->getUserTarget->name }}
