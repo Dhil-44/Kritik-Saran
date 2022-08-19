@@ -56,9 +56,9 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    static function getAllRoleDepartent()
+    public static function getAllRoleDeparment()
     {
-        return User::whereRaw("users.role = 'department' order by users.name asc")->get();
+        return User::query()->where('role', 'department')->get();
     }
 
     /**

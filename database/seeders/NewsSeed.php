@@ -14,17 +14,16 @@ class NewsSeed extends Seeder
      */
     public function run()
     {
-        $faker = \Faker\Factory::create();
-        for ($i = 1; $i<=100; $i++){
+        $faker = \Faker\Factory::create('CHN');
+        for ($i = 1; $i <= 100; $i++) {
             DB::table('news')->insert([
-                'title'=> $faker->word(),
-                'body' => $faker->sentence(80),
+                'title' => $faker->word(),
+                'body' => $faker->sentence(150),
                 'link' => $faker->imageUrl(),
-                'gambar'=> $faker->imageUrl(),
-                'created_at'=>date('Y-m-d H:i:s'),
-                'updated_at'=>date('Y-m-d H:i:s')
+                'gambar' => $faker->imageUrl(),
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
             ]);
-
         }
     }
 }

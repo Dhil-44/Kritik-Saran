@@ -32,7 +32,7 @@ class Submission extends Model
         return $data;
     }
     //masih kurang tepat
-    static function category(int $category, string $column)
+    public static function category(int $category, string $column)
     {
         $data = null;
         if ($category == 1) {
