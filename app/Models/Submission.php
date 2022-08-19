@@ -22,11 +22,12 @@ class Submission extends Model
 
     protected function getFileNameAttribute($file)
     {
-        if($file) return asset('storage/documents/' . $file);
+        if ($file) return asset('storage/documents/' . $file);
         return  'no data';
     }
 
-    static function groupByThisId($id){
+    static function groupByThisId($id)
+    {
         $data = Submission::whereRaw("id_user_pengirim =" . auth('web')->id() . " AND ID_CAT = $id")->latest()->get();
         return $data;
     }
@@ -46,7 +47,7 @@ class Submission extends Model
 
     public function user($type)
     {
-        return $this->belongsTo(User::class,"$type","id");
+        return $this->belongsTo(User::class, "$type", "id");
     }
 
     //-------------------sama-----------------
@@ -67,11 +68,6 @@ class Submission extends Model
         return $this->belongsTo(Category::class, 'id_cat', 'id');
     }
 
-    static function countSubs(): int
-    {
-        $count = Submission::where('id', '!=', auth('web')->id())->get();
-        return count($count);
-    }
 
     protected function setCreatedAtAttribute($value)
     {

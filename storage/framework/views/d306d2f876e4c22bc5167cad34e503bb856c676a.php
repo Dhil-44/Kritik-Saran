@@ -88,7 +88,7 @@
                                             <div class="row">
                                                 <h3 class="col-auto text-uppercase">
                                                     <b><?php echo e($submission->getUser->name); ?></b>
-                                             
+
                                                 </h3>
                                                 <p class="col-auto text-muted"
                                                    style="margin-top: 3px; margin-left:-7px;">
