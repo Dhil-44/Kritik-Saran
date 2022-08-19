@@ -50,6 +50,9 @@ class HomeFeedMessage extends Component
         $this->data = $new;
         return $this->dispatchBrowserEvent('show-detail');
     }
+   public function onItemReplyorEdit($data){
+
+   }
 
    public function group($user)
     {
