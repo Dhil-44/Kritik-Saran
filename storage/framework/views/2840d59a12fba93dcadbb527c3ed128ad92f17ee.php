@@ -82,13 +82,6 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo e(route('feed-tables')); ?>#"
-                                        class="nav-link <?php echo e(request()->is('feed-tables') ? 'active' : ''); ?>">
-                                        <i class="far fa-edit nav-icon"></i>
-                                        <p>Feed</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
                                     <a href="<?php echo e(route('news-tables')); ?>#"
                                         class="nav-link <?php echo e(request()->is('news-tables') ? 'active' : ''); ?>">
                                         <i class="far fa-newspaper nav-icon"></i>
