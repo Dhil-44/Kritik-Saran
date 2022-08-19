@@ -40,7 +40,7 @@ class HomeFeedMessage extends Component
         ]);
     }
 
-    function all()
+    public function all()
     {
         $this->submissions = null;
     }
@@ -51,7 +51,7 @@ class HomeFeedMessage extends Component
         return $this->dispatchBrowserEvent('show-detail');
     }
 
-    function group($user)
+   public function group($user)
     {
         $this->submissions = Submission::where('id_user_pengirim', $user['id'])
             ->where("status", "public")
