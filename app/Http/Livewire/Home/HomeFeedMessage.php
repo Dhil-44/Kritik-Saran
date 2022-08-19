@@ -28,7 +28,6 @@ class HomeFeedMessage extends Component
             if ($this->submissions != null) {
                 $this->submissions = $this->submissions;
             } else {
-                $this->submissions = null;
                 $this->submissions = Submission::where("status", "public")->latest('created_at')->paginate($this->paginate);
             }
         }
@@ -38,10 +37,10 @@ class HomeFeedMessage extends Component
             'users' => User::getAllRoleDepartent(),
         ]);
     }
-    function all(){
+    public function all(){
         $this->submissions = null;
     }
-    function group($user)
+   public function group($user)
     {
         $this->submissions = Submission::where('id_user_pengirim', $user['id'])
             ->where("status", "public")
@@ -51,38 +50,5 @@ class HomeFeedMessage extends Component
     {
         dd($this->dispatchBrowserEvent('openCreateFeedMsg'));
     }
-    // tidak dipakai
-    public function createFeedMessage()
-    {
-        try {
-            $this->validate([
-                'title' => 'required|unique:feeds,title|max:30|min:4',
-                'body' => 'required|string',
-                'category' => 'required|string|max:12|min:4'
-            ], [
-                'title.required' => 'enter title',
-                'title.max' => 'title cant be more than 30 characters',
-                'title.min' => 'title cant be less than 6 characters',
-                'body.required' => 'enter message',
-                'body.string' => 'only character',
-                'category.required' => 'enter category'
-            ]);
-            $feed = new Feed();
-            $feed->title = Str::of($this->title)->title();
-            $feed->category = $this->category;
-            $feed->body = $this->body;
-            $feed->user_id = auth('web')->id();
-            $save = $feed->save();
-            if ($save) {
-                $this->title = $this->body = $this->category = null;
-                $this->closeModal();
-            }
-        } catch (\Exception $e) {
-            return Response()->json([
-                'message' => 'Failed',
-                'code' => 500,
-                'error' => $e
-            ]);
-        }
-    }
+
 }
