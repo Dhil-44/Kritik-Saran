@@ -9,7 +9,7 @@
             <div class="col-md-12 col-lg-6 col-xl-4 mb-2">
                 <div class="card mb-1">
                     <img class="card-img-top" id="trans" src="{{ $new->gambar }}" alt="Dist Photo 3"
-                        style="opacity: 0.5; ">
+                        style="opacity: 0.4;">
                     <div class="card-img-overlay">
                         <h5 class="card-title text-black text-bold">{{ $new->title }}</h5>
                         <p class="card-text pb-1 pt-1 text-black">

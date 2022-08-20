@@ -1,17 +1,17 @@
 <div class="container-fluid">
-    
     <div class="row">
-        <div class="col-2 mt-2 shadow-lg" style="max-height: 50vh">
+        <div class="col-2 mt-2 shadow-lg" style="max-height: 30em">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>Category</b></div>
             <div class="list-group list-group-flush card">
                 <button type="button" wire:click.prevent="all()"
-                    class="list-group-item  list-group-item-action text-black list-group-item-light p-3"><?php echo e(__('All')); ?></button>
+                    class="list-group-item  list-group-item-action text-black list-group-item-light p-3"><?php echo e(__('ALL')); ?></button>
                 <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <button type="button" wire:click.prevent="group(<?php echo e($user); ?>)"
-                        class="list-group-item  list-group-item-action text-black list-group-item-light p-3"><?php echo e(__($user->name)); ?></button>
+                        class="list-group-item  list-group-item-action text-black list-group-item-light text-uppercase p-3"><?php echo e(__($user->name)); ?></button>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
+
         <div class="col-lg-8 col-sm-8">
             <div class="col-12 mt-2">
                 <div class="example no_toc_section example-bg card px-1 py-2">
@@ -85,7 +85,9 @@
                                     <div class="row justify-content-between">
                                         <div class="col-auto">
                                             <div class="row">
-                                                <h3 class="col-auto"><b><?php echo e($submission->getUser->name); ?></b></h3>
+                                                <h3 class="col-auto text-uppercase">
+                                                    <b><?php echo e($submission->getUser->name); ?></b>
+                                                </h3>
                                                 <p class="col-auto text-muted"
                                                     style="margin-top: 3px; margin-left:-7px;">
                                                     <?php echo e($submission->getUserTarget->name); ?>
@@ -95,30 +97,23 @@
                                         </div>
                                         <div class="col-auto">
                                             <div class="row">
-                                                <?php if(auth('web')->id() === $submission->id_user_pengirim): ?>
-                                                    <div class="col-auto btn-group">
-                                                        <button wire:click="editFeed(<?php echo e($submission); ?>)"
-                                                            class="btn btn-sm border-0 text-warning">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                class="icon icon-tabler icon-tabler-edit" width="24"
-                                                                height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                                stroke="currentColor" fill="none"
-                                                                stroke-linecap="round" stroke-linejoin="round">
-                                                                <path stroke="none" d="M0 0h24v24H0z" fill="none">
-                                                                </path>
-                                                                <path
-                                                                    d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1">
-                                                                </path>
-                                                                <path
-                                                                    d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z">
-                                                                </path>
-                                                                <path d="M16 5l3 3"></path>
-                                                            </svg>
-                                                        </button>
-
-                                                        
-                                                    </div>
-                                                <?php endif; ?>
+                                                <div class="col-auto btn-group ">
+                                                    <button wire:click="onItemReplyorEdit(<?php echo e($submission); ?>)"
+                                                        class="btn btn-sm border-1 btn-info">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="icon icon-tabler icon-tabler-arrow-up-right"
+                                                            width="24" height="24" viewBox="0 0 24 24"
+                                                            stroke-width="2" stroke="currentColor" fill="none"
+                                                            stroke-linecap="round" stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none">
+                                                            </path>
+                                                            <line x1="17" y1="7" x2="7"
+                                                                y2="17"></line>
+                                                            <polyline points="8 7 17 7 17 16"></polyline>
+                                                        </svg>
+                                                        Detail
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -144,8 +139,8 @@
                 <?php echo e($submissions->links()); ?>
 
             </div>
-
         </div>
+        
         <div class="col-2 mt-2">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>News</b></div>
             <div class="card" style="height: 35rem">
@@ -168,12 +163,16 @@
 
 
         </div>
-        <?php echo $__env->make('user.home.modal.create-feed-message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        
+        <?php echo $__env->make('user.home.modal.replyOnSubmission', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <?php echo $__env->make('user.home.modal.show-detail-news-modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
 </div>
 <?php $__env->startPush('scripts'); ?>
     <script>
+        window.addEventListener('openModalReplySub', (e) => {
+            $('#modal-reply-sub').modal('show')
+        })
         $(function() {
             window.addEventListener('openCreateFeedMsg', function(e) {
                 $('.create_submission').modal('show')
