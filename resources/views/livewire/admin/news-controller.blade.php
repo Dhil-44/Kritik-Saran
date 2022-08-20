@@ -13,7 +13,7 @@
                     <div class="card-img-overlay">
                         <h5 class="card-title text-black text-bold">{{ $new->title }}</h5>
                         <p class="card-text pb-1 pt-1 text-black">
-                            {{ Str::limit($new->body, 200) }}
+                            {{ \Illuminate\Support\Str::limit($new->body, 200) }}
                         </p>
                         </p>
                         <a href="#" class="text-black" style="max-height: 50px;">{{ $new->created_at }}</a>

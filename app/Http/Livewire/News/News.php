@@ -45,7 +45,7 @@ class News extends Component
             'gambar' => $path,
         ]);
         if ($news) {
-            $this->showToastr("Create News Succeed!",'Success');
+            $this->showToastr("Create News Succeed!", 'Success');
             $this->closeModalNews();
         }
     }
@@ -85,9 +85,9 @@ class News extends Component
     {
         $this->iteration++;
         $this->title =
-        $this->body =
-        $this->link =
-        $this->gambar = null;
+            $this->body =
+            $this->link =
+            $this->gambar = null;
         return $this->dispatchBrowserEvent('closeModalNews');
     }
 }
