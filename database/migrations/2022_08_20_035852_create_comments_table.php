@@ -13,16 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('feeds', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('title',30)->unique();
-            $table->string('category');
-            $table->text('body');
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')
-                ->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('submission_id')->constrained('submissions');
+            $table->text('message');
+            $table->timestamp('post_at');
             $table->timestamps();
         });
     }
@@ -34,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feeds');
+        Schema::dropIfExists('comments');
     }
 };
