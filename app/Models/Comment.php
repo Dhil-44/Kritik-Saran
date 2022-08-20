@@ -12,9 +12,12 @@ class Comment extends Model
     protected $table = 'comments';
     protected $fillable = [
         'user_id',
+        'submission_id',
         'message'
     ];
-    protected $with = ['user'];
+    protected $with = [
+        'user'
+    ];
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');

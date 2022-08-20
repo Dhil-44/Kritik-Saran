@@ -7,7 +7,6 @@ use App\Models\Submission;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Http\Livewire\User\ReplySubmission;
 
 // Feed untuk public
 class HomeFeedMessage extends Component
@@ -17,8 +16,6 @@ class HomeFeedMessage extends Component
     protected $paginationTheme = 'bootstrap';
     public $id_cat, $id_user_target, $message, $file_name, $status;
     private $submissions = null;
-
-    public $comment = null;
 
     public function render()
     {
@@ -39,7 +36,6 @@ class HomeFeedMessage extends Component
             'news' => News::latest()->paginate(10),
             'users' => User::getAllRoleDeparment(),
             'detail' => $this->data,
-            'comment' => $this->comment,
         ]);
     }
 
@@ -54,7 +50,7 @@ class HomeFeedMessage extends Component
     }
     public function onItemReplyorEdit($data)
     {
-        // dd($data);
+        $this->emit('setDataComment', $data);
         return $this->dispatchBrowserEvent('openModalReplySub', [
             'data' => $data
         ]);
