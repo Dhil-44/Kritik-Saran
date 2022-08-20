@@ -11,6 +11,7 @@
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
+
         <div class="col-lg-8 col-sm-8">
             <div class="col-12 mt-2">
                 <div class="example no_toc_section example-bg card px-1 py-2">
@@ -86,7 +87,6 @@
                                             <div class="row">
                                                 <h3 class="col-auto text-uppercase">
                                                     <b><?php echo e($submission->getUser->name); ?></b>
-
                                                 </h3>
                                                 <p class="col-auto text-muted"
                                                     style="margin-top: 3px; margin-left:-7px;">
@@ -139,8 +139,8 @@
                 <?php echo e($submissions->links()); ?>
 
             </div>
-
         </div>
+        
         <div class="col-2 mt-2">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>News</b></div>
             <div class="card" style="height: 35rem">
@@ -163,12 +163,16 @@
 
 
         </div>
-        <?php echo $__env->make('user.home.modal.create-feed-message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        
+        <?php echo $__env->make('user.home.modal.replyOnSubmission', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <?php echo $__env->make('user.home.modal.show-detail-news-modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
 </div>
 <?php $__env->startPush('scripts'); ?>
     <script>
+        window.addEventListener('openModalReplySub', (e) => {
+            $('#modal-reply-sub').modal('show')
+        })
         $(function() {
             window.addEventListener('openCreateFeedMsg', function(e) {
                 $('.create_submission').modal('show')

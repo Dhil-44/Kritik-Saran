@@ -14,7 +14,6 @@ class SendingAllMessage extends Component
 
     public $id_cat, $id_user_target, $message, $file_name = '', $status, $iteration;
     public $allMsgByCats = null;
-
     public function render()
     {
         return view('livewire.sending-form.sending-all-message', [
@@ -25,9 +24,9 @@ class SendingAllMessage extends Component
         ]);
     }
 
-    public function groupByThisCategory($id)
+    public function groupByThisCategory($id): void
     {
-        $this->allMsgByCats = Submission::groupByThisId($id);
+        $this->allMsgByCats = Submission::groupByThisIdCategory($id, 'id_user_pengirim');
     }
 
     public function openModalCreateModal()

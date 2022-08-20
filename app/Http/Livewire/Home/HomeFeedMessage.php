@@ -52,6 +52,7 @@ class HomeFeedMessage extends Component
     }
     public function onItemReplyorEdit($data)
     {
+        return $this->dispatchBrowserEvent('openModalReplySub', []);
     }
 
     public function group($user)

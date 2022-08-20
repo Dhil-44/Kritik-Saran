@@ -32,8 +32,9 @@ class User extends Authenticatable
 
     protected function getLogoAttribute($logo)
     {
-        if (!$logo) {
-            return asset('dist/img/user/guest.png');
+        if ($logo == null) {
+            return asset('storage/users/guest.png');
+            // return asset('dist/img/user/guest.png');
         }
         return asset('storage/users/' . $logo);
     }

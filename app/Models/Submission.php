@@ -26,9 +26,9 @@ class Submission extends Model
         return  'no data';
     }
 
-    static function groupByThisId($id)
+    static function groupByThisIdCategory($id, $column)
     {
-        $data = Submission::whereRaw("id_user_pengirim =" . auth('web')->id() . " AND ID_CAT = $id")->latest()->get();
+        $data = Submission::whereRaw("$column =" . auth('web')->id() . " AND ID_CAT = $id")->latest()->get();
         return $data;
     }
     //masih kurang tepat
@@ -67,8 +67,6 @@ class Submission extends Model
     {
         return $this->belongsTo(Category::class, 'id_cat', 'id');
     }
-
-
     protected function setCreatedAtAttribute($value)
     {
         $this->attributes['created_at'] = $value;
