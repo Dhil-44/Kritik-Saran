@@ -140,6 +140,7 @@
 
             </div>
         </div>
+
         
         <div class="col-2 mt-2">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>News</b></div>
@@ -172,6 +173,14 @@
     <script>
         window.addEventListener('openModalReplySub', (e) => {
             $('#modal-reply-sub').modal('show')
+            const data = e.detail.data
+            if (data) {
+                document.getElementById('name-user').innerHTML = data.get_user.name
+                document.getElementById('post_at-user').innerHTML = data.updated_at
+                document.getElementById('message-user').innerHTML = data.message
+                document.getElementById('img-user').src = data.get_user.logo
+                // alert(document.getElementById('name-user').textContent)
+            }
         })
         $(function() {
             window.addEventListener('openCreateFeedMsg', function(e) {

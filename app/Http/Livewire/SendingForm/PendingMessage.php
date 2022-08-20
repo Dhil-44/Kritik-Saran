@@ -21,7 +21,7 @@ class PendingMessage extends Component
         return view('livewire.sending-form.pending-message', compact('subs'));
     }
 
-    function publish($id)
+    public function publish($id)
     {
         Submission::findOrFail($id)->update([
             'status' => 'public'
