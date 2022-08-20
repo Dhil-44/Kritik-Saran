@@ -4,14 +4,13 @@
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>Category</b></div>
             <div class="list-group list-group-flush card">
                 <button type="button" wire:click.prevent="all()"
-                    class="list-group-item  list-group-item-action text-black list-group-item-light p-3">{{ __('ALL') }}</button>
+                    class="list-group-item list-group-item-action text-black list-group-item-light p-3">{{ __('ALL') }}</button>
                 @foreach ($users as $user)
                     <button type="button" wire:click.prevent="group({{ $user }})"
                         class="list-group-item  list-group-item-action text-black list-group-item-light text-uppercase p-3">{{ __($user->name) }}</button>
                 @endforeach
             </div>
         </div>
-
         <div class="col-lg-8 col-sm-8">
             <div class="col-12 mt-2">
                 <div class="example no_toc_section example-bg card px-1 py-2">
@@ -30,7 +29,6 @@
                                                     @endfor
                                                 </select>
                                             </div>
-
                                             <div class="col-2" style="margin-left: 10px;">
                                                 <select name="" class="form-control form-control-sm"
                                                     id="" style="text-align: center">
