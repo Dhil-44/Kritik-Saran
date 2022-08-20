@@ -13,7 +13,7 @@ use Livewire\WithPagination;
 class HomeFeedMessage extends Component
 {
     use WithPagination;
-    public $search, $paginate = 8   , $data;
+    public $search, $paginate = 8, $data;
     protected $paginationTheme = 'bootstrap';
     public $id_cat, $id_user_target, $message, $file_name, $status;
     private $submissions = null;
@@ -35,12 +35,12 @@ class HomeFeedMessage extends Component
         return view('livewire.home.home-feed-message', [
             'submissions' => $this->submissions,
             'news' => News::latest()->paginate(10),
-            'users' => User::getAllRoleDepartent(),
+            'users' => User::getAllRoleDeparment(),
             'detail' => $this->data
         ]);
     }
 
-    function all()
+    public function all()
     {
         $this->submissions = null;
     }
@@ -50,8 +50,12 @@ class HomeFeedMessage extends Component
         $this->data = $new;
         return $this->dispatchBrowserEvent('show-detail');
     }
+    public function onItemReplyorEdit($data)
+    {
+        return $this->dispatchBrowserEvent('openModalReplySub', []);
+    }
 
-    function group($user)
+    public function group($user)
     {
         $this->submissions = Submission::where('id_user_pengirim', $user['id'])
             ->where("status", "public")

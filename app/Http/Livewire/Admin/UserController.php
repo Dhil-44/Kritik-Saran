@@ -5,9 +5,11 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use App\Models\User;
 use  Carbon\Carbon;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
+use Illuminate\Http\Request;
 
 class UserController extends Component
 {
@@ -67,7 +69,6 @@ class UserController extends Component
         ]);
         $name_user = $this->upd_name_user;
         $path = null;
-
         if ($this->upd_logo === null) {
             $arr = explode('/', $this->logo);
             $path = $arr[count($arr) - 1];
@@ -156,14 +157,13 @@ class UserController extends Component
     public function deleteUser($id)
     {
         User::findOrFail($id)->delete();
-        $this->showToastr("Delete Succeed!","success");
-
+        $this->showToastr("Delete Succeed!", "success");
     }
 
     private function clearColumn()
     {
         return $this->name_user = $this->email = $this->role = $this->logo = $this->password =
-        $this->upd_name_user = $this->upd_email = $this->upd_role = $this->upd_logo = $this->upd_password = null;
+            $this->upd_name_user = $this->upd_email = $this->upd_role = $this->upd_logo = $this->upd_password = null;
     }
 
     private function showToastr($msg, $type)

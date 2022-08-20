@@ -1,18 +1,17 @@
-
 <?php $__env->startSection('title', 'Kalbis | Critics and Suggestions'); ?>
 <?php $__env->startSection('kategory'); ?>
     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('sending-form.sending-all-message')->html();
-} elseif ($_instance->childHasBeenRendered('wNtmRfn')) {
-    $componentId = $_instance->getRenderedChildComponentId('wNtmRfn');
-    $componentTag = $_instance->getRenderedChildComponentTagName('wNtmRfn');
+} elseif ($_instance->childHasBeenRendered('NJffkYX')) {
+    $componentId = $_instance->getRenderedChildComponentId('NJffkYX');
+    $componentTag = $_instance->getRenderedChildComponentTagName('NJffkYX');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('wNtmRfn');
+    $_instance->preserveRenderedChild('NJffkYX');
 } else {
     $response = \Livewire\Livewire::mount('sending-form.sending-all-message');
     $html = $response->html();
-    $_instance->logRenderedChild('wNtmRfn', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('NJffkYX', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

@@ -6,38 +6,33 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Facades\DB;
 
 
 class Submission extends Model
 {
     use HasFactory;
-
     protected $table = 'submissions';
     protected $guarded = ['id',];
     protected $appends = [
         'created_at',
         'updated_at'
     ];
-    protected $with = ['getUser', 'getUserTarget', 'getCategory'];
 
-    // tidak dipakai
-    public static function groupByThisItem($email): array
-    {
-        $hasil = DB::select("SELECT * FROM submissions INNER JOIN users
-                                        ON submissions.id_user_pengirim = users.id
-                                        where users.email = %s", $email);
-        return $hasil;
-    }
+    protected $with = ['getUser', 'getUserTarget', 'getCategory'];
 
     protected function getFileNameAttribute($file)
     {
-        if($file) return asset('storage/documents/' . $file);
+        if ($file) return asset('storage/documents/' . $file);
         return  'no data';
-//        return 'No data';
     }
 
-    static function category(int $category, string $column)
+    static function groupByThisIdCategory($id, $column)
+    {
+        $data = Submission::whereRaw("$column =" . auth('web')->id() . " AND ID_CAT = $id")->latest()->get();
+        return $data;
+    }
+    //masih kurang tepat
+    public static function category(int $category, string $column)
     {
         $data = null;
         if ($category == 1) {
@@ -50,9 +45,9 @@ class Submission extends Model
         return $data;
     }
 
-    public function user($as): BelongsTo
+    public function user($type)
     {
-        return $this->belongsTo(User::class, foreignKey: __("$as"), ownerKey: 'id');
+        return $this->belongsTo(User::class, "$type", "id");
     }
 
     //-------------------sama-----------------
@@ -72,13 +67,6 @@ class Submission extends Model
     {
         return $this->belongsTo(Category::class, 'id_cat', 'id');
     }
-
-    static function countSubs(): int
-    {
-        $count = Submission::where('id', '!=', auth('web')->id())->get();
-        return count($count);
-    }
-
     protected function setCreatedAtAttribute($value)
     {
         $this->attributes['created_at'] = $value;

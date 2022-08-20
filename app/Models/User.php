@@ -16,24 +16,25 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     //new added
-//    public $incrementing = false;
-//    protected $keyType = 'string';
+    //    public $incrementing = false;
+    //    protected $keyType = 'string';
 
-//    protected static function boot()
-//    {
-//        parent::boot(); //
-//        User::creating(function ($model){
-//            $model->setId();
-//        });
-//    }
-//    public function setId(){
-//        $this->attributes['id'] = Str::uuid();
-//    }
+    //    protected static function boot()
+    //    {
+    //        parent::boot(); //
+    //        User::creating(function ($model){
+    //            $model->setId();
+    //        });
+    //    }
+    //    public function setId(){
+    //        $this->attributes['id'] = Str::uuid();
+    //    }
 
     protected function getLogoAttribute($logo)
     {
-        if (!$logo) {
-            return asset('dist/img/user/guest.png');
+        if ($logo == null) {
+            return asset('storage/users/guest.png');
+            // return asset('dist/img/user/guest.png');
         }
         return asset('storage/users/' . $logo);
     }
@@ -56,9 +57,9 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    static function getAllRoleDepartent()
+    public static function getAllRoleDeparment()
     {
-        return User::whereRaw("users.role = 'department' order by users.name asc")->get();
+        return User::query()->where('role', 'department')->get();
     }
 
     /**
@@ -69,10 +70,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public static function countUsers()
-    {
-        $users = User::where('id', '!=', auth('web')->id())->get();
-        return count($users);
-    }
 }
