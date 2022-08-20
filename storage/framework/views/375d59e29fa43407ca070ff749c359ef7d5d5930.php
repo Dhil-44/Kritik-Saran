@@ -13,7 +13,7 @@
                     <div class="card-img-overlay">
                         <h5 class="card-title text-black text-bold"><?php echo e($new->title); ?></h5>
                         <p class="card-text pb-1 pt-1 text-black">
-                            <?php echo e(Str::limit($new->body, 200)); ?>
+                            <?php echo e(\Illuminate\Support\Str::limit($new->body, 200)); ?>
 
                         </p>
                         </p>

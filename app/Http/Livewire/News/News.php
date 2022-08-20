@@ -16,7 +16,11 @@ class News extends Component
     public $title, $body, $gambar, $link = '', $data, $iteration;
 
     use WithFileUploads;
-
+    // protected $listeners = [
+    //     // 'openModalNews',
+    //     // 'closeModalNews',
+    //     // 'createNews'
+    // ];
     public function createNews()
     {
         $this->validate([
@@ -72,8 +76,10 @@ class News extends Component
 
     public function openDetailNews($new)
     {
-        $this->data = $new;
-        return $this->dispatchBrowserEvent('show-detail');
+        // $this->data = $new;
+        return $this->dispatchBrowserEvent('show-detail', [
+            'item' => $new
+        ]);
     }
 
     public function openModalNews()
@@ -84,10 +90,10 @@ class News extends Component
     public function closeModalNews()
     {
         $this->iteration++;
-        $this->title =
-            $this->body =
-            $this->link =
-            $this->gambar = null;
+        $this->title = '';
+        $this->body = '';
+        $this->link = '';
+        $this->gambar = '';
         return $this->dispatchBrowserEvent('closeModalNews');
     }
 }
