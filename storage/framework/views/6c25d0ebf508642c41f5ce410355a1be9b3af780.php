@@ -42,10 +42,12 @@
                                     </button>
                                 </div>
                             </div>
-                            <a href="">
-                                <img src="<?php echo e($new->gambar); ?>" class="img-fluid">
+                            <a href="#">
+                                <?php if(str_contains($new->gambar, '.jpg' || '.png' || '.jpeg' || 'news-')): ?>
+                                    <img src="<?php echo e($new->gambar); ?>" class="img-fluid">
+                                <?php endif; ?>
                             </a>
-                            <p align="justify" class="mt-2"><?php echo e($new->body); ?></p>
+                            <p class="mt-2" style="text-align:justify;"><?php echo e($new->body); ?></p>
                             <p>
                                 <a href="d-block"><?php echo e($new->link); ?></a>
                             </p>

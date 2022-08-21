@@ -7,7 +7,6 @@ use App\Models\Submission;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Livewire\ComponentConcerns\ReceivesEvents;
 
 // Feed untuk public
 class HomeFeedMessage extends Component
