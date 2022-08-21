@@ -17,7 +17,6 @@ class HomeFeedMessage extends Component
     protected $paginationTheme = 'bootstrap';
     public $id_cat, $id_user_target, $message, $file_name, $status;
     private $submissions = null;
-
     protected $listeners = [
         'all',
         'group'
@@ -52,7 +51,9 @@ class HomeFeedMessage extends Component
     public function openDetailThisNews($new)
     {
         $this->data = $new;
-        return $this->dispatchBrowserEvent('show-detail');
+        return $this->dispatchBrowserEvent('showDetail', [
+            'new' => $new
+        ]);
     }
     public function onItemReplyorEdit($data)
     {

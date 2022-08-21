@@ -180,18 +180,18 @@
                 // alert(document.getElementById('name-user').textContent)
             }
         })
-        $(function() {
-            window.addEventListener('openCreateFeedMsg', function(e) {
-                $('.create_submission').modal('show')
-            })
-            window.addEventListener('closeModalFeedMsg', (e) => {
-                $('.create_submission').modal('hide')
-            })
-            window.addEventListener('show-detail', (e) => {
-                $('#show-detail').modal('show')
-            })
-
+        window.addEventListener('showDetail', (e) => {
+            $('#show-detail').modal('show')
         })
+
+        // $(function() {
+        //     window.addEventListener('openCreateFeedMsg', function(e) {
+        //         $('.create_submission').modal('show')
+        //     })
+        //     window.addEventListener('closeModalFeedMsg', (e) => {
+        //         $('.create_submission').modal('hide')
+        //     })
+        // })
     </script>
 <?php $__env->stopPush(); ?>
 <?php /**PATH C:\xampp\htdocs\Kritik-Saran\resources\views/livewire/home/home-feed-message.blade.php ENDPATH**/ ?>
