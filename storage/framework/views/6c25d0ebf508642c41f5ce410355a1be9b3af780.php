@@ -6,8 +6,8 @@
                     <?php if(\Illuminate\Support\Facades\Auth::user()->role != 'user'): ?>
                         <button class="btn btn-success" wire:click="openModalNews()">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit"
-                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                 fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
                                 <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
@@ -28,11 +28,11 @@
                                 </div>
                                 <div class="col-auto mb-2">
                                     <button wire:click="openDetailNews(<?php echo e($new); ?>)"
-                                            class="btn btn-outline-dark">
+                                        class="btn btn-outline-dark">
                                         <svg xmlns="http://www.w3.org/2000/svg"
-                                             class="icon icon-tabler icon-tabler-align-justified" width="24"
-                                             height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                             fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            class="icon icon-tabler icon-tabler-align-justified" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                             <line x1="4" y1="6" x2="20" y2="6"></line>
                                             <line x1="4" y1="12" x2="20" y2="12"></line>
@@ -68,6 +68,7 @@
     <script>
         window.addEventListener('openModalNews', () => {
             $('.openModalNews').modal('show')
+            $('.openModalNews').find('span.error').html('')
         })
         window.addEventListener('closeModalNews', () => {
             $('.openModalNews').modal('hide')
@@ -75,6 +76,11 @@
         })
         window.addEventListener('show-detail', (e) => {
             $('#show-detail').modal('show')
+            const detail = e.detail.item
+            document.getElementById('detail-title').innerHTML = detail['title']
+            document.getElementById('detail-img').src = detail['gambar']
+            document.getElementById('detail-body').innerHTML = detail['body']
+            document.getElementById('detail-link').href = detail['link']
 
         })
     </script>

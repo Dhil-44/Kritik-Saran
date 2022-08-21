@@ -95,8 +95,8 @@ class SendingAllMessage extends Component
         );
     }
 
-    private function clear_column()
+    private function clear_column(): void
     {
-        return $this->id_cat = $this->id_user_target = $this->message = $this->file_name = null;
+        $this->id_cat = $this->id_user_target = $this->message = $this->file_name = null;
     }
 }

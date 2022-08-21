@@ -1,5 +1,5 @@
 <div class="modal-body p-0 m-0">
-    <section style="background-color: #cec1c0;">
+    <section style="background-color: #ffffff;">
         <div class="container">
             <div class="row d-flex justify--content-center">
                 <div class="col-md-12 col-lg-10 col-xl-10 mt-3">

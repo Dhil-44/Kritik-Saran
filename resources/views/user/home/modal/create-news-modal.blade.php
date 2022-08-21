@@ -18,7 +18,7 @@
                                     <input type="text" wire:model="title" class="form-control" id="newstitle"
                                         placeholder="Enter title">
                                     @error('title')
-                                        <span class="text-red">{{ $message }}</span>
+                                        <span class="text-red error">{{ $message }}</span>
                                     @enderror
                                 </div>
 
@@ -26,7 +26,7 @@
                                     <label for="body"> <span class="text-red">*</span> <b>News Body</b></label>
                                     <textarea class="form-control" wire:model="body" placeholder=". . ." id="body" rows="8"></textarea>
                                     @error('body')
-                                        <span class="text-red">
+                                        <span class="text-red error">
                                             {{ $message }}
                                         </span>
                                     @enderror

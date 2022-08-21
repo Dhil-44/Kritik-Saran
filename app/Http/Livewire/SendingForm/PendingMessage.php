@@ -20,7 +20,6 @@ class PendingMessage extends Component
             ->paginate(5);
         return view('livewire.sending-form.pending-message', compact('subs'));
     }
-
     public function publish($id)
     {
         Submission::findOrFail($id)->update([
