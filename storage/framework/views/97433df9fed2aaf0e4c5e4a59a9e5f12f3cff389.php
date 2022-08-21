@@ -3,13 +3,15 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <h2><?php echo e($detail['title'] ?? null); ?></h2>
-                <img src="<?php echo e($detail['gambar'] ?? null); ?>" class="img-thumbnail mx-auto" alt="">
-                <p align="justify" class="mt-3">
-                    <?php echo e($detail['body'] ?? null); ?>
-
+                <h2 id="detail-title"></h2>
+                
+                <img src="" id="detail-img" class="img-thumbnail mx-auto" alt="">
+                
+                <p align="justify" class="mt-3" id="detail-body">
+                    
                 </p>
-                <a href="<?php echo e($detail['link'] ?? null); ?>" class="btn btn-blue btn-sm">Visit</a>
+                <a href="" id="detail-link" class="btn btn-blue btn-sm">Visit</a>
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
