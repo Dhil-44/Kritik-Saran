@@ -22,6 +22,7 @@
                             <p class="mt-3 mb-4 pb-2" id="message-user"><?php echo e($message); ?></p>
                             <div class="document">
                                 <a href="">
+                                    <?php echo e($file); ?>
 
                                 </a>
                             </div>

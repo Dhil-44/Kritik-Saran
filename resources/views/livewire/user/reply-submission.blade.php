@@ -20,7 +20,7 @@
                             <p class="mt-3 mb-4 pb-2" id="message-user">{{ $message }}</p>
                             <div class="document">
                                 <a href="">
-
+                                    {{ $file }}
                                 </a>
                             </div>
                         </div>
