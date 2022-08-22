@@ -151,7 +151,6 @@
 
 
 </div>
-{{-- @include('user.home.modal.create-feed-message') --}}
 @include('user.home.modal.replyOnSubmission')
 @include('user.home.modal.show-detail-news-modal')
 </div>
