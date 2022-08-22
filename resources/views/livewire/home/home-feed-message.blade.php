@@ -128,7 +128,7 @@
                 @endforeach
             </div>
             <div class="mt-2 fs-3 ">
-                {{ $submissions->links('pagination::bootstrap-5') }}
+                {{ $submissions->links() }}
             </div>
         </div>
         {{-- New sidebar left --}}

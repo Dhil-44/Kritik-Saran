@@ -28,8 +28,7 @@ class HomeFeedMessage extends Component
                 $q->where("message", "LIKE", "%" . $this->search . "%")
                     ->orWhereHas("getUser", function ($q) {
                         $q->where("name", "LIKE", "%" . $this->search . "%");
-                    })
-                    ->where("status", "public");
+                    })->where("status", "public");
             })->latest()->paginate($this->paginate);
         } else {
             if ($this->submissions != null) {
