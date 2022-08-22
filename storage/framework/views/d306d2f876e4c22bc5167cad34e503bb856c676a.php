@@ -131,7 +131,7 @@
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
             <div class="mt-2 fs-3 ">
-                <?php echo e($submissions->links('pagination::bootstrap-5')); ?>
+                <?php echo e($submissions->links()); ?>
 
             </div>
         </div>
