@@ -105,6 +105,20 @@ endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
 
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <img src="<?php echo e($logo); ?>" alt=" logo-<?php echo e($name_user); ?>">
+                            </div>
+                            <div class="col">
+                                <?php if($logo): ?>
+                                    <p class="fs-2 text-center my-0"><b>Preview Gambar</b></p>
+                                    <img src="<?php echo e($logo->temporaryUrl()); ?>" alt="" class="img-fluid">
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group modal-footer justify-content-end">
                         <button type="submit" class="btn btn-success btn">Save</button>
                     </div>

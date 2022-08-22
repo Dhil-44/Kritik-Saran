@@ -25,7 +25,7 @@ class UserController extends Component
                     ->orWhere('email', 'LIKE', "%$this->search%");
             })->orderBy('name', 'asc')->get();
         } else {
-            $users = User::latest()->where('id', '!=', auth('web')->id())->orderBy('name','asc')->get();
+            $users = User::where('id', '!=', auth('web')->id())->orderBy('name','asc')->get();
         }
         return view('livewire.admin.user-controller', [
             'users' => $users,
@@ -77,7 +77,7 @@ class UserController extends Component
         }
 
         $user = User::findOrFail($this->id_user)->update([
-            'name' => Str::of($name_user)->title()->trim(),
+            'name' => $name_user,
             'email' => $this->upd_email,
             'role' => $this->upd_role,
             'logo' => $path,
@@ -138,7 +138,7 @@ class UserController extends Component
             $path = explode("/", $filename)[1];
         }
         $user = User::create([
-            'name' => Str::of($name_user)->title(),
+            'name' => $name_user,
             'email' => $this->email,
             'role' => $this->role,
             'logo' => $path,
