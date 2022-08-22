@@ -93,6 +93,7 @@
                                                 </p>
                                             </div>
                                         </div>
+
                                         <div class="col-auto btn-group ">
                                             <button wire:click="onItemReplyorEdit(<?php echo e($submission); ?>)"
                                                 class="btn btn-sm border-1 btn-info">
@@ -110,6 +111,7 @@
                                                 Detail
                                             </button>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -124,37 +126,39 @@
                             </div>
                         </div>
                     </div>
-            </div>
-        </div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-    </div>
-    <div class="mt-2 fs-3 ">
-        <?php echo e($submissions->links()); ?>
-
-    </div>
-</div>
-
-<div class="col-2 mt-2">
-    <div class="text-bold fs-2 mx-auto px-0 py-2"><b>News</b></div>
-    <div class="card" style="height: 35rem">
-        <div class="card-body card-body-scrollable px-1 card-body-scrollable-shadow">
-            <div class="divide-y">
-                <?php $__currentLoopData = $news; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $new): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="card mb-2 hover-shadow-lg" wire:click="openDetailThisNews(<?php echo e($new); ?>)">
-                        <div class="card-img-top img-responsive img-responsive-21x9"
-                            style="background-image: url(<?php echo e($new->gambar); ?>)">
-                        </div>
-                        <div class="card-body px-1">
-                            <h2 class=""><?php echo e($new->title); ?></h2>
-                        </div>
-                    </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
+            <div class="mt-2 fs-3 ">
+                <?php echo e($submissions->links()); ?>
+
+            </div>
         </div>
+        
+        <div class="col-2 mt-2">
+            <div class="text-bold fs-2 mx-auto px-0 py-2"><b>News</b></div>
+            <div class="card" style="height: 35rem">
+                <div class="card-body card-body-scrollable px-1 card-body-scrollable-shadow">
+                    <div class="divide-y">
+                        <?php $__currentLoopData = $news; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $new): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class="card mb-2 hover-shadow-lg"
+                                wire:click="openDetailThisNews(<?php echo e($new); ?>)">
+                                <div class="card-img-top img-responsive img-responsive-21x9"
+                                    style="background-image: url(<?php echo e($new->gambar); ?>)">
+                                </div>
+                                <div class="card-body px-1">
+                                    <h2 class=""><?php echo e($new->title); ?></h2>
+                                </div>
+                            </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-
 </div>
+
 
 <?php echo $__env->make('user.home.modal.replyOnSubmission', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('user.home.modal.show-detail-news-modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

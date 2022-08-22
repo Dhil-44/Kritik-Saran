@@ -92,6 +92,7 @@
                                                 </p>
                                             </div>
                                         </div>
+
                                         <div class="col-auto btn-group ">
                                             <button wire:click="onItemReplyorEdit({{ $submission }})"
                                                 class="btn btn-sm border-1 btn-info">
@@ -109,6 +110,7 @@
                                                 Detail
                                             </button>
                                         </div>
+                                        {{-- >>>>>>> ersalomo --}}
                                     </div>
                                 </div>
                             </div>
@@ -121,36 +123,39 @@
                             </div>
                         </div>
                     </div>
+                @endforeach
+            </div>
+            <div class="mt-2 fs-3 ">
+                {{ $submissions->links() }}
             </div>
         </div>
-        @endforeach
-    </div>
-    <div class="mt-2 fs-3 ">
-        {{ $submissions->links() }}
-    </div>
-</div>
-{{-- New sidebar left --}}
-<div class="col-2 mt-2">
-    <div class="text-bold fs-2 mx-auto px-0 py-2"><b>News</b></div>
-    <div class="card" style="height: 35rem">
-        <div class="card-body card-body-scrollable px-1 card-body-scrollable-shadow">
-            <div class="divide-y">
-                @foreach ($news as $new)
-                    <div class="card mb-2 hover-shadow-lg" wire:click="openDetailThisNews({{ $new }})">
-                        <div class="card-img-top img-responsive img-responsive-21x9"
-                            style="background-image: url({{ $new->gambar }})">
-                        </div>
-                        <div class="card-body px-1">
-                            <h2 class="">{{ $new->title }}</h2>
-                        </div>
+        {{-- New sidebar left --}}
+        <div class="col-2 mt-2">
+            <div class="text-bold fs-2 mx-auto px-0 py-2"><b>News</b></div>
+            <div class="card" style="height: 35rem">
+                <div class="card-body card-body-scrollable px-1 card-body-scrollable-shadow">
+                    <div class="divide-y">
+                        @foreach ($news as $new)
+                            <div class="card mb-2 hover-shadow-lg"
+                                wire:click="openDetailThisNews({{ $new }})">
+                                <div class="card-img-top img-responsive img-responsive-21x9"
+                                    style="background-image: url({{ $new->gambar }})">
+                                </div>
+                                <div class="card-body px-1">
+                                    <h2 class="">{{ $new->title }}</h2>
+                                </div>
+                            </div>
+                        @endforeach()
                     </div>
-                @endforeach()
+                </div>
             </div>
         </div>
+
     </div>
 
-
 </div>
+
+{{-- @include('user.home.modal.create-feed-message') --}}
 @include('user.home.modal.replyOnSubmission')
 @include('user.home.modal.show-detail-news-modal')
 </div>
