@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('title', 'Kalbis | Critics and Suggestions'); ?>
 <?php $__env->startSection('content'); ?>
     <div class="wrapper ">

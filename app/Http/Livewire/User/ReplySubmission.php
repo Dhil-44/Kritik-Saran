@@ -7,7 +7,7 @@ use App\Models\Comment;
 
 class ReplySubmission extends Component
 {
-    public $data_comment, $name, $updated_at, $message, $logo, $comment, $id_sub;
+    public $data_comment, $name, $updated_at, $message, $logo, $comment, $id_sub, $file;
     protected $listeners = [
         'setDataComment'
     ];
@@ -27,6 +27,7 @@ class ReplySubmission extends Component
         $this->name = $d['get_user']['name'];
         $this->logo = $d['get_user']['logo'];
         $this->message = $d['message'];
+        $this->file = $d['file_name'];
         $this->updated_at = $d['updated_at'];
     }
     public function postComment()

@@ -161,7 +161,7 @@ class UserController extends Component
 
     private function clearColumn()
     {
-        return $this->name_user = $this->email = $this->role = $this->logo = $this->password =
+        return $this->name_user = $this->email = $this->role = $this->password =
             $this->upd_name_user = $this->upd_email = $this->upd_role = $this->upd_logo = $this->upd_password = null;
     }
 
