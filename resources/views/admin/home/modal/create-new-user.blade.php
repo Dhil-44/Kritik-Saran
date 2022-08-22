@@ -65,7 +65,7 @@
                         @enderror
                     </div>
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <div class="row">
                             <div class="col">
                                 <img src="{{$logo}}" alt=" logo-{{$name_user}}">
@@ -77,7 +77,7 @@
                                 @endif
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="form-group modal-footer justify-content-end">
                         <button type="submit" class="btn btn-success btn">Save</button>
