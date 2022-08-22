@@ -37,11 +37,12 @@
                                 </div>
                             </div>
                             <div class="float-end mt-2 pt-1">
-                                <button type="button" wire:click="postComment()" class="btn btn-green btn">
+                                <button type="button" wire:click="postComment()"
+                                    class="btn btn-green btn-sm px-1 py-1">
                                     Post comment
                                 </button>
                                 <button type="button" wire:click="$set('comment','')"
-                                    class="btn btn-outline-dark btn">Cancel</button>
+                                    class="btn btn-outline-red btn-sm px-1 py-1">Cancel</button>
                             </div>
                         </div>
                     </div>

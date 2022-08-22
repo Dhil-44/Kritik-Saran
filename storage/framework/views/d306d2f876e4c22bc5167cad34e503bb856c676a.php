@@ -1,6 +1,6 @@
 <div class="">
-    <div class="row px-1">
-        <div class="col-2 mt-2 shadow-lg" style="max-height: 30em">
+    <div class="row px-2">
+        <div class="col-2 mt-2 shadow-lg" style="max-height: 26em">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>Category</b></div>
             <div class="list-group list-group-flush card">
                 <button type="button" wire:click.prevent="all()"

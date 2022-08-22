@@ -12,24 +12,24 @@
             </div>
             <div class="col-lg-6">
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto fs-3">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item ">
                             <a class="nav-link <?php echo e(request()->is('home-page') ? 'active bg-dark text-white py-0 ' : ''); ?>"
                                 aria-current="page" href="<?php echo e(route('home-page')); ?>">
-                                <h4 class="mt-2 text-uppercase">Home</h4>
+                                <h4 class="mt-2 fs-5 text-uppercase">Home</h4>
                             </a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link <?php echo e(request()->is('news-page') ? 'active bg-dark text-white py-0 ' : ''); ?>"
                                 aria-current="page" href="<?php echo e(route('news-page')); ?>">
-                                <h4 class="mt-2 text-uppercase">News</h4>
+                                <h4 class="mt-2 fs-5 text-uppercase">News</h4>
                             </a>
                         </li>
-                        <?php if(Auth::user()->role != 'admin'): ?>
+                        <?php if(auth('web')->user()->role != 'admin'): ?>
                             <li class="nav-item status">
                                 <a class="nav-link <?php echo e(request()->is('inbox') ? 'active bg-dark text-white py-0' : ''); ?>"
                                     href="<?php echo e(route('inbox.message')); ?>">
-                                    <h4 class="mt-2 position-relative">Inbox
+                                    <h4 class="mt-2 fs-5 position-relative">Inbox
                                         <span class="badge badge-pill bg-red position-relative mb-2"></span>
                                     </h4>
                                 </a>
@@ -39,14 +39,14 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark border-success py-0 ms-1"
                                     href="<?php echo e(route('admin/home')); ?>#">
-                                    <h4 class="mt-2 text-uppercase">Backend
+                                    <h4 class="mt-2 text-uppercase fs-5">Backend
                                     </h4>
                                 </a>
                             </li>
                         <?php endif; ?>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo e(route('signout')); ?>#">
-                                <h4 class="mt-2 text-uppercase">Sign out</h4>
+                                <h4 class="mt-2 fs-5 text-uppercase">Sign out</h4>
                             </a>
                         </li>
                     </ul>
