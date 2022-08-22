@@ -28,7 +28,8 @@
                             <th>Receiver</th>
                             <th>Category</th>
                             <th>Message</th>
-                            <th>Sent</th>
+                            <th>Status</th>
+                            <th>Sent at</th>
                             <th>File</th>
                             <th class="text-center">Action</th>
                         </tr>
@@ -36,38 +37,43 @@
                         <tbody>
                         <?php $__empty_1 = true; $__currentLoopData = $submissions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $submission): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <tr>
-                                <td><?php echo e($loop->iteration); ?></td>
-                                <td><?php echo e($submission->getUser->name); ?></td>
-                                <td><?php echo e($submission->getUserTarget->name); ?></td>
-                                <td><span class="tag tag-warning"><?php echo e($submission->getCategory->name_cat); ?></span>
-                                </td>
-                                
+                                <td><?php echo e(__($loop->iteration)); ?></td>
+                                <td><?php echo e(__($submission->getUser->name)); ?></td>
+                                <td><?php echo e(__($submission->getUserTarget->name)); ?></td>
                                 <td>
-                                        <span class="d-inline-block text-truncate " data-bs-toggle="tooltip"
-                                              data-bs-placement="top" title=" <?php echo e(__($submission->message)); ?>"
-                                              style="max-width: 100px;">
+                                    <span class="tag tag-warning"><?php echo e(__($submission->getCategory->name_cat)); ?></span>
+                                </td>
+                                <td>
+                                    <span class="d-inline-block text-truncate " data-bs-toggle="tooltip"
+                                          data-bs-placement="top" title=" <?php echo e(__($submission->message)); ?>"
+                                          style="max-width: 100px;">
                                             <?php echo e(__($submission->message)); ?>
 
-                                        </span>
+                                    </span>
                                 </td>
-                                <td><?php echo e($submission->created_at); ?></td>
-                                <td>No File</td>
+                                <td class="">
+                                    <span
+                                        class="float-right badge <?php echo e($submission->status == 'public' ? 'bg-blue': 'bg-danger'); ?>">
+                                        <?php echo e(__($submission->status)); ?>
+
+                                    </span>
+                                </td>
+
+                                <td><?php echo e(__($submission->created_at)); ?></td>
+                                <td>
+                                    <a href="<?php echo e($submission->filename ?? ''); ?>">lihat</a>
+                                </td>
                                 <td class="text-center py-0 align-middle">
                                     <div class="btn-group btn-group-sm">
                                         <button type="button" wire:click="editSubmission(<?php echo e($submission); ?>)"
                                                 class="btn btn-info">
                                             <i class="fas fa-pen"></i>
                                         </button>
-                                        <button class="btn-danger" type="button"
+                                        <button class="btn btn-danger" type="button"
                                                 onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
                                                 wire:click="deleteSubmission(<?php echo e($submission->id); ?>)">
                                             <i class="fas fa-trash"></i>
                                         </button>
-
-                                        
-                                        
-                                        
-                                        
                                     </div>
                                 </td>
                             </tr>

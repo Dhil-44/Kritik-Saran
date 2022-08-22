@@ -6,23 +6,29 @@ use App\Models\News;
 use App\Models\Submission;
 use App\Models\User;
 use Livewire\Component;
-use Illuminate\Support\Str;
 use Livewire\WithPagination;
 
 // Feed untuk public
 class HomeFeedMessage extends Component
 {
     use WithPagination;
-    public $search, $paginate = 5;
+    public $search, $paginate = 8;
     protected $paginationTheme = 'bootstrap';
     public $id_cat, $id_user_target, $message, $file_name, $status;
     private $submissions = null;
+    protected $listeners = [
+        'all' => '$refresh',
+        'group'
+    ];
+
     public function render()
     {
         if ($this->search) {
             $this->submissions = Submission::where(function ($q) {
                 $q->where("message", "LIKE", "%" . $this->search . "%")
-                    ->where("status", "public");
+                    ->orWhereHas("getUser", function ($q) {
+                        $q->where("name", "LIKE", "%" . $this->search . "%");
+                    })->where("status", "public");
             })->latest()->paginate($this->paginate);
         } else {
             if ($this->submissions != null) {
@@ -33,22 +39,42 @@ class HomeFeedMessage extends Component
         }
         return view('livewire.home.home-feed-message', [
             'submissions' => $this->submissions,
-            'news' => News::latest()->get(),
-            'users' => User::getAllRoleDepartent(),
+            'news' => News::latest()->paginate(10),
+            'users' => User::getAllRoleDeparment(),
         ]);
     }
-    public function all(){
+    public function all()
+    {
         $this->submissions = null;
     }
-   public function group($user)
+    public function openDetailThisNews($new)
+    {
+        return $this->dispatchBrowserEvent('showDetail', [
+            'new' => $new
+        ]);
+    }
+    public function onItemReplyorEdit($data)
+    {
+        $this->emit('setDataComment', $data);
+        return $this->dispatchBrowserEvent('openModalReplySub', [
+            'data' => $data
+        ]);
+    }
+    public function group($user): void
     {
         $this->submissions = Submission::where('id_user_pengirim', $user['id'])
             ->where("status", "public")
+            ->latest()
             ->paginate($this->paginate);
     }
-    public function openModal()
+    public function showToastr($message, $type)
     {
-        dd($this->dispatchBrowserEvent('openCreateFeedMsg'));
+        return $this->dispatchBrowserEvent(
+            'showToastr',
+            [
+                'type' => $type,
+                'message' => $message
+            ]
+        );
     }
-
 }

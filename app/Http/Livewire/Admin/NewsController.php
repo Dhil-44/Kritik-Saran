@@ -5,15 +5,29 @@ namespace App\Http\Livewire\Admin;
 use App\Models\News;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Livewire\WithPagination;
+
 
 class NewsController extends Component
 {
-    public $title, $body, $gambar = '', $link = '';
+    public $title, $body, $gambar, $link = '', $iteration, $paginate = 20;
+    use WithFileUploads, WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
 
     public function render()
     {
         return view('livewire.admin.news-controller', [
-            'news' => News::latest()->get(),
+            'news' => News::latest()->paginate($this->paginate),
+        ]);
+    }
+
+    private function showToastr($msg, $type)
+    {
+        return $this->dispatchBrowserEvent('showToastr', [
+            'message' => $msg,
+            'type' => $type
         ]);
     }
 
@@ -22,42 +36,56 @@ class NewsController extends Component
         return $this->dispatchBrowserEvent('openModalNews');
     }
 
-    public function closeModalFeed()
+    public function closeModalNews()
     {
+        $this->iteration++;
+        $this->title =
+        $this->body =
+        $this->link =
+        $this->gambar = null;
         return $this->dispatchBrowserEvent('closeModalNews');
     }
 
     public function createNews()
     {
         $this->validate([
-            'title' => ['required', 'max:32', 'min:4', 'string'],
+            'title' => ['required', 'max:150', 'min:4', 'string'],
             'body' => ['required', 'string'],
-//            'gambar' => ['required', 'file', 'mimes:png,jpg,image'],
+            'gambar' => ['nullable', 'mimes:png,jpg,image'],
             'link' => ['nullable']
         ], [
-            'title.required' => 'Judul tidak boleh kosong',
-            'title.max' => 'maximal 32 karakter',
-            'title.min' => 'manimal 4 karakter',
-            'body.required' => 'Kolom ini tidak boleh kosong'
-//            'gambar.required'=> 'Masukkan gambar',
+
+            'title.required' => 'Judul tidak boleh kosong.',
+            'title.max' => 'maximal 150 karakter.',
+            'title.min' => 'manimal 4 karakter.',
+            'body.required' => 'Kolom ini tidak boleh kosong.',
+            'gambar.mimes' => 'required type of image.',
+
         ]);
+        $path = null;
+        if ($this->gambar === null) {
+            $path = '';
+        } else {
+            $path = $this->gambar->storeAs("public", "news-" . rand(1, 10001) . explode(' ', $this->title)[0] . time() . $this->gambar->extension());
+            $path = explode("/", $path)[1];
+        }
         $news = News::create([
-            'title' => Str::of($this->title)->title(),
+            'title' => Str::of($this->title)->upper()->trim(),
             'body' => $this->body,
-            'link' => $this->link,
-            'gambar' => $this->gambar,
+            'link' => Str::of($this->link)->trim(),
+            'gambar' => $path,
         ]);
         if ($news) {
-            $this->title = $this->body = $this->gambar = $this->link = null;
-            $this->closeModalFeed();
+            $this->showToastr('Create News Succeed!', 'success');
+            $this->closeModalNews();
         } else {
-            dd('error');
+            return back();
         }
-
     }
 
     public function delete($id)
     {
         News::findOrFail($id)->delete();
+        $this->showToastr("Delete Succeed!", "success");
     }
 }

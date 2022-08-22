@@ -18,51 +18,62 @@ class UserSeed extends Seeder
      */
     public function run()
     {
-        $users = [
-
-        ];
+        $pw = Hash::make('123456');
+        $date = date('Y-m-d H:i:s');
 
         DB::table('users')->insert([
-            'name' => 'Kita Group',
+            'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'role' => 'admin',
             'logo' => '',
-            'password' => Hash::make('123456'),
+            'password' => $pw,
+            'created_at'=> $date,
+            'updated_at'=> $date,
         ]);
         DB::table('users')->insert([
             'name' => 'CAC Kalbis',
             'email' => 'cackalbis@gmail.com',
             'role' => 'department',
             'logo' => '',
-            'password' => Hash::make('123456'),
+            'password' => $pw,
+            'created_at'=> $date,
+            'updated_at'=> $date,
         ]);
         DB::table('users')->insert([
             'name' => 'AO Kalbis',
             'email' => 'aokalbis@gmail.com',
             'role' => 'department',
             'logo' => '',
-            'password' => Hash::make('123456'),
+            'password' => $pw,
+            'created_at'=> $date,
+            'updated_at'=> $date,
         ]);
         DB::table('users')->insert([
             'name' => 'CSD Kalbis',
             'email' => 'csdkalbis@gmail.com',
             'role' => 'department',
             'logo' => '',
-            'password' => Hash::make('123456'),
+            'password' => $pw,
+            'created_at'=> $date,
+            'updated_at'=> $date,
         ]);
         DB::table('users')->insert([
             'name' => 'Finance Kalbis',
             'email' => 'financekalbis@gmail.com',
             'role' => 'department',
             'logo' => '',
-            'password' => Hash::make('123456'),
+            'password' => $pw,
+            'created_at'=> $date,
+            'updated_at'=> $date,
         ]);
         DB::table('users')->insert([
             'name' => 'Rektorat Kalbis',
             'email' => 'rektoratkalbis@gmail.com',
-            'role' => 'department',
+            'role' => 'rektorat',
             'logo' => '',
-            'password' => Hash::make('123456'),
+            'password' => $pw,
+            'created_at'=> $date,
+            'updated_at'=> $date,
         ]);
 //        HIMSI, HIMIF, HIMAN, HIMAK, HIMIK
         DB::table('users')->insert([
@@ -70,35 +81,45 @@ class UserSeed extends Seeder
             'email' => 'himsi@gmail.com',
             'role' => 'user',
             'logo' => '',
-            'password' => Hash::make('123456'),
+            'password' => $pw,
+            'created_at'=> $date,
+            'updated_at'=> $date,
         ]);
         DB::table('users')->insert([
             'name' => 'HIMIF',
             'email' => 'himif@gmail.com',
             'role' => 'user',
             'logo' => '',
-            'password' => Hash::make('123456'),
+            'password' => $pw,
+            'created_at'=> $date,
+            'updated_at'=> $date,
         ]);
         DB::table('users')->insert([
             'name' => 'HIMAN',
             'email' => 'himan@gmail.com',
             'role' => 'user',
             'logo' => '',
-            'password' => Hash::make('123456'),
+            'password' => $pw,
+            'created_at'=> $date,
+            'updated_at'=> $date,
         ]);
         DB::table('users')->insert([
             'name' => 'HIMAK',
             'email' => 'himak@gmail.com',
             'role' => 'user',
             'logo' => '',
-            'password' => Hash::make('123456'),
+            'password' => $pw,
+            'created_at'=> $date,
+            'updated_at'=> $date,
         ]);
         DB::table('users')->insert([
             'name' => 'HIMIK',
             'email' => 'himik@gmail.com',
             'role' => 'user',
             'logo' => '',
-            'password' => Hash::make('123456'),
+            'password' => $pw,
+            'created_at'=> $date,
+            'updated_at'=> $date,
         ]);
     }
 }

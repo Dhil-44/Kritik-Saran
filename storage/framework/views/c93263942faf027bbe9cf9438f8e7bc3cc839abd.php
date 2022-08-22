@@ -4,15 +4,15 @@
     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('sending-form.sending-all-message')->html();
-} elseif ($_instance->childHasBeenRendered('KCgQIql')) {
-    $componentId = $_instance->getRenderedChildComponentId('KCgQIql');
-    $componentTag = $_instance->getRenderedChildComponentTagName('KCgQIql');
+} elseif ($_instance->childHasBeenRendered('WhISbNw')) {
+    $componentId = $_instance->getRenderedChildComponentId('WhISbNw');
+    $componentTag = $_instance->getRenderedChildComponentTagName('WhISbNw');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('KCgQIql');
+    $_instance->preserveRenderedChild('WhISbNw');
 } else {
     $response = \Livewire\Livewire::mount('sending-form.sending-all-message');
     $html = $response->html();
-    $_instance->logRenderedChild('KCgQIql', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('WhISbNw', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

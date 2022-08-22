@@ -9,31 +9,35 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
-Use Illuminate\Support\Str;
+use Illuminate\Support\Str;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
     //new added
-//    public $incrementing = false;
-//    protected $keyType = 'string';
+    //    public $incrementing = false;
+    //    protected $keyType = 'string';
 
-//    protected static function boot()
-//    {
-//        parent::boot(); //
-//        User::creating(function ($model){
-//            $model->setId();
-//        });
-//    }
-//    public function setId(){
-//        $this->attributes['id'] = Str::uuid();
-//    }
+    //    protected static function boot()
+    //    {
+    //        parent::boot(); //
+    //        User::creating(function ($model){
+    //            $model->setId();
+    //        });
+    //    }
+    //    public function setId(){
+    //        $this->attributes['id'] = Str::uuid();
+    //    }
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    protected function getLogoAttribute($logo)
+    {
+        if ($logo == null) {
+            return asset('storage/users/guest.png');
+            // return asset('dist/img/user/guest.png');
+        }
+        return asset('storage/users/' . $logo);
+    }
 
     protected $fillable = [
         'name',
@@ -53,8 +57,9 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    static function getAllRoleDepartent() {
-       return User::whereRaw("users.role = 'department' order by users.name asc")->get();
+    public static function getAllRoleDeparment()
+    {
+        return User::query()->where('role', 'department')->get();
     }
 
     /**
@@ -65,10 +70,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public static function countUsers()
-    {
-        $users = User::where('id', '!=', auth('web')->id())->get();
-        return count($users);
-    }
 }

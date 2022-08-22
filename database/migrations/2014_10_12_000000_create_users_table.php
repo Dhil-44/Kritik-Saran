@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->enum('role', ['user', 'department', 'admin']);
-            $table->string('logo')->nullable();
+            $table->enum('role', ['user', 'department', 'admin', 'rektorat']);
+            $table->string('logo')->nullable()->default('guest.png');
             $table->string('password');
             $table->timestamps();
         });

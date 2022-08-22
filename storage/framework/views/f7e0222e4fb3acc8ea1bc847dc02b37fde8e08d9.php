@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="admin/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="admin/dist/css/adminlte.min.css">
-
+    <link rel="stylesheet" href="<?php echo e(asset('admin/plugins/toastr/toastr.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('admin/plugins/toastr/toastr.min.css')); ?>">
     <?php echo \Livewire\Livewire::styles(); ?>
 
 </head>
@@ -82,13 +83,6 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo e(route('feed-tables')); ?>#"
-                                        class="nav-link <?php echo e(request()->is('feed-tables') ? 'active' : ''); ?>">
-                                        <i class="far fa-edit nav-icon"></i>
-                                        <p>Feed</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
                                     <a href="<?php echo e(route('news-tables')); ?>#"
                                         class="nav-link <?php echo e(request()->is('news-tables') ? 'active' : ''); ?>">
                                         <i class="far fa-newspaper nav-icon"></i>
@@ -134,10 +128,27 @@
     <script src="admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
     <script src="admin/dist/js/adminlte.js"></script>
-    <script src="admin/dist/js/pages/dashboard3.js"></script>
+    <script src="<?php echo e(asset('admin/plugins/toastr/toastr.min.js')); ?>"> </script>
+
     <?php echo $__env->yieldPushContent('scripts'); ?>
     <?php echo \Livewire\Livewire::scripts(); ?>
 
+    <script>
+        window.addEventListener("showToastr", function (event) {
+            toastr.remove();
+            if (event.detail.type === 'info') {
+                toastr.info(event.detail.message)
+            } else if (event.detail.type === 'success') {
+                toastr.success(event.detail.message)
+            } else if (event.detail.type === 'error') {
+                toastr.error(event.detail.message)
+            } else if (event.detail.type === 'warning') {
+                toastr.warning(event.detail.message)
+            } else {
+                return false
+            }
+        })
+    </script>
 </body>
 
 </html>
