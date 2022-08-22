@@ -91,7 +91,10 @@ unset($__errorArgs, $__bag); ?>
                             </div>
 
                         </div>
-                        
+                        <?php if($logo): ?>
+                            <p class="fs-2 text-center my-0"><b>Preview Gambar</b></p>
+                            <img src="<?php echo e($logo->temporaryUrl()); ?>" alt="" class="img-fluid">
+                        <?php endif; ?>
                         <?php $__errorArgs = ['logo'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

@@ -59,10 +59,10 @@
                             </div>
 
                         </div>
-                        {{-- @if ($logo)
+                        @if ($logo)
                             <p class="fs-2 text-center my-0"><b>Preview Gambar</b></p>
-                            {{-- <img src="{{ $logo->temporaryUrl() }}" alt="" class="img-fluid">
-                        @endif --}}
+                            <img src="{{ $logo->temporaryUrl() }}" alt="" class="img-fluid">
+                        @endif
                         @error('logo')
                             <span class="text-red">
                                 {{ $message }}
