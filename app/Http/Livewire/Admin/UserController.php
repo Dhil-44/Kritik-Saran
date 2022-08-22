@@ -25,7 +25,7 @@ class UserController extends Component
                     ->orWhere('email', 'LIKE', "%$this->search%");
             })->orderBy('name', 'asc')->get();
         } else {
-            $users = User::latest()->where('id', '!=', auth('web')->id())->orderBy('name')->get();
+            $users = User::where('id', '!=', auth('web')->id())->orderBy('name', 'asc')->get();
         }
         return view('livewire.admin.user-controller', [
             'users' => $users,
