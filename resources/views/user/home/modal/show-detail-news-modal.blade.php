@@ -4,14 +4,10 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h2 id="detail-title"></h2>
-                {{-- <h2>{{ $detail['title'] ?? null }}</h2> --}}
                 <img src="" id="detail-img" class="img-thumbnail mx-auto" alt="">
-                {{-- <img src="{{ $detail['gambar'] ?? null }}" class="img-thumbnail mx-auto" alt=""> --}}
                 <p align="justify" class="mt-3" id="detail-body">
-                    {{-- {{ $detail['body'] ?? null }} --}}
                 </p>
                 <a href="" id="detail-link" class="btn btn-blue btn-sm">Visit</a>
-                {{-- <a href="{{ $detail['link'] ?? null }}" class="btn btn-blue btn-sm">Visit</a> --}}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">

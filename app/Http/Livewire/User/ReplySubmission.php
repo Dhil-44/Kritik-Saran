@@ -8,7 +8,9 @@ use App\Models\Comment;
 class ReplySubmission extends Component
 {
     public $data_comment, $name, $updated_at, $message, $logo, $comment, $id_sub;
-    protected $listeners = ['setDataComment'];
+    protected $listeners = [
+        'setDataComment'
+    ];
     public function render()
     {
         return view('livewire.user.reply-submission', [
