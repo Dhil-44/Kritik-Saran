@@ -12,7 +12,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto fs-3">
+                    <ul class="navbar-nav ms-auto fs-4">
                         <li class="nav-item ">
                             <a class="nav-link {{ request()->is('home-page') ? 'active bg-dark text-white py-0 ' : '' }}"
                                 aria-current="page" href="{{ route('home-page') }}">
@@ -25,7 +25,7 @@
                                 <h4 class="mt-2 text-uppercase">News</h4>
                             </a>
                         </li>
-                        @if (Auth::user()->role != 'admin')
+                        @if (auth('web')->user()->role != 'admin')
                             <li class="nav-item status">
                                 <a class="nav-link {{ request()->is('inbox') ? 'active bg-dark text-white py-0' : '' }}"
                                     href="{{ route('inbox.message') }}">
