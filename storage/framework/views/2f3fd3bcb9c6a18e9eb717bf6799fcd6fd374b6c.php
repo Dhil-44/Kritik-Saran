@@ -20,7 +20,11 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-4 pb-2" id="message-user"><?php echo e($message); ?></p>
-                            <p id="test"></p>
+                            <div class="document">
+                                <a href="">
+
+                                </a>
+                            </div>
                         </div>
                         <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
                             <div class="d-flex flex-start w-100">
