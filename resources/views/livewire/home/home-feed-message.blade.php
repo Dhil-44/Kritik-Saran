@@ -69,6 +69,63 @@
                     </div>
                 </div>
             </div>
+            <div class="col-12 ">
+                @foreach ($submissions as $submission)
+                    <div class="card shadow-sm my-2 hover-shadow-lg" style="border-radius: 20px">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <span class="avatar me-1 avatar-rounded avatar-md"
+                                        style="background-image: url({{ $submission->getUser->logo }})"></span>
+                                </div>
+                                <div class="col" style="font-family:'Roboto Medium'">
+                                    <div class="row justify-content-between">
+                                        <div class="col-auto">
+                                            <div class="row">
+                                                <h3 class="col-auto text-uppercase">
+                                                    <b>{{ $submission->getUser->name }}</b>
+                                                </h3>
+                                                <p class="col-auto text-muted"
+                                                    style="margin-top: 3px; margin-left:-7px;">
+                                                    {{ $submission->getUserTarget->name }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="row">
+                                                <div class="col-auto btn-group ">
+                                                    <button wire:click="onItemReplyorEdit({{ $submission }})"
+                                                        class="btn btn-sm border-1 btn-outline-green">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="icon icon-tabler icon-tabler-arrow-up-right"
+                                                            width="24" height="24" viewBox="0 0 24 24"
+                                                            stroke-width="2" stroke="currentColor" fill="none"
+                                                            stroke-linecap="round" stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none">
+                                                            </path>
+                                                            <line x1="17" y1="7" x2="7"
+                                                                y2="17"></line>
+                                                            <polyline points="8 7 17 7 17 16"></polyline>
+                                                        </svg>
+                                                        Detail
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="fs-5 mb-2" style="margin-top: -9px;">{{ $submission->updated_at }}
+                                    </div>
+                                    <div class="text">
+                                        <p class="" style="margin-right: 7px; text-align:justify;">
+                                            {{ $submission->message }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
 
 
             <div class="mt-2 fs-3 ">
@@ -82,7 +139,8 @@
                 <div class="card-body card-body-scrollable px-1 card-body-scrollable-shadow">
                     <div class="divide-y">
                         @foreach ($news as $new)
-                            <div class="card mb-2 hover-shadow-lg" wire:click="openDetailThisNews({{ $new }})">
+                            <div class="card mb-2 hover-shadow-lg"
+                                wire:click="openDetailThisNews({{ $new }})">
                                 <div class="card-img-top img-responsive img-responsive-21x9"
                                     style="background-image: url({{ $new->gambar }})">
                                 </div>
