@@ -1,9 +1,9 @@
 <div class="page-body">
     <div class="container-xl">
         <div class="row justify-content-center">
-            <div class="col-3 mt-4">
+            <div class="col-sm-2 mt-4 col-md-3">
                 <div class="list-group">
-                    @if (\Illuminate\Support\Facades\Auth::user()->role != 'user')
+                    @if (auth('web')->user()->role != 'user')
                         <button class="btn btn-success" wire:click="openModalNews()">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit"
                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"

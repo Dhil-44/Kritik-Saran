@@ -7,15 +7,12 @@
             <div class="page-header d-print-none">
                 <div class="row g-2 align-items-center">
                     <div class="col">
-                        <h2 class="page-title">
-                            All News
-                        </h2>
+                        <h2 class="p">All News</h2>
                     </div>
                 </div>
             </div>
         </div>
-            @livewire('news.news')
+        @livewire('news.news')
     </div>
     @include('user.header-footer.footer')
 @endsection
-
