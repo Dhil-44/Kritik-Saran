@@ -12,12 +12,12 @@ use Livewire\WithPagination;
 class HomeFeedMessage extends Component
 {
     use WithPagination;
-    public $search, $paginate = 8, $data;
+    public $search, $paginate = 8;
     protected $paginationTheme = 'bootstrap';
     public $id_cat, $id_user_target, $message, $file_name, $status;
     private $submissions = null;
     protected $listeners = [
-        'all',
+        'all' => '$refresh',
         'group'
     ];
 
@@ -26,6 +26,9 @@ class HomeFeedMessage extends Component
         if ($this->search) {
             $this->submissions = Submission::where(function ($q) {
                 $q->where("message", "LIKE", "%" . $this->search . "%")
+                    ->orWhereHas("getUser", function ($q) {
+                        $q->where("name", "LIKE", "%" . $this->search . "%");
+                    })
                     ->where("status", "public");
             })->latest()->paginate($this->paginate);
         } else {
@@ -39,7 +42,6 @@ class HomeFeedMessage extends Component
             'submissions' => $this->submissions,
             'news' => News::latest()->paginate(10),
             'users' => User::getAllRoleDeparment(),
-            'detail' => $this->data,
         ]);
     }
 
@@ -49,7 +51,6 @@ class HomeFeedMessage extends Component
     }
     public function openDetailThisNews($new)
     {
-        $this->data = $new;
         return $this->dispatchBrowserEvent('showDetail', [
             'new' => $new
         ]);
@@ -61,7 +62,6 @@ class HomeFeedMessage extends Component
             'data' => $data
         ]);
     }
-
     public function group($user): void
     {
         $this->submissions = Submission::where('id_user_pengirim', $user['id'])

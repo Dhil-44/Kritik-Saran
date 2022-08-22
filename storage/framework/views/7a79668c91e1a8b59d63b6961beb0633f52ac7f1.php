@@ -4,14 +4,10 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h2 id="detail-title"></h2>
-                
                 <img src="" id="detail-img" class="img-thumbnail mx-auto" alt="">
-                
                 <p align="justify" class="mt-3" id="detail-body">
-                    
                 </p>
                 <a href="" id="detail-link" class="btn btn-blue btn-sm">Visit</a>
-                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
