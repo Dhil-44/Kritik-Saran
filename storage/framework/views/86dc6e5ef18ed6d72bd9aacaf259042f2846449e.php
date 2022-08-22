@@ -1,5 +1,5 @@
-<div class="container-fluid">
-    <div class="row">
+<div class="">
+    <div class="row px-1">
         <div class="col-2 mt-2 shadow-lg" style="max-height: 30em">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>Category</b></div>
             <div class="list-group list-group-flush card">
@@ -77,7 +77,7 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <span class="avatar me-1 avatar-rounded avatar-md"
-                                        style="background-image: url(<?php echo e(asset('dist/img/image/logo-kal.jpg')); ?>)"></span>
+                                        style="background-image: url(<?php echo e($submission->getUser->logo); ?>)"></span>
                                 </div>
                                 <div class="col" style="font-family:'Roboto Medium'">
                                     <div class="row justify-content-between">
@@ -114,19 +114,16 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
-                                    <div class="fs-5 mb-2" style="margin-top: -9px;"><?php echo e($submission->created_at); ?>
+                                    <div class="fs-5 mb-2" style="margin-top: -9px;"><?php echo e($submission->updated_at); ?>
 
                                     </div>
                                     <div class="text">
-                                        <p align="justify" class="" style="margin-right: 7px;">
+                                        <p class="" style="margin-right: 7px; text-align:justify;">
                                             <?php echo e($submission->message); ?>
 
                                         </p>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
@@ -138,7 +135,6 @@
 
             </div>
         </div>
-
         
         <div class="col-2 mt-2">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>News</b></div>
@@ -167,30 +163,14 @@
         <?php echo $__env->make('user.home.modal.show-detail-news-modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
 </div>
+
 <?php $__env->startPush('scripts'); ?>
     <script>
         window.addEventListener('openModalReplySub', (e) => {
             $('#modal-reply-sub').modal('show')
-            const data = e.detail.data
-            if (data) {
-                document.getElementById('name-user').innerHTML = data.get_user.name
-                document.getElementById('post_at-user').innerHTML = data.updated_at
-                document.getElementById('message-user').innerHTML = data.message
-                document.getElementById('img-user').src = data.get_user.logo
-                // alert(document.getElementById('name-user').textContent)
-            }
         })
-        $(function() {
-            window.addEventListener('openCreateFeedMsg', function(e) {
-                $('.create_submission').modal('show')
-            })
-            window.addEventListener('closeModalFeedMsg', (e) => {
-                $('.create_submission').modal('hide')
-            })
-            window.addEventListener('show-detail', (e) => {
-                $('#show-detail').modal('show')
-            })
-
+        window.addEventListener('showDetail', (e) => {
+            $('#show-detail').modal('show')
         })
     </script>
 <?php $__env->stopPush(); ?>

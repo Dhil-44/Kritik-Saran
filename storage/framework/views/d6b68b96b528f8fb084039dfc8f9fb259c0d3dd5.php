@@ -90,7 +90,7 @@ unset($__errorArgs, $__bag); ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                     <div class="mt-1">
-                        <?php echo e($comments->links('pagination::bootstrap-5')); ?>
+                        <?php echo e($comments->links()); ?>
 
                     </div>
                 </div>
