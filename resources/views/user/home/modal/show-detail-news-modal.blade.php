@@ -1,5 +1,5 @@
-<div class="modal modal-blur fade" wire:ignore.self id="show-detail" tabindex="-1" role="dialog" aria-modal="true"
-    data-keyboard="false" data-backdrop="static" style="display: none;">
+<div class="modal modal-blur fade" id="show-detail" tabindex="-1" role="dialog" aria-modal="true" data-keyboard="false"
+    data-backdrop="static" style="display: none;">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-body">

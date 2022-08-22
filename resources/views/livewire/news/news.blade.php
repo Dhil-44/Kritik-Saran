@@ -42,10 +42,12 @@
                                     </button>
                                 </div>
                             </div>
-                            <a href="">
-                                <img src="{{ $new->gambar }}" class="img-fluid">
+                            <a href="#">
+                                @if (str_contains($new->gambar, '.jpg' || '.png' || '.jpeg' || 'news-'))
+                                    <img src="{{ $new->gambar }}" class="img-fluid">
+                                @endif
                             </a>
-                            <p align="justify" class="mt-2">{{ $new->body }}</p>
+                            <p class="mt-2" style="text-align:justify;">{{ $new->body }}</p>
                             <p>
                                 <a href="d-block">{{ $new->link }}</a>
                             </p>

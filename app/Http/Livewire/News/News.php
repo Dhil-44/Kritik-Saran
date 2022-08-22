@@ -39,7 +39,7 @@ class News extends Component
         if ($this->gambar === null) {
             $path = '';
         } else {
-            $path = $this->gambar->storeAs("public", "news-" . rand(1, 10001) . explode(' ', $this->title)[0] . time() . $this->gambar->extension());
+            $path = $this->gambar->storeAs("public", "news-" . rand(1, 10001) . explode(' ', $this->title)[0] . time() . '.' . $this->gambar->extension());
             $path = explode("/", $path)[1];
         }
         $news = Berita::create([
