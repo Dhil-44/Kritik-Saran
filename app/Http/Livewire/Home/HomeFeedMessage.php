@@ -38,9 +38,10 @@ class HomeFeedMessage extends Component
                 $this->submissions = Submission::where("status", "public")->orderBy('updated_at', $this->order)->paginate($this->paginate);
             }
         }
+
         return view('livewire.home.home-feed-message', [
             'submissions' => $this->submissions,
-            'news' => News::latest()->paginate(10),
+            'news' => News::latest()->limit(5)->get(),
             'users' => User::getAllRoleDeparment(),
         ]);
     }

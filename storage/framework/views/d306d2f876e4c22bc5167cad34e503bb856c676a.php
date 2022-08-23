@@ -141,6 +141,7 @@
             <div class="card" style="height: 28rem;">
                 <div class="card-body card-body-scrollable px-1 card-body-scrollable-shadow">
                     <div class="divide-y">
+                        
                         <?php $__currentLoopData = $news; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $new): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="card mb-2 hover-shadow-lg"
                                 wire:click="openDetailThisNews(<?php echo e($new); ?>)">
@@ -157,7 +158,6 @@
             </div>
 
         </div>
-        
         <?php echo $__env->make('user.home.modal.replyOnSubmission', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <?php echo $__env->make('user.home.modal.show-detail-news-modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>

@@ -137,6 +137,7 @@
             <div class="card" style="height: 28rem;">
                 <div class="card-body card-body-scrollable px-1 card-body-scrollable-shadow">
                     <div class="divide-y">
+                        {{-- {{ $news->render() }} --}}
                         @foreach ($news as $new)
                             <div class="card mb-2 hover-shadow-lg"
                                 wire:click="openDetailThisNews({{ $new }})">
@@ -153,7 +154,6 @@
             </div>
 
         </div>
-        {{-- @include('user.home.modal.create-feed-message') --}}
         @include('user.home.modal.replyOnSubmission')
         @include('user.home.modal.show-detail-news-modal')
     </div>
