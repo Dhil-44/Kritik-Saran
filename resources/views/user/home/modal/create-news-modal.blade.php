@@ -36,13 +36,12 @@
                                     <input type="text" wire:model="link" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputFile"><b>Input Picture</b></label>
-                                    <span class="text-muted"> (optional)</span><br>
+                                    <label for="InputFile"><span class="text-red">*</span><b> Input Picture</b></label>
                                     <input type="file" wire:model="gambar" name="gambar" class="mt-1 form-control"
                                         id="upload{{ $iteration }}">
                                     <div wire:loading wire:target="photo">Uploading...</div>
                                     @error('gambar')
-                                        <span class="text-red">{{ $message }}</span>
+                                        <span class="text-red error">{{ $message }}</span>
                                     @enderror
 
                                 </div>

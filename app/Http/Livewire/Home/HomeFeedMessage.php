@@ -55,9 +55,10 @@ class HomeFeedMessage extends Component
     }
     public function openDetailThisNews($new)
     {
-        return $this->dispatchBrowserEvent('showDetail', [
-            'new' => $new
-        ]);
+        // return $this->dispatchBrowserEvent('showDetail', [
+        //     'new' => $new
+        // ]);
+        return to_route('news-page');
     }
     public function onItemReplyorEdit($data)
     {
