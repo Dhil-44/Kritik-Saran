@@ -24,16 +24,17 @@ class News extends Component
     public function createNews()
     {
         $this->validate([
-            'title' => ['required', 'max:32', 'min:4', 'string'],
+            'title' => ['required', 'max:150', 'min:4', 'string'],
             'body' => ['required', 'string'],
-            'gambar' => ['mimes:png,jpg,image', 'nullable'],
+            'gambar' => ['mimes:png,jpg,image', 'required'],
             'link' => ['nullable', 'string']
         ], [
             'title.required' => 'Judul tidak boleh kosong',
-            'title.max' => 'maximal 32 karakter',
+            'title.max' => 'maximal 150 karakter',
             'title.min' => 'manimal 4 karakter',
             'body.required' => 'Kolom ini tidak boleh kosong',
-            'gambar.mimes' => 'required image'
+            'gambar.mimes' => 'required image',
+            'gambar.required' => 'image is required'
         ]);
         $path = null;
         if ($this->gambar === null) {
