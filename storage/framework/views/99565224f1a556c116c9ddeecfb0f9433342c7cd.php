@@ -1,6 +1,5 @@
-<div class="modal fade createUser" wire:ignore.self tabindex="-1" id="modal-lg" style="display: none;"
-     aria-hidden="true"
-     data-keyboard="false" data-backdrop="static">
+<div class="modal fade createUser" wire:ignore.self tabindex="-1" id="modal-lg" style="display: none;" aria-hidden="true"
+    data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -19,7 +18,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                            <?php echo e($message); ?>
+                                <?php echo e($message); ?>
 
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
@@ -35,7 +34,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                            <?php echo e($message); ?>
+                                <?php echo e($message); ?>
 
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
@@ -57,7 +56,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                            <?php echo e($message); ?>
+                                <?php echo e($message); ?>
 
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
@@ -74,7 +73,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                            <?php echo e($message); ?>
+                                <?php echo e($message); ?>
 
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
@@ -86,25 +85,30 @@ unset($__errorArgs, $__bag); ?>
                         <label for="logo">Logo</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" wire:model="logo" name="logo" class="custom-file-input" id="logo">
+                                <input type="file" wire:model="logo" name="logo" class="custom-file-input"
+                                    id="logo">
                                 <label class="custom-file-label" for="logo">Choose file</label>
                             </div>
+
                         </div>
+                        <?php if($logo): ?>
+                            <p class="fs-2 text-center my-0"><b>Preview Gambar</b></p>
+                            <img src="<?php echo e($logo->temporaryUrl()); ?>" alt="" class="img-fluid">
+                        <?php endif; ?>
                         <?php $__errorArgs = ['logo'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                        <span class="text-red">
-                            <?php echo e($message); ?>
+                            <span class="text-red">
+                                <?php echo e($message); ?>
 
-                        </span>
+                            </span>
                         <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
-
                     <div class="form-group modal-footer justify-content-end">
                         <button type="submit" class="btn btn-success btn">Save</button>
                     </div>

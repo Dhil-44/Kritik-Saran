@@ -13,7 +13,7 @@ use Intervention\Image\Facades\Image;
 class UserController extends Component
 {
     public $id_user, $name_user, $email, $role = "user", $logo, $password;
-    public $upd_name_user, $upd_email, $upd_role, $upd_logo, $upd_password;
+    public $upd_name_user, $upd_email, $upd_role, $upd_logo, $upd_password, $previewImage;
     public $search;
     use WithFileUploads;
 
@@ -32,19 +32,18 @@ class UserController extends Component
             'roles' => ['user', 'department']
         ]);
     }
-
-    function openModal()
+    public function openModal()
     {
         $this->clearColumn();
-        return $this->dispatchBrowserEvent('openModal');
+        return $this->dispatchBrowserEvent('openModal', []);
     }
 
-    function editUser($user)
+    public function editUser($user)
     {
         $arr = explode('/', $user['logo']);
         $file_name = $arr[count($arr) - 1];
-        $this->logo = $user['logo'];
         $this->id_user = $user['id'];
+        $this->previewImage = $user['logo'];
         $this->upd_name_user = $user['name'];
         $this->upd_email = $user['email'];
         $this->upd_role = $user['role'];
@@ -69,8 +68,9 @@ class UserController extends Component
         $name_user = $this->upd_name_user;
         $path = null;
         if ($this->upd_logo === null) {
-            $arr = explode('/', $this->logo);
-            $path = $arr[count($arr) - 1];
+            // $arr = explode('/', $this->logo);
+            $name = explode('/', $this->previewImage);
+            $path = $name[count($name) - 1];
         } else {
             $path = $this->upd_logo->storeAs("users", "logo-user" . time() . explode(' ', $name_user)[0] . rand(1, 99999) . "." . $this->upd_logo->extension());
             $path = explode('/', $path)[1];
@@ -91,28 +91,28 @@ class UserController extends Component
         }
     }
 
-    // function changeProfilePicture(Request $request)
-    // {
-    //     $user = User::find(auth("web")->id());
-    //     $path = "back/dist/img/authors/";
-    //     $file = $request->file('file');
-    //     $oldPicture = $user->getAttributes()['picture'];
-    //     $filePath = $path . $oldPicture;
-    //     $new_picture_name = 'AIMG' . $user->id . time() . rand(1, 10000) . ".jpg";
+    public  function changeProfilePicture(Request $request)
+    {
+        $user = User::find(auth("web")->id());
+        $path = "back/dist/img/authors/";
+        $file = $request->file('file');
+        $oldPicture = $user->getAttributes()['picture'];
+        $filePath = $path . $oldPicture;
+        $new_picture_name = 'AIMG' . $user->id . time() . rand(1, 10000) . ".jpg";
 
-    //     if ($oldPicture != null && File::exists(public_path($filePath))) {
-    //         File::delete(public_path($filePath));
-    //     }
-    //     $upload = $file->move(public_path($path), $new_picture_name);
-    //     if ($upload) {
-    //         $user->update([
-    //             "picture" => $new_picture_name
-    //         ]);
-    //         return response()->json(['status' => 1, 'msg' => 'Your profile picture has been successfully updated.']);
-    //     } else {
-    //         return response()->json(['status' => 0, 'Something went wrong']);
-    //     }
-    // }
+        if ($oldPicture != null && File::exists(public_path($filePath))) {
+            File::delete(public_path($filePath));
+        }
+        $upload = $file->move(public_path($path), $new_picture_name);
+        if ($upload) {
+            $user->update([
+                "picture" => $new_picture_name
+            ]);
+            return response()->json(['status' => 1, 'msg' => 'Your profile picture has been successfully updated.']);
+        } else {
+            return response()->json(['status' => 0, 'Something went wrong']);
+        }
+    }
 
     // cek jika gambar kosong
     public function createNewUser()
@@ -149,7 +149,7 @@ class UserController extends Component
             $this->showToastr('Data user created successfully', 'success');
             return $this->dispatchBrowserEvent('closeAddUserModal', []);
         } else {
-            return back();
+            $this->showToastr('Cant process this action. there something went wrong!', 'error');
         }
     }
 
@@ -161,8 +161,16 @@ class UserController extends Component
 
     private function clearColumn()
     {
-        return $this->name_user = $this->email = $this->role = $this->logo = $this->password =
-            $this->upd_name_user = $this->upd_email = $this->upd_role = $this->upd_logo = $this->upd_password = null;
+        return $this->name_user =
+            $this->email =
+            $this->role =
+            $this->password =
+            $this->previewImage =
+            $this->upd_name_user =
+            $this->upd_email =
+            $this->upd_role =
+            $this->upd_logo =
+            $this->upd_password = null;
     }
 
     private function showToastr($msg, $type)

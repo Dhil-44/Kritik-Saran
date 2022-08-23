@@ -1,6 +1,6 @@
 <div class="">
-    <div class="row px-1">
-        <div class="col-2 mt-2 shadow-lg" style="max-height: 30em">
+    <div class="row px-2">
+        <div class="col-2 mt-2 shadow-lg" style="max-height: 26em">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>Category</b></div>
             <div class="list-group list-group-flush card">
                 <button type="button" wire:click.prevent="all()"
@@ -22,7 +22,7 @@
                                         <div class="row">
                                             <div class="col-1" style="margin-left: 10px;">
                                                 <select wire:model="paginate" class="form-control form-control-sm"
-                                                    style="width: 40px">
+                                                        style="width: 40px">
                                                     <?php for($i = 1; $i <= $submissions->count(); $i++): ?>
                                                         <option style="text-align: center" value="<?php echo e($i); ?>">
                                                             <?php echo e($i); ?></option>
@@ -31,7 +31,7 @@
                                             </div>
                                             <div class="col-2" style="margin-left: 10px;">
                                                 <select name="" class="form-control form-control-sm"
-                                                    id="" style="text-align: center">
+                                                        id="" style="text-align: center">
                                                     <option value="lastet">latest</option>
                                                     <option value="oldest">oldest</option>
                                                 </select>
@@ -44,19 +44,19 @@
                                             <div class="me-3 d-none d-md-block">
                                                 <div class="input-icon">
                                                     <input type="text" wire:model="search" class="form-control"
-                                                        placeholder="Search…">
+                                                           placeholder="Search…">
                                                     <span class="input-icon-addon">
                                                         <svg xmlns="http://www.w3.org/2000/svg"
-                                                            class="icon icon-tabler icon-tabler-search" width="24"
-                                                            height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                            stroke="currentColor" fill="none" stroke-linecap="round"
-                                                            stroke-linejoin="round">
+                                                             class="icon icon-tabler icon-tabler-search" width="24"
+                                                             height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                             stroke="currentColor" fill="none" stroke-linecap="round"
+                                                             stroke-linejoin="round">
                                                             <path stroke="none" d="M0 0h24v24H0z" fill="none">
                                                             </path>
                                                             <circle cx="10" cy="10" r="7">
                                                             </circle>
                                                             <line x1="21" y1="21" x2="15"
-                                                                y2="15"></line>
+                                                                  y2="15"></line>
                                                         </svg>
                                                     </span>
                                                 </div>
@@ -69,7 +69,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-12 ">
                 <?php $__currentLoopData = $submissions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $submission): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="card shadow-sm my-2 hover-shadow-lg" style="border-radius: 20px">
@@ -87,7 +86,7 @@
                                                     <b><?php echo e($submission->getUser->name); ?></b>
                                                 </h3>
                                                 <p class="col-auto text-muted"
-                                                    style="margin-top: 3px; margin-left:-7px;">
+                                                   style="margin-top: 3px; margin-left:-7px;">
                                                     <?php echo e($submission->getUserTarget->name); ?>
 
                                                 </p>
@@ -97,7 +96,7 @@
                                             <div class="row">
                                                 <div class="col-auto btn-group ">
                                                     <button wire:click="onItemReplyorEdit(<?php echo e($submission); ?>)"
-                                                        class="btn btn-sm border-1 btn-info">
+                                                        class="btn btn-sm border-1 btn-outline-green">
                                                         <svg xmlns="http://www.w3.org/2000/svg"
                                                             class="icon icon-tabler icon-tabler-arrow-up-right"
                                                             width="24" height="24" viewBox="0 0 24 24"
@@ -112,6 +111,7 @@
                                                         Detail
                                                     </button>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -145,7 +145,7 @@
                             <div class="card mb-2 hover-shadow-lg"
                                 wire:click="openDetailThisNews(<?php echo e($new); ?>)">
                                 <div class="card-img-top img-responsive img-responsive-21x9"
-                                    style="background-image: url(<?php echo e($new->gambar); ?>)">
+                                     style="background-image: url(<?php echo e($new->gambar); ?>)">
                                 </div>
                                 <div class="card-body px-1">
                                     <h2 class=""><?php echo e($new->title); ?></h2>
@@ -155,7 +155,6 @@
                     </div>
                 </div>
             </div>
-
 
         </div>
         

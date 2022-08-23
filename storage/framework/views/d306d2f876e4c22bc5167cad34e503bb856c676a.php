@@ -69,7 +69,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-12 ">
                 <?php $__currentLoopData = $submissions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $submission): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="card shadow-sm my-2 hover-shadow-lg" style="border-radius: 20px">
@@ -97,7 +96,7 @@
                                             <div class="row">
                                                 <div class="col-auto btn-group ">
                                                     <button wire:click="onItemReplyorEdit(<?php echo e($submission); ?>)"
-                                                        class="btn btn-sm border-1 btn-info">
+                                                        class="btn btn-sm border-1 btn-outline-green">
                                                         <svg xmlns="http://www.w3.org/2000/svg"
                                                             class="icon icon-tabler icon-tabler-arrow-up-right"
                                                             width="24" height="24" viewBox="0 0 24 24"
@@ -155,7 +154,6 @@
                     </div>
                 </div>
             </div>
-
 
         </div>
         

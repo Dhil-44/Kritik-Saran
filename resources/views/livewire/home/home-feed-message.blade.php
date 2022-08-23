@@ -69,7 +69,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-12 ">
                 @foreach ($submissions as $submission)
                     <div class="card shadow-sm my-2 hover-shadow-lg" style="border-radius: 20px">
@@ -77,11 +76,7 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <span class="avatar me-1 avatar-rounded avatar-md"
-<<<<<<< HEAD
                                         style="background-image: url({{ $submission->getUser->logo }})"></span>
-=======
-                                          style="background-image: url({{ asset('dist/img/image/logo-kal.jpg') }})"></span>
->>>>>>> origin
                                 </div>
                                 <div class="col" style="font-family:'Roboto Medium'">
                                     <div class="row justify-content-between">
@@ -98,10 +93,9 @@
                                         </div>
                                         <div class="col-auto">
                                             <div class="row">
-<<<<<<< HEAD
                                                 <div class="col-auto btn-group ">
                                                     <button wire:click="onItemReplyorEdit({{ $submission }})"
-                                                        class="btn btn-sm border-1 btn-info">
+                                                        class="btn btn-sm border-1 btn-outline-green">
                                                         <svg xmlns="http://www.w3.org/2000/svg"
                                                             class="icon icon-tabler icon-tabler-arrow-up-right"
                                                             width="24" height="24" viewBox="0 0 24 24"
@@ -116,30 +110,7 @@
                                                         Detail
                                                     </button>
                                                 </div>
-=======
-                                                @if (auth('web')->id() === $submission->id_user_pengirim)
-                                                    <div class="col-auto btn-group">
-                                                        <button wire:click="editFeed({{ $submission }})"
-                                                                class="btn btn-sm border-0 text-warning">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                 class="icon icon-tabler icon-tabler-edit" width="24"
-                                                                 height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                                 stroke="currentColor" fill="none"
-                                                                 stroke-linecap="round" stroke-linejoin="round">
-                                                                <path stroke="none" d="M0 0h24v24H0z" fill="none">
-                                                                </path>
-                                                                <path
-                                                                    d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1">
-                                                                </path>
-                                                                <path
-                                                                    d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z">
-                                                                </path>
-                                                                <path d="M16 5l3 3"></path>
-                                                            </svg>
-                                                        </button>
-                                                    </div>
-                                                @endif
->>>>>>> origin
+
                                             </div>
                                         </div>
                                     </div>
@@ -181,7 +152,6 @@
                 </div>
             </div>
 
-
         </div>
         {{-- @include('user.home.modal.create-feed-message') --}}
         @include('user.home.modal.replyOnSubmission')
@@ -191,21 +161,11 @@
 
 @push('scripts')
     <script>
-<<<<<<< HEAD
         window.addEventListener('openModalReplySub', (e) => {
             $('#modal-reply-sub').modal('show')
         })
         window.addEventListener('showDetail', (e) => {
             $('#show-detail').modal('show')
-=======
-        $(function () {
-            window.addEventListener('openCreateFeedMsg', function (e) {
-                $('.create_submission').modal('show')
-            })
-            window.addEventListener('closeModalFeedMsg', (e) => {
-                $('.create_submission').modal('hide')
-            })
->>>>>>> origin
         })
     </script>
 @endpush

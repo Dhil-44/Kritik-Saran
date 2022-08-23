@@ -1,6 +1,5 @@
-<div class="modal fade createUser" wire:ignore.self tabindex="-1" id="modal-lg" style="display: none;"
-     aria-hidden="true"
-     data-keyboard="false" data-backdrop="static">
+<div class="modal fade createUser" wire:ignore.self tabindex="-1" id="modal-lg" style="display: none;" aria-hidden="true"
+    data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -15,7 +14,7 @@
                         <label for=""><b class="text-red">*</b>Nama User</label>
                         <input type="text" class="form-control" placeholder="Nama user" wire:model="name_user">
                         <span class="text-danger"> @error('name_user')
-                            {{ $message }}
+                                {{ $message }}
                             @enderror
                         </span>
                     </div>
@@ -23,7 +22,7 @@
                         <label for=""><b class="text-red">*</b>Email</label>
                         <input type="email" class="form-control" placeholder="Email" wire:model="email">
                         <span class="text-danger"> @error('email')
-                            {{ $message }}
+                                {{ $message }}
                             @enderror
                         </span>
                     </div>
@@ -37,7 +36,7 @@
 
                         </select>
                         <span class="text-danger"> @error('role')
-                            {{ $message }}
+                                {{ $message }}
                             @enderror
                         </span>
                     </div>
@@ -46,7 +45,7 @@
                         <label for=""><b class="text-red">*</b>Password</label>
                         <input type="text" class="form-control" placeholder="Password" wire:model="password">
                         <span class="text-danger"> @error('password')
-                            {{ $message }}
+                                {{ $message }}
                             @enderror
                         </span>
                     </div>
@@ -54,18 +53,24 @@
                         <label for="logo">Logo</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" wire:model="logo" name="logo" class="custom-file-input" id="logo">
+                                <input type="file" wire:model="logo" name="logo" class="custom-file-input"
+                                    id="logo">
                                 <label class="custom-file-label" for="logo">Choose file</label>
                             </div>
+
                         </div>
+                        @if ($logo)
+                            <p class="fs-2 text-center my-0"><b>Preview Gambar</b></p>
+                            <img src="{{ $logo->temporaryUrl() }}" alt="" class="img-fluid">
+                        @endif
                         @error('logo')
-                        <span class="text-red">
-                            {{ $message  }}
-                        </span>
+                            <span class="text-red">
+                                {{ $message }}
+                            </span>
                         @enderror
                     </div>
 
-                    {{-- <div class="form-group">
+                    <div class="form-group">
                         <div class="row">
                             <div class="col">
                                 <img src="{{$logo}}" alt=" logo-{{$name_user}}">
@@ -77,7 +82,7 @@
                                 @endif
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
 
                     <div class="form-group modal-footer justify-content-end">
                         <button type="submit" class="btn btn-success btn">Save</button>

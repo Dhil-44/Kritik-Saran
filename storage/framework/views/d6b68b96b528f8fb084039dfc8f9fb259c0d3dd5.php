@@ -20,7 +20,12 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-4 pb-2" id="message-user"><?php echo e($message); ?></p>
-                            <p id="test"></p>
+                            <div class="document">
+                                <a href="">
+                                    <?php echo e($file); ?>
+
+                                </a>
+                            </div>
                         </div>
                         <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
                             <div class="d-flex flex-start w-100">
@@ -47,11 +52,12 @@ unset($__errorArgs, $__bag); ?>
                                 </div>
                             </div>
                             <div class="float-end mt-2 pt-1">
-                                <button type="button" wire:click="postComment()" class="btn btn-green btn">
+                                <button type="button" wire:click="postComment()"
+                                    class="btn btn-green btn-sm px-1 py-1">
                                     Post comment
                                 </button>
                                 <button type="button" wire:click="$set('comment','')"
-                                    class="btn btn-outline-dark btn">Cancel</button>
+                                    class="btn btn-outline-red btn-sm px-1 py-1">Cancel</button>
                             </div>
                         </div>
                     </div>

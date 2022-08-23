@@ -23,7 +23,7 @@ class Submission extends Model
     protected function getFileNameAttribute($file)
     {
         if ($file) return asset('storage/documents/' . $file);
-        return  'no data';
+        return  '';
     }
 
     static function groupByThisIdCategory($id, $column)
