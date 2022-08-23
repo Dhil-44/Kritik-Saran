@@ -94,7 +94,8 @@ unset($__errorArgs, $__bag); ?>
                     <div class="form-group">
                         <div class="row">
                             <div class="col">
-                                <img src="<?php echo e($logo); ?>" alt=" logo-<?php echo e($name_user); ?>">
+                                <img src="<?php echo e($previewImage); ?>" alt=" logo- <?php echo e(__($upd_name_user)); ?>"
+                                    class="img-thumbnail">
                             </div>
                             <div class="col">
                                 <?php if($upd_logo): ?>

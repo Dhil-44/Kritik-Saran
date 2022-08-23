@@ -12,7 +12,7 @@ use Livewire\WithPagination;
 class HomeFeedMessage extends Component
 {
     use WithPagination;
-    public $search, $paginate = 8;
+    public $search, $paginate = 8, $order = "asc";
     protected $paginationTheme = 'bootstrap';
     public $id_cat, $id_user_target, $message, $file_name, $status;
     private $submissions = null;
@@ -20,6 +20,7 @@ class HomeFeedMessage extends Component
         'all' => '$refresh',
         'group'
     ];
+
 
     public function render()
     {
@@ -29,29 +30,39 @@ class HomeFeedMessage extends Component
                     ->orWhereHas("getUser", function ($q) {
                         $q->where("name", "LIKE", "%" . $this->search . "%");
                     })->where("status", "public");
-            })->latest()->paginate($this->paginate);
+            })->orderBy('updated_at', $this->order)->paginate($this->paginate);
         } else {
             if ($this->submissions != null) {
                 $this->submissions = $this->submissions;
             } else {
-                $this->submissions = Submission::where("status", "public")->latest('created_at')->paginate($this->paginate);
+                $this->submissions = Submission::where("status", "public")->orderBy('updated_at', $this->order)->paginate($this->paginate);
             }
         }
+
         return view('livewire.home.home-feed-message', [
             'submissions' => $this->submissions,
-            'news' => News::latest()->paginate(10),
+            'news' => News::latest()->limit(5)->get(),
             'users' => User::getAllRoleDeparment(),
         ]);
     }
+<<<<<<< HEAD
     public function all()
+=======
+    function updatingSearch()
+    {
+        $this->resetPage();
+    }
+    public function all(): void
+>>>>>>> 82d4ba1d9ee188471654bae7634747fa39310b9a
     {
         $this->submissions = null;
     }
     public function openDetailThisNews($new)
     {
-        return $this->dispatchBrowserEvent('showDetail', [
-            'new' => $new
-        ]);
+        // return $this->dispatchBrowserEvent('showDetail', [
+        //     'new' => $new
+        // ]);
+        return to_route('news-page');
     }
     public function onItemReplyorEdit($data)
     {

@@ -62,7 +62,8 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col">
-                                <img src="{{ $logo }}" alt=" logo-{{ $name_user }}">
+                                <img src="{{ $previewImage }}" alt=" logo- {{ __($upd_name_user) }}"
+                                    class="img-thumbnail">
                             </div>
                             <div class="col">
                                 @if ($upd_logo)

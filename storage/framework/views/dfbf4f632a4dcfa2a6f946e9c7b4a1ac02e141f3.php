@@ -1,4 +1,4 @@
-<footer class="footer footer-transparent mt-3 bg-dark py-sm-2 py-md-4" style="">
+<footer class="footer mt-3 bg-dark py-sm-2 py-md-4">
     <div class="container-xl text-white">
         <div class="row text-center align-items-center flex-row-reverse fs">
             <div class="col-lg-auto ms-lg-auto">

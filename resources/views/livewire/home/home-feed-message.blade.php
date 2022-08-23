@@ -23,17 +23,18 @@
                                             <div class="col-1" style="margin-left: 10px;">
                                                 <select wire:model="paginate" class="form-control form-control-sm"
                                                     style="width: 40px">
-                                                    @for ($i = 1; $i <= $submissions->count(); $i++)
+                                                    @for ($i = 5; $i <= 60; $i += 15)
                                                         <option style="text-align: center" value="{{ $i }}">
                                                             {{ $i }}</option>
                                                     @endfor
                                                 </select>
                                             </div>
                                             <div class="col-2" style="margin-left: 10px;">
-                                                <select name="" class="form-control form-control-sm"
-                                                    id="" style="text-align: center">
-                                                    <option value="lastet">latest</option>
-                                                    <option value="oldest">oldest</option>
+                                                <select name="order" wire:model="order"
+                                                    class="form-control form-control-sm" id=""
+                                                    style="text-align: center;">
+                                                    <option value="desc">latest</option>
+                                                    <option value="asc">oldest</option>
                                                 </select>
                                             </div>
 
@@ -117,7 +118,7 @@
                                     </div>
                                     <div class="text">
                                         <p class="" style="margin-right: 7px; text-align:justify;">
-                                            {{ $submission->message }}
+                                            {{ Str::limit($submission->message, 200) }}
                                         </p>
                                     </div>
                                 </div>
@@ -133,11 +134,12 @@
             </div>
         </div>
         {{-- New sidebar left --}}
-        <div class="col-2 mt-2">
+        <div class="col-2 mt-2 shadow-lg " style="max-height:32rem;">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>News</b></div>
-            <div class="card" style="height: 35rem">
+            <div class="card" style="height: 28rem;">
                 <div class="card-body card-body-scrollable px-1 card-body-scrollable-shadow">
                     <div class="divide-y">
+                        {{-- {{ $news->render() }} --}}
                         @foreach ($news as $new)
                             <div class="card mb-2 hover-shadow-lg"
                                 wire:click="openDetailThisNews({{ $new }})">
@@ -145,7 +147,7 @@
                                     style="background-image: url({{ $new->gambar }})">
                                 </div>
                                 <div class="card-body px-1">
-                                    <h2 class="">{{ $new->title }}</h2>
+                                    <h4 class="">{{ $new->title }}</h4>
                                 </div>
                             </div>
                         @endforeach()
@@ -153,19 +155,11 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
-
+    @include('user.home.modal.replyOnSubmission')
+    @include('user.home.modal.show-detail-news-modal')
 </div>
-
-{{-- @include('user.home.modal.create-feed-message') --}}
-@include('user.home.modal.replyOnSubmission')
-@include('user.home.modal.show-detail-news-modal')
-</div>
-</div>
-
+@include('user.header-footer.footer')
 @push('scripts')
     <script>
         window.addEventListener('openModalReplySub', (e) => {
