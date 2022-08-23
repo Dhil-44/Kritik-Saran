@@ -44,7 +44,10 @@ class HomeFeedMessage extends Component
             'users' => User::getAllRoleDeparment(),
         ]);
     }
-
+    function updatingSearch()
+    {
+        $this->resetPage();
+    }
     public function all(): void
     {
         $this->submissions = null;

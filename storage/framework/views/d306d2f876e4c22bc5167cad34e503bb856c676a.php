@@ -148,7 +148,7 @@
                                     style="background-image: url(<?php echo e($new->gambar); ?>)">
                                 </div>
                                 <div class="card-body px-1">
-                                    <h2 class=""><?php echo e($new->title); ?></h2>
+                                    <h4 class=""><?php echo e($new->title); ?></h4>
                                 </div>
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -162,7 +162,7 @@
         <?php echo $__env->make('user.home.modal.show-detail-news-modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
 </div>
-
+<?php echo $__env->make('user.header-footer.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php $__env->startPush('scripts'); ?>
     <script>
         window.addEventListener('openModalReplySub', (e) => {

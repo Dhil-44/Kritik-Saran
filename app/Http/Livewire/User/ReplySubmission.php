@@ -17,7 +17,7 @@ class ReplySubmission extends Component
             // 'comments' => Comment::latest()-> paginate(3),
             'comments' => Comment::query()
                 ->where('submission_id', $this->id_sub)
-                ->paginate(),
+                ->get(),
         ]);
     }
     public function setDataComment($data)

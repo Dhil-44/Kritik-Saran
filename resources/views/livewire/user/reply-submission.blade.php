@@ -78,7 +78,7 @@
                         @endforeach
                     </div>
                     <div class="mt-1">
-                        {{ $comments->links() }}
+                        {{-- {{ $comments->links() }} --}}
                     </div>
                 </div>
             </div>

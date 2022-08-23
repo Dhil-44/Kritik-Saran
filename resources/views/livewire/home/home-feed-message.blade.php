@@ -144,7 +144,7 @@
                                     style="background-image: url({{ $new->gambar }})">
                                 </div>
                                 <div class="card-body px-1">
-                                    <h2 class="">{{ $new->title }}</h2>
+                                    <h4 class="">{{ $new->title }}</h4>
                                 </div>
                             </div>
                         @endforeach()
@@ -158,7 +158,7 @@
         @include('user.home.modal.show-detail-news-modal')
     </div>
 </div>
-
+@include('user.header-footer.footer')
 @push('scripts')
     <script>
         window.addEventListener('openModalReplySub', (e) => {

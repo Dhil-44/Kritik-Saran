@@ -15,7 +15,6 @@
     </div>
     @livewire('home.home-feed-message')
     <div class="mt-3">
-        @include('user.header-footer.footer')
-    </div>
 
+    </div>
 @endsection
