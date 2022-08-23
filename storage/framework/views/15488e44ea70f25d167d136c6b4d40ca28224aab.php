@@ -16,20 +16,21 @@
     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('home.home-feed-message')->html();
-} elseif ($_instance->childHasBeenRendered('plwUfph')) {
-    $componentId = $_instance->getRenderedChildComponentId('plwUfph');
-    $componentTag = $_instance->getRenderedChildComponentTagName('plwUfph');
+} elseif ($_instance->childHasBeenRendered('EvWDWQr')) {
+    $componentId = $_instance->getRenderedChildComponentId('EvWDWQr');
+    $componentTag = $_instance->getRenderedChildComponentTagName('EvWDWQr');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('plwUfph');
+    $_instance->preserveRenderedChild('EvWDWQr');
 } else {
     $response = \Livewire\Livewire::mount('home.home-feed-message');
     $html = $response->html();
-    $_instance->logRenderedChild('plwUfph', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('EvWDWQr', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
-    <?php echo $__env->make('user.header-footer.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <div class="mt-3">
 
+    </div>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('user.home.tampilan-utama', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\User\Kritik-Saran\resources\views/user/home/content-home.blade.php ENDPATH**/ ?>

@@ -1,9 +1,26 @@
 <div class="page-body">
     <div class="container-xl">
+        <div class="row justify-content-end">
+            <div class="input-icon col-md-3 col-sm-5">
+                <span class="input-icon-addon">
+                    <!-- Download SVG icon from http://tabler-icons.io/i/search -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                        stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <circle cx="10" cy="10" r="7"></circle>
+                        <line x1="21" y1="21" x2="15" y2="15"></line>
+                    </svg>
+                </span>
+                <input type="text" wire:model="search" class="form-control" placeholder="Search…"
+                    aria-label="Search in website">
+            </div>
+        </div>
+
         <div class="row justify-content-center">
-            <div class="col-3 mt-4">
+            <div class="col-sm-2 mt-4 col-md-3">
                 <div class="list-group">
-                    <?php if(\Illuminate\Support\Facades\Auth::user()->role != 'user'): ?>
+                    <?php if(auth('web')->user()->role != 'user'): ?>
                         <button class="btn btn-success" wire:click="openModalNews()">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit"
                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
@@ -42,12 +59,12 @@
                                     </button>
                                 </div>
                             </div>
-                            
-                            <a href="">
-                                
-                                <img src="<?php echo e($new->gambar); ?>" class="img-fluid">
+                            <a href="#">
+                                <?php if(str_contains($new->gambar, '.jpg' || '.png' || '.jpeg' || 'news-')): ?>
+                                    <img src="<?php echo e($new->gambar); ?>" class="img-fluid">
+                                <?php endif; ?>
                             </a>
-                            <p align="justify" class="mt-2"><?php echo e($new->body); ?></p>
+                            <p class="mt-2" style="text-align:justify;"><?php echo e($new->body); ?></p>
                             <p>
                                 <a href="d-block"><?php echo e($new->link); ?></a>
                             </p>
@@ -64,12 +81,12 @@
     </div>
     <?php echo $__env->make('user.home.modal.create-news-modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('user.home.modal.show-detail-news-modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
 </div>
 <?php $__env->startPush('scripts'); ?>
     <script>
         window.addEventListener('openModalNews', () => {
             $('.openModalNews').modal('show')
+            $('.openModalNews').find('span.error').html('')
         })
         window.addEventListener('closeModalNews', () => {
             $('.openModalNews').modal('hide')
@@ -77,6 +94,11 @@
         })
         window.addEventListener('show-detail', (e) => {
             $('#show-detail').modal('show')
+            const detail = e.detail.item
+            document.getElementById('detail-title').innerHTML = detail['title']
+            document.getElementById('detail-img').src = detail['gambar']
+            document.getElementById('detail-body').innerHTML = detail['body']
+            document.getElementById('detail-link').href = detail['link']
 
         })
     </script>

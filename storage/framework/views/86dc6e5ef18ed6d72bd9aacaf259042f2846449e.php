@@ -22,18 +22,19 @@
                                         <div class="row">
                                             <div class="col-1" style="margin-left: 10px;">
                                                 <select wire:model="paginate" class="form-control form-control-sm"
-                                                        style="width: 40px">
-                                                    <?php for($i = 1; $i <= $submissions->count(); $i++): ?>
+                                                    style="width: 40px">
+                                                    <?php for($i = 5; $i <= 60; $i += 15): ?>
                                                         <option style="text-align: center" value="<?php echo e($i); ?>">
                                                             <?php echo e($i); ?></option>
                                                     <?php endfor; ?>
                                                 </select>
                                             </div>
                                             <div class="col-2" style="margin-left: 10px;">
-                                                <select name="" class="form-control form-control-sm"
-                                                        id="" style="text-align: center">
-                                                    <option value="lastet">latest</option>
-                                                    <option value="oldest">oldest</option>
+                                                <select name="order" wire:model="order"
+                                                    class="form-control form-control-sm" id=""
+                                                    style="text-align: center;">
+                                                    <option value="desc">latest</option>
+                                                    <option value="asc">oldest</option>
                                                 </select>
                                             </div>
 
@@ -120,7 +121,7 @@
                                     </div>
                                     <div class="text">
                                         <p class="" style="margin-right: 7px; text-align:justify;">
-                                            <?php echo e($submission->message); ?>
+                                            <?php echo e(Str::limit($submission->message, 200)); ?>
 
                                         </p>
                                     </div>
@@ -136,11 +137,12 @@
             </div>
         </div>
         
-        <div class="col-2 mt-2">
+        <div class="col-2 mt-2 shadow-lg " style="max-height:32rem;">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>News</b></div>
-            <div class="card" style="height: 35rem">
+            <div class="card" style="height: 28rem;">
                 <div class="card-body card-body-scrollable px-1 card-body-scrollable-shadow">
                     <div class="divide-y">
+                        
                         <?php $__currentLoopData = $news; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $new): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="card mb-2 hover-shadow-lg"
                                 wire:click="openDetailThisNews(<?php echo e($new); ?>)">
@@ -148,7 +150,7 @@
                                      style="background-image: url(<?php echo e($new->gambar); ?>)">
                                 </div>
                                 <div class="card-body px-1">
-                                    <h2 class=""><?php echo e($new->title); ?></h2>
+                                    <h4 class=""><?php echo e($new->title); ?></h4>
                                 </div>
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -157,12 +159,11 @@
             </div>
 
         </div>
-        
         <?php echo $__env->make('user.home.modal.replyOnSubmission', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <?php echo $__env->make('user.home.modal.show-detail-news-modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
 </div>
-
+<?php echo $__env->make('user.header-footer.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php $__env->startPush('scripts'); ?>
     <script>
         window.addEventListener('openModalReplySub', (e) => {
