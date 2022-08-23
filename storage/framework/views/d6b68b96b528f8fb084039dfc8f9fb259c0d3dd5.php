@@ -78,7 +78,7 @@ unset($__errorArgs, $__bag); ?>
                                         <h6 class="fw-bold mb-1"><?php echo e($co->user->name); ?></h6>
                                         <div class="d-flex align-items-center mb-3">
                                             <p class="mb-0">
-                                                <?php echo e($co->post_at); ?>
+                                                <?php echo e($co->updated_at); ?>
 
                                                 <span class="badge bg-danger">Rejected</span>
                                             </p>

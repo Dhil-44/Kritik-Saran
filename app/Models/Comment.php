@@ -37,5 +37,10 @@ class Comment extends Model
     {
         return \Carbon\Carbon::parse($this->attributes['post_at'])->diffForHumans();
     }
+
+    protected function getUpdatedAtAttribute()
+    {
+        return \Carbon\Carbon::parse($this->attributes['updated_at'])->diffForHumans();
+    }
     // id	user_id	message	post_at	created_at	updated_at
 }

@@ -85,10 +85,6 @@ unset($__errorArgs, $__bag); ?>
                 </form>
             </div>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>
-
-
 <?php /**PATH C:\Users\User\Kritik-Saran\resources\views/admin/home/modal/edit-submission.blade.php ENDPATH**/ ?>

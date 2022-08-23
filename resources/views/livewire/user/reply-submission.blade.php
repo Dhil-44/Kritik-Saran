@@ -67,7 +67,7 @@
                                         <h6 class="fw-bold mb-1">{{ $co->user->name }}</h6>
                                         <div class="d-flex align-items-center mb-3">
                                             <p class="mb-0">
-                                                {{ $co->post_at }}
+                                                {{ $co->updated_at }}
                                                 <span class="badge bg-danger">Rejected</span>
                                             </p>
                                             <a href="#!" class="link-muted"><i
