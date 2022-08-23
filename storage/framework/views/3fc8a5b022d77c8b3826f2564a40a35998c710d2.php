@@ -2,8 +2,7 @@
     aria-modal="true" role="dialog">
     <div class="modal-dialog modal-fullscreen modal-dialog-scrollable" role="document">
         <div class="modal-content">
-            <p> </p>
-            
+
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('user.reply-submission')->html();

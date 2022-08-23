@@ -23,17 +23,18 @@
                                             <div class="col-1" style="margin-left: 10px;">
                                                 <select wire:model="paginate" class="form-control form-control-sm"
                                                     style="width: 40px">
-                                                    <?php for($i = 1; $i <= $submissions->count(); $i++): ?>
+                                                    <?php for($i = 5; $i <= 60; $i += 15): ?>
                                                         <option style="text-align: center" value="<?php echo e($i); ?>">
                                                             <?php echo e($i); ?></option>
                                                     <?php endfor; ?>
                                                 </select>
                                             </div>
                                             <div class="col-2" style="margin-left: 10px;">
-                                                <select name="" class="form-control form-control-sm"
-                                                    id="" style="text-align: center">
-                                                    <option value="lastet">latest</option>
-                                                    <option value="oldest">oldest</option>
+                                                <select name="order" wire:model="order"
+                                                    class="form-control form-control-sm" id=""
+                                                    style="text-align: center;">
+                                                    <option value="desc">latest</option>
+                                                    <option value="asc">oldest</option>
                                                 </select>
                                             </div>
 
@@ -135,9 +136,9 @@
             </div>
         </div>
         
-        <div class="col-2 mt-2">
+        <div class="col-2 mt-2 shadow-lg " style="max-height:32rem;">
             <div class="text-bold fs-2 mx-auto px-0 py-2"><b>News</b></div>
-            <div class="card" style="height: 35rem">
+            <div class="card" style="height: 28rem;">
                 <div class="card-body card-body-scrollable px-1 card-body-scrollable-shadow">
                     <div class="divide-y">
                         <?php $__currentLoopData = $news; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $new): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

@@ -80,13 +80,7 @@ unset($__errorArgs, $__bag); ?>
                                             <p class="mb-0">
                                                 <?php echo e($co->post_at); ?>
 
-                                                <span class="badge bg-danger">Rejected</span>
                                             </p>
-                                            <a href="#!" class="link-muted"><i
-                                                    class="fas fa-pencil-alt ms-2"></i></a>
-                                            <a href="#!" class="link-muted"><i
-                                                    class="fas fa-redo-alt ms-2"></i></a>
-                                            <a href="#!" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
                                         </div>
                                         <p class="mb-0"><?php echo e($co->message); ?></p>
                                     </div>
@@ -102,7 +96,6 @@ unset($__errorArgs, $__bag); ?>
                 </div>
             </div>
         </div>
-
     </section>
     <div class="modal-footer">
         <button type="button" wire:click="clear()" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>

@@ -2,13 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginHomeController as Home;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return redirect()->route('home');
 });
 
 Route::middleware(['guest:web'])->group(function () {
-    Route::get('home', [Home::class, 'index'])->name('home');
+    Route::view('home', 'user.auth/form-login')->name('home');
 });
 
 Route::middleware(['auth:web'])->group(function () {
@@ -21,8 +23,13 @@ Route::middleware(['auth:web'])->group(function () {
     Route::view('announcements', 'user.home.kategori.annoucements')->name('announcements');
     // bisa disingkat
     Route::view('pending-message', 'user.home.kategori.pending-message')->name('pending-msg');
-    Route::get('signout', [Home::class, 'signout'])->name('signout');
     Route::view('news-page', 'user.home.news-page')->name('news-page');
+    Route::get('signout', function (Request $req) {
+        Auth::logout();
+        $req->session()->invalidate();
+        $req->session()->regenerateToken();
+        return redirect('home');
+    })->name('signout');
 });
 
 // admin
