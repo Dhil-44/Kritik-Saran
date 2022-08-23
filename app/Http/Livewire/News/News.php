@@ -10,7 +10,7 @@ use Livewire\WithFileUploads;
 
 class News extends Component
 {
-    public $paginate = 10;
+    public $paginate = 10, $search;
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $title, $body, $gambar, $link = '', $data, $iteration;
@@ -67,8 +67,16 @@ class News extends Component
 
     public function render()
     {
+        if ($this->search) {
+            $news = Berita::query()->where(function ($q) {
+                $q->where('title', 'like', '%' . $this->search . '%')
+                    ->orWhere('body', 'like', '%' . $this->search . '%');
+            })->paginate($this->paginate);
+        } else {
+            $news = Berita::latest()->paginate($this->paginate);
+        }
         return view('livewire.news.news', [
-            'news' => Berita::latest()->paginate($this->paginate),
+            'news' => $news,
             'detail' => $this->data,
             'iteration' => $this->iteration
         ]);

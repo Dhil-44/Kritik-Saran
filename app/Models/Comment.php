@@ -15,6 +15,9 @@ class Comment extends Model
         'submission_id',
         'message'
     ];
+    protected $dates = [
+        'post_at'
+    ];
     protected $with = [
         'user'
     ];
@@ -26,9 +29,7 @@ class Comment extends Model
     protected $casts = [
         'post_at' => 'datetime'
     ];
-    protected $appends = [
-        'post_at'
-    ];
+
     protected function setPostAtAttribute($value)
     {
         $this->attributes['post_at'] = $value;

@@ -67,14 +67,8 @@
                                         <h6 class="fw-bold mb-1">{{ $co->user->name }}</h6>
                                         <div class="d-flex align-items-center mb-3">
                                             <p class="mb-0">
-                                                {{ $co->updated_at }}
-                                                <span class="badge bg-danger">Rejected</span>
+                                                {{ $co->post_at }}
                                             </p>
-                                            <a href="#!" class="link-muted"><i
-                                                    class="fas fa-pencil-alt ms-2"></i></a>
-                                            <a href="#!" class="link-muted"><i
-                                                    class="fas fa-redo-alt ms-2"></i></a>
-                                            <a href="#!" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
                                         </div>
                                         <p class="mb-0">{{ $co->message }}</p>
                                     </div>
@@ -84,12 +78,11 @@
                         @endforeach
                     </div>
                     <div class="mt-1">
-                        {{ $comments->links() }}
+                        {{-- {{ $comments->links() }} --}}
                     </div>
                 </div>
             </div>
         </div>
-
     </section>
     <div class="modal-footer">
         <button type="button" wire:click="clear()" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
