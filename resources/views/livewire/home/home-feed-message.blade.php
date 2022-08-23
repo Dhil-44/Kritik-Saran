@@ -117,7 +117,7 @@
                                     </div>
                                     <div class="text">
                                         <p class="" style="margin-right: 7px; text-align:justify;">
-                                            {{ $submission->message }}
+                                            {{ Str::limit($submission->message, 200) }}
                                         </p>
                                     </div>
                                 </div>

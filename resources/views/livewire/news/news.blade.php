@@ -63,7 +63,6 @@
     </div>
     @include('user.home.modal.create-news-modal')
     @include('user.home.modal.show-detail-news-modal')
-
 </div>
 @push('scripts')
     <script>

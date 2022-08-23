@@ -119,7 +119,7 @@
                                     </div>
                                     <div class="text">
                                         <p class="" style="margin-right: 7px; text-align:justify;">
-                                            <?php echo e($submission->message); ?>
+                                            <?php echo e(Str::limit($submission->message, 200)); ?>
 
                                         </p>
                                     </div>
